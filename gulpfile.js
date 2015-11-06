@@ -5,6 +5,8 @@ var rename = require('gulp-rename');
 var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var cssmin = require('gulp-cssmin');
+var imagemin = require('gulp-imagemin');
+var pngquant = require('imagemin-pngquant');  
 
 
 var outputdir = 'dist/',
@@ -31,6 +33,13 @@ var paths = {
     images: sourcedir+'img/**/*'
 }
 
+
+
+/*
+
+js compression
+
+---- */
 
 gulp.task('js-vendor', function() {
     gulp.src(paths.bower)
@@ -59,6 +68,11 @@ gulp.task('minify-js', function() {
         .pipe(gulp.dest(outputdir + 'js'));
 })
 
+/*
+
+sass compile
+
+---- */
 
 gulp.task('sass', function () {
     return sass(paths.sass, {
@@ -76,6 +90,22 @@ gulp.task('sass', function () {
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest(outputdir + 'css/min'));
+});
+
+/*
+
+image compression
+
+---- */
+ 
+gulp.task('images', () => {
+    return gulp.src(paths.images)
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(gulp.dest(outputdir+'/img/'));
 });
 
 
