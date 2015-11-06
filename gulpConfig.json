@@ -1,0 +1,37 @@
+{	
+
+	"outputdir": "./dist/",
+	"sourcedir": "./",
+	"bowerdir": "./bower_components/",
+
+	"files": {
+		"vendor": [
+	        
+	    ],
+	    "js": [
+	        "js/init.js"
+	    ],
+	    "html": [
+	        "**/*.html",
+	        "!dist/**/*.html",
+	        "!node_modules/**/*.html",
+	        "!bower_components/**/*.html"
+	    ],
+	    "sass": "scss/",
+	    "images": "img/**/*",
+
+	    "toCopy": [
+	        "./**/*",
+	        "./.htaccess",
+	        "!./dist/",
+	        "!dist/**/*",
+	        "!bower_components/",
+	        "!bower_components/**/*",
+	        "!node_modules/",
+	        "!node_modules/**/*",
+	        "!scss/",
+	        "!scss/**/*"
+	    ]
+	}
+
+}

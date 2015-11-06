@@ -6,76 +6,91 @@ var sass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var cssmin = require('gulp-cssmin');
 var imagemin = require('gulp-imagemin');
-var pngquant = require('imagemin-pngquant');  
+var pngquant = require('imagemin-pngquant');
+var minifyHTML = require('gulp-minify-html');
+var clean = require('gulp-clean');
+var es = require('event-stream');
+var runSequence = require('run-sequence');
+var config = require('./gulpConfig.json');
 
 
-var outputdir = 'dist/',
-    sourcedir = 'src/',
-    bowerdir = 'bower_components/'
+
+/*==========================================================
+html minification
+==========================================================*/
+gulp.task('minify-html', function() {
+  var opts = {
+    conditionals: true,
+    spare:true
+  };
  
-var paths = {
-    bower: [
-        // bowerdir+'angular-sanitize/angular-sanitize.js'
-    ],
-    js: [
-        // sourcedir+'js/app.js',
-        // sourcedir+'js/config.js',
-        // sourcedir+'js/routes.js',
-        // sourcedir+'js/utils.js',
-        
-        // sourcedir+'js/user/service.js',
-        // sourcedir+'js/user/loginController.js',
-        // sourcedir+'js/user/signUpController.js',
-        // sourcedir+'js/newsletter/**/*.js',
-        // sourcedir+'js/element/**/*.js',
-    ],
-    sass: sourcedir+'scss/',
-    images: sourcedir+'img/**/*'
-}
+  return gulp.src(config.files.html)
+    .pipe(minifyHTML(opts))
+    .pipe(gulp.dest(config.outputdir));
+});
 
 
 
-/*
-
-js compression
-
----- */
-
+/*==========================================================
+js minification
+==========================================================*/
 gulp.task('js-vendor', function() {
-    gulp.src(paths.bower)
+
+    var normal = gulp.src(config.files.vendor)
         .pipe(sourcemaps.init())
         .pipe(concat('vendor.js'))
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(outputdir + 'js'))
+        .pipe(gulp.dest(config.outputdir + 'js'));
+
+    var min = gulp.src(config.files.vendor)
+        .pipe(sourcemaps.init())
+        .pipe(concat('vendor.js'))
+        .pipe(rename({
+            extname: '.min.js'
+        }))
+        .pipe(uglify({
+            mangle: true
+        }))
+        .pipe(sourcemaps.write('maps'))
+        .pipe(gulp.dest(config.outputdir + 'js'));
+
+    return es.concat(normal, min);
+
 });
+
+
 gulp.task('js-app', function() {
-    gulp.src(paths.js)
+
+    var normal = gulp.src(config.files.js)
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(outputdir + 'js'))
-});
-gulp.task('minify-js', function() {
-    gulp.src([
-            outputdir + 'js/vendor.js',
-            outputdir + 'js/app.js'
-        ])
-        .pipe(uglify())
+        .pipe(gulp.dest(config.outputdir + 'js'));
+
+    var min = gulp.src(config.files.js)
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
         .pipe(rename({
-            basename: 'all',
             extname: '.min.js'
         }))
-        .pipe(gulp.dest(outputdir + 'js'));
-})
+        .pipe(uglify({
+            mangle: true
+        }))
+        .pipe(sourcemaps.write('maps'))
+        .pipe(gulp.dest(config.outputdir + 'js'));
 
-/*
+    return es.concat(normal, min);
 
+});
+
+
+
+/*==========================================================
 sass compile
-
----- */
+==========================================================*/
 
 gulp.task('sass', function () {
-    return sass(paths.sass, {
+    return sass(config.files.sass, {
             sourcemap: true
         })
         .on('error', function(err) {
@@ -84,36 +99,67 @@ gulp.task('sass', function () {
 
     .pipe(sourcemaps.write('maps'))
 
-    .pipe(gulp.dest(outputdir + 'css/'))
+    .pipe(gulp.dest(config.outputdir + 'css/'))
     
     //chain to minify
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(outputdir + 'css/min'));
+    .pipe(gulp.dest(config.outputdir + 'css/min'));
 });
 
-/*
 
+/*==========================================================
 image compression
-
----- */
- 
+==========================================================*/
 gulp.task('images', () => {
-    return gulp.src(paths.images)
+    return gulp.src(config.files.images)
         .pipe(imagemin({
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(outputdir+'/img/'));
+        .pipe(gulp.dest(config.outputdir+'/img/'));                
 });
 
 
+
+/*==========================================================
+dist clean
+==========================================================*/
+
+gulp.task('clean', function () {
+    return gulp.src(config.outputdir)
+        .pipe(clean({force: true}))
+});
+
+/*==========================================================
+dist build
+==========================================================*/
+gulp.task('build', function(callback) {
+  runSequence('clean', 'copy',
+              ['minify-html', 'js-vendor', 'js-app', 'sass']);
+});
+
+
+/*==========================================================
+copy files to dist folder
+==========================================================*/
+gulp.task('copy', function() {
+    return gulp.src(config.files.toCopy)
+        .pipe(gulp.dest(config.outputdir));
+});
+
+
+/*==========================================================
+watch tasks
+==========================================================*/
 gulp.task('watch', function() {
-    gulp.watch(paths.js, ['js-app', 'minify-js']);
-    gulp.watch(paths.sass+'**/*.scss', ['sass']);
+    gulp.watch(config.files.js, ['js-app']);
+    gulp.watch(config.files.sass+'**/*.scss', ['sass']);
+    gulp.watch(config.files.html, ['minify-html']);
 });
 
-gulp.task('default', ['js-vendor', 'js-app', 'minify-js', 'sass']);
+
+
 
 
