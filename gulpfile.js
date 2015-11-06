@@ -16,28 +16,8 @@ var runSequence = require('run-sequence');
 
 var config = require('./gulpConfig.json');
 
-var hash_src = require("gulp-hash-src");
-
-
 var rev = require("gulp-rev");
 var revReplace = require("gulp-rev-replace");
-
-
-/*==========================================================
-html minification
-==========================================================*/
-gulp.task('minify-html', function() {
-  var opts = {
-    conditionals: true,
-    spare:true
-  };
- 
-  return gulp.src(config.files.html)
-    .pipe(gulpif( config.minifyHTML, minifyHTML(opts) ))
-    .pipe(hash_src({build_dir: config.baseOutputDir, src_path: config.sourceDir}))
-    .pipe(gulp.dest(config.outputDir.html));
-});
-
 
 
 /*==========================================================
@@ -159,7 +139,8 @@ dist build
 ==========================================================*/
 gulp.task('build', function(callback) {
   runSequence('clean','copy',
-              ['js-vendor', 'js-app', 'sass', 'minify-html', 'revreplace']);
+              ['js-vendor', 'js-app', 'sass'],
+              'revreplace');
 });
 
 
@@ -173,11 +154,13 @@ gulp.task('copy', function() {
 
 
 /*==========================================================
-rev
+rev / minify html
 ==========================================================*/
 
 gulp.task("revision", [ "sass", "js-vendor", "js-app"], function(){
-  return gulp.src(["dist/**/*.css", "dist/**/*.js"])
+  return gulp.src([
+        config.baseOutputDir+'**/*.css', config.baseOutputDir+'**/*.js'
+    ])
     .pipe(rev())
     .pipe(gulp.dest(config.baseOutputDir))
     .pipe(rev.manifest())
@@ -186,10 +169,15 @@ gulp.task("revision", [ "sass", "js-vendor", "js-app"], function(){
 
 gulp.task("revreplace", ["revision"], function(){
   var manifest = gulp.src("./" + config.baseOutputDir + "/rev-manifest.json");
+  var opts = {
+    conditionals: true,
+    spare:true
+  };
 
-  return gulp.src(config.sourceDir + "/index.html")
+  return gulp.src(config.files.html)
     .pipe(revReplace({manifest: manifest}))
-    .pipe(gulp.dest(config.baseOutputDir));
+    .pipe(gulpif( config.minifyHTML, minifyHTML(opts) ))
+    .pipe(gulp.dest(config.outputDir.html));
 });
 
 
