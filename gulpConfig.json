@@ -1,8 +1,12 @@
 {	
 
-	"outputdir": "./dist/",
-	"sourcedir": "./",
-	"bowerdir": "./bower_components/",
+	"baseOutputDir": "./dist/",
+	"sourceDir": "./",
+	"bowerDir": "./bower_components/",
+	"cacheBust": true,
+	"uglify": true,
+	"uglifyMangle": true,
+	"minifyHTML": true,
 
 	"files": {
 		"vendor": [
@@ -23,6 +27,8 @@
 	    "toCopy": [
 	        "./**/*",
 	        "./.htaccess",
+	        "!./gulpfile.js",
+	        "!./gulpConfig.json",
 	        "!./dist/",
 	        "!dist/**/*",
 	        "!bower_components/",
@@ -32,6 +38,25 @@
 	        "!scss/",
 	        "!scss/**/*"
 	    ]
+	},
+
+	"outputDir": {
+
+		"vendor": "./dist/js/",
+		"js": "./dist/js/",
+		"html": "./dist/",
+		"sass": "./dist/css/",
+		"images": "./dist/img" 
+
+	},
+
+
+	"outputNames": {
+
+		"vendor": "vendor.js",
+		"js": "app.js",
+		"sass": "style"
+
 	}
 
 }

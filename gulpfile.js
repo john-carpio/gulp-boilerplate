@@ -9,10 +9,18 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 var minifyHTML = require('gulp-minify-html');
 var clean = require('gulp-clean');
+var gulpif = require('gulp-if');
 var es = require('event-stream');
 var runSequence = require('run-sequence');
+
+
 var config = require('./gulpConfig.json');
 
+var hash_src = require("gulp-hash-src");
+
+
+var rev = require("gulp-rev");
+var revReplace = require("gulp-rev-replace");
 
 
 /*==========================================================
@@ -25,8 +33,9 @@ gulp.task('minify-html', function() {
   };
  
   return gulp.src(config.files.html)
-    .pipe(minifyHTML(opts))
-    .pipe(gulp.dest(config.outputdir));
+    .pipe(gulpif( config.minifyHTML, minifyHTML(opts) ))
+    .pipe(hash_src({build_dir: config.baseOutputDir, src_path: config.sourceDir}))
+    .pipe(gulp.dest(config.outputDir.html));
 });
 
 
@@ -38,21 +47,18 @@ gulp.task('js-vendor', function() {
 
     var normal = gulp.src(config.files.vendor)
         .pipe(sourcemaps.init())
-        .pipe(concat('vendor.js'))
+        .pipe(concat(config.outputNames.vendor))
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(config.outputdir + 'js'));
+        .pipe(gulp.dest(config.outputDir + 'js'));
 
     var min = gulp.src(config.files.vendor)
         .pipe(sourcemaps.init())
-        .pipe(concat('vendor.js'))
+        .pipe(concat(config.outputNames.vendor))
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(uglify({
-            mangle: true
-        }))
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(config.outputdir + 'js'));
+        .pipe(gulp.dest(config.outputDir.vendor));
 
     return es.concat(normal, min);
 
@@ -63,21 +69,21 @@ gulp.task('js-app', function() {
 
     var normal = gulp.src(config.files.js)
         .pipe(sourcemaps.init())
-        .pipe(concat('app.js'))
+        .pipe(concat(config.outputNames.js))
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(config.outputdir + 'js'));
+        .pipe(gulp.dest(config.outputDir.js));
 
     var min = gulp.src(config.files.js)
         .pipe(sourcemaps.init())
-        .pipe(concat('app.js'))
+        .pipe(concat(config.outputNames.js))
         .pipe(rename({
             extname: '.min.js'
         }))
-        .pipe(uglify({
-            mangle: true
-        }))
+        .pipe(
+            (gulpif( config.uglify, uglify({mangle: config.uglifyMangle}) ))
+        )
         .pipe(sourcemaps.write('maps'))
-        .pipe(gulp.dest(config.outputdir + 'js'));
+        .pipe(gulp.dest(config.outputDir.js));
 
     return es.concat(normal, min);
 
@@ -90,21 +96,26 @@ sass compile
 ==========================================================*/
 
 gulp.task('sass', function () {
-    return sass(config.files.sass, {
+    return sass(config.files.sass+'**/*.scss', {
             sourcemap: true
         })
         .on('error', function(err) {
             console.error('Error', err.message);
         })
-
+    .pipe(rename({
+        basename: config.outputNames.sass
+    }))
     .pipe(sourcemaps.write('maps'))
 
-    .pipe(gulp.dest(config.outputdir + 'css/'))
+    .pipe(gulp.dest(config.outputDir.sass))
     
     //chain to minify
     .pipe(cssmin())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(config.outputdir + 'css/min'));
+    .pipe(rename({
+        suffix: '.min'
+    }))
+    .pipe(gulp.dest(config.outputDir.sass))
+    .pipe(rev.manifest())
 });
 
 
@@ -118,7 +129,7 @@ gulp.task('images', () => {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(config.outputdir+'/img/'));                
+        .pipe(gulp.dest(config.outputDir.images));                
 });
 
 
@@ -128,7 +139,18 @@ dist clean
 ==========================================================*/
 
 gulp.task('clean', function () {
-    return gulp.src(config.outputdir)
+    return gulp.src(config.baseOutputDir)
+        .pipe(clean({force: true}))
+});
+
+
+gulp.task('cleanjs', function () {
+    return gulp.src(config.outputDir.js)
+        .pipe(clean({force: true}))
+});
+
+gulp.task('cleansass', function () {
+    return gulp.src(config.outputDir.sass)
         .pipe(clean({force: true}))
 });
 
@@ -136,8 +158,8 @@ gulp.task('clean', function () {
 dist build
 ==========================================================*/
 gulp.task('build', function(callback) {
-  runSequence('clean', 'copy',
-              ['minify-html', 'js-vendor', 'js-app', 'sass']);
+  runSequence('clean','copy',
+              ['js-vendor', 'js-app', 'sass', 'minify-html', 'revreplace']);
 });
 
 
@@ -146,7 +168,28 @@ copy files to dist folder
 ==========================================================*/
 gulp.task('copy', function() {
     return gulp.src(config.files.toCopy)
-        .pipe(gulp.dest(config.outputdir));
+        .pipe(gulp.dest(config.baseOutputDir));
+});
+
+
+/*==========================================================
+rev
+==========================================================*/
+
+gulp.task("revision", [ "sass", "js-vendor", "js-app"], function(){
+  return gulp.src(["dist/**/*.css", "dist/**/*.js"])
+    .pipe(rev())
+    .pipe(gulp.dest(config.baseOutputDir))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest(config.baseOutputDir))
+})
+
+gulp.task("revreplace", ["revision"], function(){
+  var manifest = gulp.src("./" + config.baseOutputDir + "/rev-manifest.json");
+
+  return gulp.src(config.sourceDir + "/index.html")
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest(config.baseOutputDir));
 });
 
 
@@ -154,7 +197,7 @@ gulp.task('copy', function() {
 watch tasks
 ==========================================================*/
 gulp.task('watch', function() {
-    gulp.watch(config.files.js, ['js-app']);
+    gulp.watch(config.files.js, ['js-app', 'revreplace']);
     gulp.watch(config.files.sass+'**/*.scss', ['sass']);
     gulp.watch(config.files.html, ['minify-html']);
 });
