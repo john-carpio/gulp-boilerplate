@@ -2,11 +2,16 @@
 
 	"baseOutputDir": "./dist/",
 	"sourceDir": "./",
+	"tmpDir": "./dist/tmp/",
 	"bowerDir": "./bower_components/",
+	"sourcemapsDir": "../../maps/",
 	"cacheBust": true,
+
 	"uglify": true,
 	"uglifyMangle": true,
 	"minifyHTML": true,
+	"minifyJS": true,
+	"minifyCSS": true,
 
 	"files": {
 		"vendor": [
@@ -35,8 +40,12 @@
 	        "!bower_components/**/*",
 	        "!node_modules/",
 	        "!node_modules/**/*",
+	        "!js/",
+	        "!js/**/*",
 	        "!scss/",
-	        "!scss/**/*"
+	        "!scss/**/*",
+	        "!img/",
+	        "!img/**/*"
 	    ]
 	},
 
