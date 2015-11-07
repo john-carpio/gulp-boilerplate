@@ -134,21 +134,12 @@ gulp.task('cleansass', function () {
         .pipe(clean({force: true}))
 });
 
-/*==========================================================
-dist build
-==========================================================*/
-gulp.task('build', function(callback) {
-  runSequence('clean','copy',
-              ['js-vendor', 'js-app', 'sass'],
-              'revreplace');
-});
-
 
 /*==========================================================
 copy files to dist folder
 ==========================================================*/
 gulp.task('copy', function() {
-    return gulp.src(config.files.toCopy)
+    return gulp.src(config.files.toCopy,{read:false})
         .pipe(gulp.dest(config.baseOutputDir));
 });
 
@@ -191,6 +182,15 @@ gulp.task('watch', function() {
 });
 
 
+
+/*==========================================================
+dist build
+==========================================================*/
+gulp.task('build', function(callback) {
+  runSequence('clean','copy',
+              ['js-vendor', 'js-app', 'sass', 'images'],
+              'revreplace');
+});
 
 
 
