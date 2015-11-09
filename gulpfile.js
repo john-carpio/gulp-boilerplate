@@ -16,9 +16,10 @@ var runSequence = require('run-sequence');
 var gulpCopy = require('gulp-copy');
 var config = require('./gulpConfig.json');
 
-var rev = require("gulp-rev");
+var rev = require('gulp-rev');
 var revReplace = require("gulp-rev-replace");
-
+var cssRev = require('gulp-rev-css-url');
+var revDel = require('rev-del');
 
 /*==========================================================
 js minification
@@ -30,47 +31,22 @@ gulp.task('js-watcher', function() {
 
 gulp.task('js-vendor', function() {
 
-    var normal = gulp.src(config.files.vendor)
+    return gulp.src(config.files.vendor)
         .pipe(sourcemaps.init())
         .pipe(concat(config.outputNames.vendor))
         .pipe(sourcemaps.write(config.sourcemapsDir))
         .pipe(gulp.dest(config.tmpDir + 'js'));
-
-    var min = gulp.src(config.files.vendor)
-        .pipe(sourcemaps.init())
-        .pipe(concat(config.outputNames.vendor))
-        .pipe(rename({
-            extname: '.min.js'
-        }))
-        .pipe(sourcemaps.write(config.sourcemapsDir))
-        .pipe(gulp.dest(config.tmpDir + 'js'));
-
-    return es.concat(normal, min);
 
 });
 
 
 gulp.task('js-app', function() {
 
-    var normal = gulp.src(config.files.js)
+     return gulp.src(config.files.js)
         .pipe(sourcemaps.init())
         .pipe(concat(config.outputNames.js))
         .pipe(sourcemaps.write(config.sourcemapsDir))
         .pipe(gulp.dest(config.tmpDir + 'js'));
-
-    var min = gulp.src(config.files.js)
-        .pipe(sourcemaps.init())
-        .pipe(concat(config.outputNames.js))
-        .pipe(rename({
-            extname: '.min.js'
-        }))
-        .pipe(
-            (gulpif( config.uglify, uglify({mangle: config.uglifyMangle}) ))
-        )
-        .pipe(sourcemaps.write(config.sourcemapsDir))
-        .pipe(gulp.dest(config.tmpDir + 'js'));
-
-    return es.concat(normal, min);
 
 });
 
@@ -107,7 +83,7 @@ gulp.task('images', () => {
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
         }))
-        .pipe(gulp.dest(config.outputDir.images));                
+        .pipe(gulp.dest(config.tmpDir+'img'));                
 });
 
 
@@ -142,11 +118,13 @@ rev / minify html
 
 gulp.task("revision", [ "sass", "js-vendor", "js-app"], function(){
   return gulp.src([
-        config.tmpDir + '**/*.css', config.tmpDir + '**/*.js'
+        config.tmpDir + '**/*'
     ])
     .pipe(rev())
+    .pipe(cssRev())
     .pipe(gulp.dest(config.baseOutputDir))
     .pipe(rev.manifest())
+    .pipe(revDel({ dest: config.baseOutputDir }))
     .pipe(gulp.dest(config.baseOutputDir))
 })
 
@@ -185,7 +163,7 @@ dist build
 gulp.task('build', function(callback) {
   runSequence('clean','copy',
               ['js-vendor', 'js-app', 'sass', 'images'],
-              'revreplace');
+              'revreplace', 'cleanTmp');
 });
 
 
