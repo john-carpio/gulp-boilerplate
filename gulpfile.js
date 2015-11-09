@@ -17,16 +17,19 @@ var gulpCopy = require('gulp-copy');
 var config = require('./gulpConfig.json');
 
 var rev = require('gulp-rev');
-var revReplace = require("gulp-rev-replace");
+var revReplace = require('gulp-rev-replace');
 var cssRev = require('gulp-rev-css-url');
 var revDel = require('rev-del');
+
+var gutil = require('gulp-util');
 
 /*==========================================================
 js minification
 ==========================================================*/
 gulp.task('js-watcher', function() {
-    runSequence(['js-vendor','js-app',],
-              'revreplace', 'cleanTmp');
+    runSequence('cleanJS',
+                ['js-vendor','js-app'],
+                'js-rev', 'revreplace');
 });
 
 gulp.task('js-vendor', function() {
@@ -41,7 +44,6 @@ gulp.task('js-vendor', function() {
 
 
 gulp.task('js-app', function() {
-
      return gulp.src(config.files.js)
         .pipe(sourcemaps.init())
         .pipe(concat(config.outputNames.js))
@@ -50,6 +52,17 @@ gulp.task('js-app', function() {
 
 });
 
+gulp.task('js-rev', function() {
+     return gulp.src(config.tmpDir + '**/*.js')
+        .pipe(rev())
+        .pipe(gulp.dest(config.baseOutputDir))
+        .pipe(rev.manifest('./dist/rev-manifest.json', {
+            base: process.cwd()+'/dist',
+            merge: true
+        }))
+        .pipe(revDel({ dest: config.baseOutputDir }))
+        .pipe(gulp.dest(config.baseOutputDir));
+});
 
 
 /*==========================================================
@@ -97,6 +110,11 @@ gulp.task('clean', function () {
         .pipe(clean({force: true}))
 });
 
+gulp.task('cleanJS', function () {
+    return gulp.src(config.outputDir.js)
+        .pipe(clean({force: true}))
+});
+
 gulp.task('cleanTmp', function () {
     return gulp.src(config.tmpDir + '**/*', {read: false})
         .pipe(clean({force: true}))
@@ -116,7 +134,7 @@ gulp.task('copy', function() {
 rev / minify html
 ==========================================================*/
 
-gulp.task("revision", [ "sass", "js-vendor", "js-app"], function(){
+gulp.task('revision', [ 'sass', 'js-vendor', 'js-app'], function(){
   return gulp.src([
         config.tmpDir + '**/*'
     ])
@@ -128,8 +146,8 @@ gulp.task("revision", [ "sass", "js-vendor", "js-app"], function(){
     .pipe(gulp.dest(config.baseOutputDir))
 })
 
-gulp.task("revreplace", ["revision"], function(){
-    var manifest = gulp.src("./" + config.baseOutputDir + "/rev-manifest.json");
+gulp.task('revreplace', function(){
+    var manifest = gulp.src('./' + config.baseOutputDir + '/rev-manifest.json');
     var opts = {
         conditionals: true,
         spare:true
@@ -163,7 +181,7 @@ dist build
 gulp.task('build', function(callback) {
   runSequence('clean','copy',
               ['js-vendor', 'js-app', 'sass', 'images'],
-              'revreplace', 'cleanTmp');
+              'revision', 'revreplace');
 });
 
 
