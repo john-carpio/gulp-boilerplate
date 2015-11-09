@@ -1,4 +1,1 @@
-
-
-
-console.log('yyyyyyy;;;');
+console.log('9999',1,1111234,[]);

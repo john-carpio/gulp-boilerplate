@@ -68,8 +68,10 @@ gulp.task('js-rev', function() {
 /*==========================================================
 sass compile
 ==========================================================*/
-gulp.task('sass-watcher', function() {
-    runSequence('sass', 'revreplace', 'cleanTmp');
+gulp.task('css-watcher', function() {
+    runSequence('cleanCSS',
+                ['sass', 'images'],
+                'css-rev', 'revreplace');
 });
 
 gulp.task('sass', function () {
@@ -85,10 +87,35 @@ gulp.task('sass', function () {
     .pipe(gulp.dest(config.tmpDir + 'css'))
 });
 
+gulp.task('css-rev', function() {
+ return gulp.src([
+        config.tmpDir + '**/*.css',
+        config.tmpDir + '**/*.jpg',
+        config.tmpDir + '**/*.jpeg',
+        config.tmpDir + '**/*.png',
+        config.tmpDir + '**/*.gif',
+        config.tmpDir + '**/*.svg'
+    ])
+    .pipe(rev())
+    .pipe(cssRev())
+    .pipe(gulp.dest(config.baseOutputDir))
+    .pipe(rev.manifest('./dist/rev-manifest.json', {
+        base: process.cwd()+'/dist',
+        merge: true
+    }))
+    .pipe(gulp.dest(config.baseOutputDir));
+});
+
 
 /*==========================================================
 image compression
 ==========================================================*/
+gulp.task('image-watcher', function() {
+    runSequence('cleanCSS',
+                ['sass', 'images'],
+                'css-rev', 'revreplace');
+});
+
 gulp.task('images', () => {
     return gulp.src(config.files.images)
         .pipe(imagemin({
@@ -112,6 +139,16 @@ gulp.task('clean', function () {
 
 gulp.task('cleanJS', function () {
     return gulp.src(config.outputDir.js)
+        .pipe(clean({force: true}))
+});
+
+gulp.task('cleanCSS', function () {
+    return gulp.src(config.outputDir.sass)
+        .pipe(clean({force: true}))
+});
+
+gulp.task('cleanImages', function () {
+    return gulp.src(config.outputDir.images)
         .pipe(clean({force: true}))
 });
 
@@ -162,7 +199,7 @@ gulp.task('revreplace', function(){
 
 
 gulp.task('html-watcher', function() {
-    runSequence(['js-vendor', 'js-app', 'sass'], 'revreplace', 'cleanTmp');
+    runSequence('revreplace');
 });
 
 /*==========================================================
@@ -170,8 +207,9 @@ watch tasks
 ==========================================================*/
 gulp.task('watch', function() {
     gulp.watch(config.files.js, ['js-watcher']);
-    gulp.watch(config.files.sass+'**/*.scss', ['sass-watcher']);
+    gulp.watch(config.files.sass+'**/*.scss', ['css-watcher']);
     gulp.watch(config.files.html, ['html-watcher']);
+    gulp.watch(config.files.images, ['image-watcher']);
 });
 
 
