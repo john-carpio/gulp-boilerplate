@@ -1,0 +1,62 @@
+<ul class="section">
+    
+{{!--     <li class="active"><a href="#">ALL MATCHES</a></li>
+    <li><a href="#">LIVE IN-PLAY</a></li>
+    <li><a href="#">FIXTURES</a></li> --}}
+
+    {{#each getSectionList}}
+
+    
+
+        <li class="{{checkSelected this ../getSection}}"><a href="#" class=" btn-section" data-value="{{this}}">{{tPrefix 'sports' this}}</a></li>
+    {{/each}}
+</ul>
+
+<div class="btn-group modifier" role="group" aria-label="...">
+
+    <div class="btn-group btn-group-timerange" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" {{isDisabled 'all' getSection}}>
+            {{tPrefix 'sports' getTimeRange}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+
+            <li class="{{checkSelected 'AM' getTimeRange}}"><a href="#" class="btn-timerange" data-value="AM">{{tPrefix 'sports' 'AM'}}</a></li>
+            <li class="{{checkSelected 'PM' getTimeRange}}"><a href="#" class="btn-timerange" data-value="PM">{{tPrefix 'sports' 'PM'}}</a></li>
+        </ul>
+    </div>
+
+    <div class="btn-group btn-group-sorting" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            {{tPrefix 'sports' getSortType}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li class="{{checkSelected 'sortByDefault' getSortType}}"><a href="#" class="btn-sorttype" data-value="sortByDefault">{{tPrefix 'sports' 'sortByDefault'}}</a></li>
+            <li class="{{checkSelected 'sortByTime' getSortType}}"><a href="#" class="btn-sorttype" data-value="sortByTime">{{tPrefix 'sports' 'sortByTime'}}</a></li>
+        </ul>
+    </div>
+
+    <button type="button" class="btn btn-default btn-livealert" {{isDisabled 'live' getSection}}><i class="fa {{#if getLiveAlert}}fa-volume-up{{else}}fa-volume-off{{/if}}"></i></button>
+
+    <div class="btn-group btn-group-viewmode" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false" {{isDisabled 'asian' getRegion}} {{isDisabled 'DEFAULT' getCriteria}}>
+            <span>{{tPrefix 'sports' getViewMode}}</span> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            {{#each getViewModeList}}
+                <li class="{{checkSelected this ../getViewMode}}"><a href="#" class="btn-viewmode" data-value="{{this}}">{{tPrefix 'sports' this}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="btn-group btn-group-priceformat" role="group">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            {{t 'sports.priceformat'}} : {{tPrefix 'sports' getPriceFormat}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            {{#each getPriceFormatList}}
+                <li class="{{checkSelected this ../getPriceFormat}}"><a href="#" class="btn-priceformat" data-value="{{this}}">{{tPrefix 'sports' this}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+</div> {{!-- end: .btn-group --}}

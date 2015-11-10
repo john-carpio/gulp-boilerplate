@@ -1,0 +1,12 @@
+{{#if outcome}}
+
+<div class="outcome o-{{outcome.id}}{{getOutcomeDirection outcome.dir}}{{showFlags outcome.flags}}">
+    <div class="price-container">
+    	<a class="price" data-outcome="{{outcome.id}}" data-price="{{outcome.price}}">
+    		<span class="dir-caret"></span>
+    		{{outcome.price}}
+    	</a>
+    </div>
+</div>
+
+{{/if}}

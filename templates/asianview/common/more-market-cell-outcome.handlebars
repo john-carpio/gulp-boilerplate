@@ -1,0 +1,24 @@
+{{#if outcome}}
+
+<div class="outcome o-{{outcome.id}}{{getOutcomeDirection outcome.dir}}{{showFlags outcome.flags}}">
+	<a class="price {{showFlags outcome.flags}}" data-outcome="{{outcome.id}}" data-price="{{outcome.price}}" >
+		<div class="cell-title">
+			{{#isEqual outcomeDescription 'Draw'}}
+	            X
+	        {{else}}
+	            {{#isEqual description 'Double Chance'}}
+	                {{getDoubleChanceCellTitles i}}
+	            {{else}}
+	                {{outcomeDescription}}
+	            {{/isEqual}}
+	        {{/isEqual}}
+		</div>
+		{{consoleLog outcome}}
+		<div class="cell-price">
+			{{outcome.price}}
+			<span class="dir-caret"></span>
+		</div>
+	</a>
+</div>
+
+{{/if}}

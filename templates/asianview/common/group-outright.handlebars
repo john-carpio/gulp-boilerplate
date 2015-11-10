@@ -1,0 +1,9 @@
+<div class="outright-row team-{{team.id}} {{showFlags team.flags}}">
+    <div class="wrapper">
+        <div class="cell-team teams">
+            {{!-- formatTeamName will return span --}}
+            <span class="team-name">{{team.description}}</span>
+        </div>
+    	{{> asianview/common/cell-outcome outcome=team}}
+    </div>
+</div>

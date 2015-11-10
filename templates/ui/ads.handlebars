@@ -1,0 +1,17 @@
+{{#each banners}}
+	<div class="wrap-ads">
+
+        <div class="block-title">
+            <div class="title">
+                <span>
+                    {{t 'ui.bannerAdTitle'}}
+                </span>
+            </div>
+        </div>
+
+		<div class="ads-content">
+      {{! TODO: Do we need the data-id at the moment? --}}
+			<a data-url="{{url}}" data-type="{{type}}" class="default ad-banner"><img src="{{file}}" width="210" data-id="TODO"></a>
+		</div>
+	</div>
+{{/each}}

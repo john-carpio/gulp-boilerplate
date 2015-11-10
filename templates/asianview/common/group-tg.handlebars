@@ -1,0 +1,7 @@
+<div class="market-group-{{criteria}} m-{{id}} {{showFlags flags}}">
+	{{#foreach (totalGoals children)}}
+        <div class="market">
+        	{{> asianview/common/group-1x1-price outcome=this}}
+        </div>
+    {{/foreach}}
+</div>

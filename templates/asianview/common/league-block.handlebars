@@ -1,0 +1,23 @@
+<div class="league-block league {{visible}} p-{{league.id}} {{#if league.initHidden}}hidden{{/if}}" data-path="{{league.id}}">
+    <div class="league-title">
+        <div class="wrapper"> 
+            {{#if virtual}}              
+                {{#parseTitle league.title }}
+                    {{!-- {{consoleLog this}} --}}
+                    <span class="title">
+                        <span>{{title}}</span>
+                        <span class="season-title">{{season}}</span>
+                    </span>
+                {{/parseTitle}}
+            {{else}}
+                {{!-- {{> ui/addtofavorites id=../league.id title=../league.title type='p'}} --}}
+                <span class="title">{{league.title}}</span>
+            {{/if}}
+        </div>
+    </div>
+    <div class="events-container">
+        {{!-- {{#each league.events}}
+            {{> asianview/event-block}}
+        {{/each}} --}}
+    </div>
+</div>

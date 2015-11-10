@@ -1,0 +1,354 @@
+
+<div class="market-headers winner-header {{leagueClass}}" >
+    <div class="league-info">
+        {{!-- {{#parseTitle league.description}}
+            <span>{{season}}</span>
+        {{/parseTitle}} --}}
+        <span>Winner</span>
+    </div>
+    <div class="market-header">
+        Game 1
+        <div class="market-label">
+            <span>1</span>
+            <span>2</span>
+        </div>
+    </div>
+    <div class="market-header">
+        Set 1
+        <div class="market-label">
+            <span>1</span>
+            <span>2</span>
+        </div>
+    </div>
+    <div class="market-header">
+        Match
+        <div class="market-label">
+            <span>1</span>
+            <span>2</span>
+        </div>
+    </div>
+</div>
+{{#each league.children}}
+    <div class="event-container {{style}} round-{{../round}} default-market-{{size this.children}} {{../leagueClass}}" data-style="{{style}}">
+        <div class=" m-{{id}} {{showFlags flags}} ">
+            
+            
+            <div class="opponent-container">
+                <span>{{this.opponentA}}</span><br>
+                <span>{{this.opponentB}}</span>
+            </div>
+                
+                {{#each (getVTennMarket 'Winner of game X in set 1' this.children) }}
+                    {{#each this.children}}
+                    {{!-- {{#foreach markets}} --}}
+                        <div class="market-container">
+                            <div class="european-row market-list {{toLowerCase this.description}}" >
+                                <div class="market-description">
+                                    {{this.description}} - {{this.period}}
+                                </div>
+                                
+                                    {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                
+                            </div>
+                        </div>
+                    {{!-- {{/foreach}} --}}
+                    {{/each}}
+                {{/each}}
+
+                {{#each (getVTennMarket 'Winner of set X' this.children) }}
+                    {{#each this.children}}
+                    {{!-- {{#foreach markets}} --}}
+                        <div class="market-container">
+                            <div class="european-row market-list {{toLowerCase this.description}}" >
+                                <div class="market-description">
+                                    {{this.description}} - {{this.period}}
+                                </div>
+                                
+                                    {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                
+                            </div>
+                        </div>
+                    {{!-- {{/foreach}} --}}
+                    {{/each}}
+                {{/each}}
+
+                {{#each (getVTennMarket 'Winner of the match' this.children) }}
+                    {{#each this.children}}
+                    {{!-- {{#foreach markets}} --}}
+                        <div class="market-container">
+                            <div class="european-row market-list {{toLowerCase this.description}}" >
+                                <div class="market-description">
+                                    {{this.description}} - {{this.period}}
+                                </div>
+                                
+                                    {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                
+                            </div>
+                        </div>
+                    {{!-- {{/foreach}} --}}
+                    {{/each}}
+                {{/each}}
+
+            
+        </div>
+    </div>
+{{/each}}
+
+{{#ifCond round '>=' 2}}
+    <div class="market-headers number-of-games-header {{leagueClass}}" >
+        <div class="league-info">
+            {{!-- {{#parseTitle league.description}}
+                <span>{{season}}</span>
+            {{/parseTitle}} --}}
+            <span>Number Of Games</span>
+        </div>
+        <div class="market-header">
+            Set 1
+            <div class="market-label">
+                <span>Odd</span>
+                <span>Even</span>
+            </div>
+        </div>
+        <div class="market-header">
+            Set 1
+            <div class="market-label">
+                <span>O</span>
+                <span>U</span>
+            </div>
+        </div>
+        <div class="market-header">
+            Match
+            <div class="market-label">
+                <span>O</span>
+                <span>U</span>
+            </div>
+        </div>
+    </div>
+    {{#each league.children}}
+        <div class="event-container {{style}} round-{{../../round}} default-market-{{size this.children}} {{../leagueClass}}" data-style="{{style}}">
+            <div class=" m-{{id}} {{showFlags flags}} ">
+                
+                
+                <div class="opponent-container">
+                    <span>{{this.opponentA}}</span><br>
+                    <span>{{this.opponentB}}</span>
+                </div>
+                    
+                    {{#each (getVTennMarket 'Odd/even number of games in set X' this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                    {{#each (getVTennMarket 'Total number of games in set 1 (9.5) 0' this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                    {{#each (getVTennMarket 'Total number of games 0' this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                
+            </div>
+        </div>
+        {{#ifCond ../../round '>=' 3}}
+            <div class="event-container {{style}} round-{{../../../round}} place-holder default-market-{{size this.children}} {{../../leagueClass}}" data-style="{{style}}">
+                <div class=" m-{{id}} {{showFlags flags}} ">
+                    
+                    
+                    <div class="opponent-container"> </div>
+                        
+                    <div class="market-container">
+                        <div class="european-row market-list " >
+                            
+                        </div>
+                    </div>
+
+                    {{#each (getVTennMarket 'Total number of games in set 1 (10.5) 0' ../this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                    <div class="market-container">
+                        <div class="european-row market-list " >
+                            
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            <div class="event-container {{style}} round-{{../../../round}} place-holder default-market-{{size this.children}} {{../../leagueClass}}" data-style="{{style}}">
+                <div class=" m-{{id}} {{showFlags flags}} ">
+                    
+                    
+                    <div class="opponent-container"> </div>
+                        
+                        <div class="market-container">
+                            <div class="european-row market-list " >
+                                
+                            </div>
+                        </div>
+
+                        {{#each (getVTennMarket 'Total number of games in set 1 (8.5) 0' this.children) }}
+                            {{#each this.children}}
+                            {{!-- {{#foreach markets}} --}}
+                                <div class="market-container">
+                                    <div class="european-row market-list {{toLowerCase this.description}}" >
+                                        <div class="market-description">
+                                            {{this.description}} - {{this.period}}
+                                        </div>
+                                        
+                                            {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                                        
+                                    </div>
+                                </div>
+                            {{!-- {{/foreach}} --}}
+                            {{/each}}
+                        {{/each}}
+
+                        <div class="market-container">
+                            <div class="european-row market-list " >
+                                
+                            </div>
+                        </div>
+
+                    
+                </div>
+            </div>
+        {{/ifCond}}
+    {{/each}}
+{{/ifCond}}
+
+{{#ifCond round '>=' 4}}
+    <div class="market-headers correct-score-header {{leagueClass}}" >
+        <div class="league-info">
+            <span>Correct Score</span>
+        </div>
+        <div class="market-header">
+            Game 1
+        </div>
+        <div class="market-header">
+            Set 1
+        </div>
+        <div class="market-header">
+            Match
+        </div>
+    </div>
+    {{#each league.children}}
+        <div class="event-container {{style}} round-{{../../round}} correct-score default-market-{{size this.children}} {{../leagueClass}}" data-style="{{style}}">
+            <div class=" m-{{id}} {{showFlags flags}} ">
+                
+                
+                <div class="opponent-container">
+                    <span>{{this.opponentA}}</span><br>
+                    <span>{{this.opponentB}}</span>
+                </div>
+                    
+                    {{#each (getVTennMarket 'Correct score of game X in set 1' this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags columns=2}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                    {{#each (getVTennMarket 'Correct score of set X' this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags columns=2}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                    {{#each (getVTennMarket 'Final Result (in sets - best of 3)' this.children) }}
+                        {{#each this.children}}
+                        {{!-- {{#foreach markets}} --}}
+                            <div class="market-container">
+                                <div class="european-row market-list {{toLowerCase this.description}}" >
+                                    <div class="market-description">
+                                        {{this.description}} - {{this.period}}
+                                    </div>
+                                    
+                                        {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags columns=2}}
+                                    
+                                </div>
+                            </div>
+                        {{!-- {{/foreach}} --}}
+                        {{/each}}
+                    {{/each}}
+
+                
+            </div>
+
+
+        </div>
+    {{/each}}
+{{/ifCond}}

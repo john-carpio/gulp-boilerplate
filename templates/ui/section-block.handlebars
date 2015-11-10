@@ -1,0 +1,114 @@
+{{#if outrightTabs}}
+    <div class="section-block {{region}}-section special-tab {{#ifCond sportCode '==' 'golf'}}tab-compressed{{/ifCond}}">
+        <div class="section-nav">
+            <ul class="section">
+                {{#each outrightTabs}}
+                    <li {{#isEqual ../outrightActiveTab @key}}class="active"{{/isEqual}}>
+                        <a href="#" class="outright-tab disabled" data-tab="{{@key}}">{{tPrefix 'outrightTab' title}}</a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+{{else}}
+    {{#if fixtures}}
+    <div class="section-block {{region}}-section {{#if showDoublesTab}}tab-compressed{{/if}}">
+        <div class="section-nav">
+            <ul class="section">
+                {{#if showAll}}
+                <li class="{{#ifCond activeTab '===' 'all'}}active{{/ifCond}}">
+                    <a href="#" class="fixtures-all" >
+                        {{t 'ui.all'}}
+                    </a>
+                </li>
+                {{/if}}
+                {{#if showDoublesTab}}
+                <li class="{{#ifCond ../activeTab '===' 'doubles'}}active{{/ifCond}}">
+                    <a href="#" class="fixtures-doubles {{#unless enableDoublesTab}}disabled{{/unless}}" >
+                        {{t 'ui.doubles'}}
+                    </a>
+                </li>
+                {{/if}}
+                {{#each fixtures}}
+                    <li class="{{#ifCond  ../activeTab '===' desc }}active{{/ifCond}}">
+                        <a href="#" class="fixtures-nav {{#inArray ../availableFixturesDate criteria}}{{else}}disabled{{/inArray}}" data-dayNum="{{dayNum}}" data-monthNum="{{monthNum}}">
+                            {{#if @first}}
+                                {{t 'ui.today'}}
+                            {{else}}
+                                {{desc}}
+                            {{/if}}
+                        </a>
+                    </li>
+                {{/each}}
+
+                <li class="{{#ifCond activeTab '===' 'calendar'}}active{{/ifCond}}">
+                    <a href="#" class="fixture-date {{#unless enableFixtureDate}}disabled{{/unless}}" ><i class="fa fa-calendar"></i>
+                        <input type="hidden" value="{{activeDate}}" />
+                    </a>
+                </li>
+                {{#if hasOutright}}
+                <li class="{{#ifCond ../activeTab '===' 'outright'}}active{{/ifCond}}">
+                    <a href="#" class="fixtures-outright {{#inArray ../availableFixturesDate 'oc'}}{{else}}disabled{{/inArray}} {{#unless ../enableOutrightDoubles}}disabled{{/unless}}" >
+                        {{t 'ui.outright'}}
+                    </a>
+                </li>
+                {{/if}}
+            </ul>
+        </div>
+    </div>
+    {{/if}}
+{{/if}}
+
+
+<div class="section-block {{sectionCode}} {{region}}-section">
+    <!-- start: title -->
+    <div class="section-title block-title {{#if virtual}}{{sectionCode}}-{{sportCode}}{{/if}}">
+        <div class="title">
+            <span>
+                {{#if virtual}}
+                    {{t 'ui.virtual'}} : {{formatVPageTitle sportCode}}
+                {{/if}}
+
+                {{#if search}}
+                    {{t 'ui.search'}} : {{searchTerm}}
+                {{/if}}
+
+                {{#if liveMode}}
+                    {{t 'ui.live'}}
+                {{/if}}
+
+                {{#if commonSection}}
+                    <i class="icon qicon-{{../sportCode}}"></i>{{tPrefix 'sportCode' sportCode}}
+                {{/if}}
+            </span>
+        </div>
+        <div class="timer-block">
+            <span class="icon-refresh"><i class="fa fa-refresh"></i></span>
+            <span class="timer">00</span>
+        </div>
+        <div class="option-block">
+            <div class="btn-group">
+                <button type="button" class="btn-league league-modal" data-target="#league-modal" aria-expanded="false" disabled >
+                    {{t 'ui.selectLeague'}} <span class="caret"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- end: title -->
+
+
+    <div data-code="{{sportCode}}" class="section-container {{sportCode}}">
+        <div class="{{region}}-row {{region}}-header">
+            {{!-- start: TABLE HEADER --}}
+            {{!-- end: TABLE HEADER--}}
+        </div>
+        <div class="frame-container" ></div>
+        <div class="league-container">
+            {{!-- start: LEAGUE BLOCK --}}
+
+            {{> ui/loading}}
+
+            {{!-- end: LEAGUE BLOCK--}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+
+{{#if pager}}
+
+  
+  <ul class="pagination">
+    <li><span>{{t "pagination.page"}} {{currPage}} {{t "pagination.of"}} {{numOfPages}}</span></li>
+    <li>
+      {{#ifCond currPage '===' 1 }}
+        <span aria-hidden="true">&laquo;</span>
+      {{else}}
+        <a href="#" aria-label="Previous" data-page="prev">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      {{/ifCond}}
+    </li>
+    {{#each pager}}
+    	<li class="{{#ifCond ../currPage '===' this }} active {{/ifCond}}" >
+    		<a href="#" data-page="{{this}}">{{this}}</a>
+    	</li>
+    {{/each}}
+    <li>
+      {{#ifCond currPage '===' numOfPages }}
+        <span aria-hidden="true" >&raquo;</span>
+      {{else}}
+        <a href="#" aria-label="Next" data-page="next">
+          <span aria-hidden="true" >&raquo;</span>
+        </a>
+      {{/ifCond}}
+      
+    </li>
+  </ul>
+
+{{/if}}

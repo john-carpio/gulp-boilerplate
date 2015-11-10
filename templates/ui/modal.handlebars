@@ -1,0 +1,33 @@
+<div class="modal fade" id="{{id}}" {{#if disableBackdrop}}data-backdrop="static" data-keyboard="false"{{/if}}>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="block-title">
+        {{#unless disableBackdrop}}
+        <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+        {{/unless}}
+        <div class="title">
+          <span class="modal-title">{{t title}}</span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-container">{{{body}}}</div>
+      </div>
+      {{consoleLog actions}}
+      {{#if actions}}
+      <div class="modal-footer">
+        <div id="errorMsgContainer" class="form-group hidden">
+            <!--label>&nbsp;</label-->
+            <div id="errorMsg" class="text-danger"></div>
+        </div>
+        {{#if ../showCloseButton}}
+          <button type="button" class="btn" data-dismiss="modal">{{t "modal.close"}}</button>
+        {{/if}}
+        {{#each ../actions}}
+          <button type="button" class="btn actions" data-action="{{@key}}" >{{tPrefix 'modal' @key}}</button>
+        {{/each}}
+      </div>
+      {{/if}}
+      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>

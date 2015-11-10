@@ -1,0 +1,13 @@
+<div class="tracker-empty">
+	<div class="empty">
+		{{#ifCond state '===' 2 }}
+			{{> ui/loading}}
+		{{/ifCond}}
+		{{#ifCond state '===' 1 }}
+			{{t 'ui.tracker-empty'}}
+		{{/ifCond}}
+		{{#ifCond state '===' 0 }}
+			{{t 'ui.blankMatchTracker'}}
+		{{/ifCond}}
+	</div>
+</div>

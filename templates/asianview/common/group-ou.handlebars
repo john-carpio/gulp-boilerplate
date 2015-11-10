@@ -1,0 +1,16 @@
+<div class="market-group-{{criteria}} market-OU market m-{{id}} {{showFlags flags}}">
+	<div class="group-row">
+        {{> asianview/common/cell-spread-double outcome=children.[0] prefix='o'}}
+    	{{> asianview/common/cell-prefix outcome=children.[0] prefix='o'}}
+    	{{> asianview/common/cell-outcome outcome=children.[0]}}
+    </div>
+    <div class="group-row">
+        {{> asianview/common/cell-spread-double outcome=children.[1] prefix='u'}}
+    	{{> asianview/common/cell-prefix outcome=children.[1] prefix='u'}}
+    	{{> asianview/common/cell-outcome outcome=children.[1]}}
+    </div>
+    {{!-- <div class="group-row">
+    	{{> asianview/common/cell-prefix}}
+    	{{> asianview/common/cell-outcome}}
+    </div> --}}
+</div>

@@ -1,0 +1,17 @@
+<div class="betslip-rejected betslip-message">
+
+
+    {{t "betSlip.betPlacedReject"}}
+
+
+    {{#if code}}
+        <div class="rejected-message">{{description}}{{!-- {{tPrefix "betSlip" code}} --}}</div> 
+    {{/if}}
+
+    <div>
+        <button type="button" class="btn-betslip-exit" role="button" ><span class="text">{{t "betSlip.ok"}}</span> <i class="fa fa-spin fa-spinner"></i></button>
+    </div>
+    
+</div>
+
+

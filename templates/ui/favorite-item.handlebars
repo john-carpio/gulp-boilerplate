@@ -1,0 +1,8 @@
+{{#unless item.isLive}}
+<li>
+	<a class="nav-link-fav" data-code="{{item.code}}" data-url="{{formatMyfavUrl item }}" title="{{item.description}}" >
+		<span>{{item.description}}</span>
+	</a>
+	<a class="ico-remove" data-code="{{item.code}}"><i class="icon fa fa-close"></i></a>
+</li>
+{{/unless}}

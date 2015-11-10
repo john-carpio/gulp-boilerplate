@@ -1,0 +1,77 @@
+
+<div class="wrapper-main">
+	<div class="live-panels panel-container"> {{!-- Note: This is going to be the div with green border --}}
+		<div class="panel-main"></div>
+		{{!-- <div class="panel-left">
+		    <nav class="events-block"> --}}
+				{{!-- start: Quick Links --}}
+				{{!-- <div class="nav-group nav-quick-links"></div> --}}
+				{{!-- end: Quick Links --}}
+
+				{{!-- start: My Favourites --}}
+				{{!-- <div class="nav-group nav-my-favorites"></div> --}}
+				
+
+				{{!-- start: Sports --}}
+		    	{{!-- <div class="nav-group nav-sports-tree"></div> --}}
+		    	{{!-- end: Quick Links --}}
+
+		    	{{!-- start: Other --}}
+				{{!-- <div class="nav-group nav-other"></div> --}}
+				{{!-- end: Other --}}
+
+
+		{{!--     </nav>
+		</div> --}}
+		<div class="panel-right">
+		    {{!-- <div class="betting-slip-block"></div> --}}
+		    
+
+			<div class="match-tracker">
+			    <div class="block-title">
+			    	<div class="title">
+			    		<span>{{t 'ui.matchTracker'}}</span>
+			    	</div>
+			        
+			    </div>
+			    <div class="wrap-content"></div>
+			</div>
+
+			<div class="twitter-feed">
+			    <div class="block-title">
+				    <div class="title">
+				        <span>Twitter Feed</span>
+				    </div>
+				</div>
+
+
+			    <div class="wrap-content">
+			        <a class="twitter-timeline" 
+			        data-chrome="noheader nofooter" 
+					data-link-color="#FF9E3D"
+					data-tweet-limit="10"
+			        href="https://twitter.com/megasportsworld" data-widget-id="598077501701693440">Tweets by @megasportsworld</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			    </div>
+			</div>
+
+			
+
+			<div class="sports-news">
+			    <div class="block-title">
+				    <div class="title">
+				        <span>{{t 'ui.sportsNews'}}</span>
+				    </div>
+				</div>
+
+
+			    <div class="wrap-content">
+			        <ul class="sports-news-container">
+			        </ul>
+			    </div>
+			</div>
+
+		    <aside class="advertisement"></aside>
+		</div>
+	</div>
+</div>

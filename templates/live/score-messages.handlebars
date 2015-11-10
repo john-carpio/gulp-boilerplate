@@ -1,0 +1,4 @@
+<span class="msg-toggle{{#if messagesOpen}} open{{/if}}"><i class="fa fa-chevron-right"></i></span>
+<ul{{#ifCond event.liveEvent.time.status '===' 5 }} class="open"{{/ifCond}}{{#if messagesOpen}} class="open"{{/if}}>
+    {{getLiveMessages event.liveEvent.msgs reversedTime}}
+</ul>

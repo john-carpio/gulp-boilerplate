@@ -1,0 +1,10 @@
+<ul>
+	{{#each list}}
+	<li>
+		<label>
+			<span class="checkbox-wrap {{#if status}}checked{{/if}}"><input type="checkbox" class="league-selector" {{#if status}}checked{{/if}} data-value="{{value}}" ></span>
+			{{title}}
+		</label>
+	</li>
+	{{/each}}
+</ul>

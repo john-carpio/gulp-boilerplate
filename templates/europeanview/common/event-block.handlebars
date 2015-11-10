@@ -1,0 +1,26 @@
+<div class="event-markets {{style}} default-market-{{size children}}" data-style="{{style}}">
+	<div class="col-markets-desc {{showFlags flags}}">
+
+        <span class="market-desc">{{this.marketData.description}}</span> 
+        {{#if this.marketData.period}}
+         <span class="market-sep">-</span> 
+         <span class="market-period">{{this.marketData.period}}</span>
+        {{/if}}
+    </div>
+    <div class="col-markets {{#if virtual}}virtual{{/if}} with-desc m-{{id}} {{showFlags flags}} markets-buttons-size-{{size defaultButtons}}">
+        {{#ifCond code '===' 'GREY' }}
+            {{#foreach (toColumnsFavourite children 2 ) }}
+                <div class="col-group grey-number">
+                    {{#each this}}
+                        {{> europeanview/common/group-1x1-price outcome=this team=this.description virtual=../virtual imagePath=../../imagePath code=../code}}
+                    {{/each}}
+                </div>
+            {{/foreach}}
+        {{else}}
+            {{#each children}}
+                {{> europeanview/common/group-1x1-price outcome=this team=this.description virtual=../virtual imagePath=../../imagePath code=../code}}
+            {{/each}}
+        {{/ifCond}}
+    </div>
+    {{> europeanview/common/more first=first id=eventID count=count liveMode=liveMode eventDescription=eventDescription brMatchId=brMatchId defaultButtons=defaultButtons}}
+</div>

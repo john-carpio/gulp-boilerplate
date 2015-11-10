@@ -22,6 +22,24 @@ var cssRev = require('gulp-rev-css-url');
 
 var gutil = require('gulp-util');
 
+
+var handlebars = require('gulp-handlebars');
+var wrap = require('gulp-wrap');
+var declare = require('gulp-declare');
+
+gulp.task('templates', function () {
+    gulp.src('templates/**/*.handlebars')
+      .pipe(handlebars())
+      .pipe(wrap('Handlebars.template(<%= contents %>)'))
+      .pipe(declare({
+          namespace: 'MyApp.templates',
+          noRedeclare: true, // Avoid duplicate declarations
+      }))
+      .pipe(concat('templates.js'))
+      .pipe(gulp.dest('./js'));
+});
+
+
 /*==========================================================
 js minification
 ==========================================================*/
@@ -214,7 +232,7 @@ gulp.task('watch', function() {
 dist build
 ==========================================================*/
 gulp.task('build', function(callback) {
-  runSequence('clean','copy',
+  runSequence('clean','copy','templates',
               ['js-vendor', 'js-app', 'sass', 'images'],
               'revision', 'revreplace');
 });

@@ -1,0 +1,32 @@
+{{#each items}}
+    <div>
+        {{description}} - {{id}} - {{type}}
+    </div>
+
+    <ul>
+        {{#each children}}
+            {{description}} - {{id}} - {{type}}
+
+            
+                    
+                
+            {{#each children}}
+                <ul>
+                <li>
+                {{description}} - {{id}} - {{type}}
+
+                {{#each children}}
+                    <ul>
+                    <li>
+                    {{description}} - {{id}} - {{type}}
+                    </li>
+                </ul>
+                {{/each}}
+                </li>
+            </ul>
+            {{/each}}
+        {{/each}}
+    </ul>
+
+
+{{/each}}

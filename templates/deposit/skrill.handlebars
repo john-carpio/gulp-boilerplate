@@ -1,0 +1,31 @@
+<div id="deposit_page" class="deposit-page form-wrapper">
+    <form id="deposit_skrill_form">
+        <div class="main-header">
+            <h4>{{t "deposit.deposit"}}</h4>
+        </div>
+
+        <div id="deposit_methods" class="deposit-methods row">
+            <div id="credit_card_method" class="credit-card-method col-lg-6 text-center">
+                <img src="assets/images/deposit-credit-card-inactive.jpg">
+            </div>
+            <div id="skrill_method" class="skrill-method col-lg-6 text-center">
+                <img src="assets/images/deposit-skrill-active.jpg">
+            </div>
+        </div>
+
+        <div class="card-details panel panel-default">
+            <div class="panel-heading">{{t "deposit.skrillDetails" }}</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label">{{t "deposit.walletEmailAddress"}} *</label>
+                    <input class="form-control" name="email" type="email">
+                </div>
+            </div>
+        </div>
+        <div class="row btn-container">
+            <div class="col-lg-12 text-center">
+                <button class="form-control" type="submit">{{t "deposit.continue"}}</button>
+            </div>
+        </div>
+    </form>
+</div>

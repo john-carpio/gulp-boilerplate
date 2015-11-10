@@ -1,0 +1,107 @@
+{{#if liveMode}}
+<div class="section-block {{region}}-section">
+    <div class="section-nav">
+        <ul class="section">
+            <li class="{{#ifCond displayMode '===' 'all'}}active{{/ifCond}}">
+                <a href="#" class="live-view" data-viewmode="overview" >
+                    {{t 'sports.overview'}}
+                </a>
+            </li>
+            {{!-- <li class="{{#ifCond displayMode '===' 'event'}}active{{/ifCond}}">
+                <a href="#" class="live-view {{#ifCond displayMode '===' 'event'}}{{else}}disabled{{/ifCond}}" data-viewmode="eventview" >
+                    {{t 'sports.eventsview'}}
+                </a>
+            </li> --}}
+            <li class="{{#ifCond displayMode '===' 'multi'}}active{{/ifCond}}">
+                <a href="#" class="live-view" data-viewmode="multiview" >
+                    {{t 'sports.multiview'}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="section-util">
+        <ul class="section">
+            
+            <li class="">
+                <div class="util-icon">
+                    <button type="button" class="btn btn-default btn-livealert"><i class="fa {{#if ../getLiveAlert}}fa-volume-up{{else}}fa-volume-off{{/if}}"></i></button>
+                </div>
+            </li>
+            <li class="">
+                <div class="timer-block">
+                    <span class="icon-refresh"><i class="fa fa-refresh"></i></span>
+                    <span class="timer">00</span>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+{{/if}}
+
+<div class="section-block live-display-{{displayMode}} {{sectionCode}}  live-inplay {{region}}-section">
+    <!-- start: title -->
+    <div class="section-title block-title">
+        <div class="title">
+            <span>
+                {{#ifCond displayMode '===' 'all'}}
+                {{t 'ui.myFavorites'}}
+                {{else}}
+
+                {{t 'ui.live'}}
+                {{/ifCond}}
+            </span>
+        </div>
+        {{#ifCond displayMode '!==' 'all'}}
+            <div class="tabs">
+                <i class="fa fa-spin fa-spinner"></i>
+            </div>
+        {{/ifCond}}
+
+
+    </div>
+    <!-- end: title -->
+
+
+    {{!-- {{#ifCond displayMode '===' 'event'}}
+        <div class="frame-container"></div>
+    {{else}} --}}
+        <div class="favs-container {{#ifCond displayMode '!==' 'multi'}}fav-separate{{/ifCond}}">
+            {{#ifCond displayMode '!==' 'all'}}
+                {{> live/multi-container}}
+            {{else}}
+                {{> live/favs-container}}
+            {{/ifCond}}
+        </div>
+    {{!-- {{/ifCond}} --}}
+    {{#ifCond displayMode '!==' 'multi'}}
+    <div class="float-handle"></div>
+    <div class="section-title block-title float-title">
+        <div class="title">
+            <span>
+                {{#ifCond displayMode '===' 'event'}}
+                    <a class="live-return-btn" title="Go Back"><i class="fa fa-chevron-circle-left"></i></a>
+                {{/ifCond}}
+                {{t 'ui.live'}}
+            </span>
+        </div>
+        {{#isEqual displayMode 'event'}}
+            <div class="option-block">
+                <div class="btn-group">
+                    <button type="button" class="btn-league market-modal" data-target="#league-modal" aria-expanded="false" disabled >
+                        {{t 'ui.selectMarket'}} <span class="caret"></span>
+                    </button>                
+                </div>
+            </div>
+        {{/isEqual}}
+    </div>
+    {{/ifCond}}
+    <div class="section-container {{sportCode}}">
+        {{!-- <div class="{{region}}-row {{region}}-header">
+        </div> --}}
+        
+        <div class="league-container">
+            {{> ui/loading}}
+        </div>
+    </div>
+</div>

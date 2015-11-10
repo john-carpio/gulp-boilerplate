@@ -1,0 +1,36 @@
+<div class="block-title">
+    <div class="title">
+        <span>
+            <i class="icon fa fa-laptop"></i>
+            {{t 'ui.other'}}
+        </span>
+    </div>
+</div>
+<ul class="nav-list nav-list-quick-links">
+    <li>
+        <a class="nav-link">
+            <span class="tree-name">{{t "sports.liveScore"}}</span>
+        </a>
+    </li>
+
+    <li>
+        <a class="nav-link">
+            <span class="tree-name">{{t "sports.bestOdds"}}</span>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link nav-popularGames">
+            <span class="tree-name">{{t "sports.popularGames"}}</span>
+            <span class="tree-action"><i class="fa fa-plus"></i></span>
+        </a>
+        <ul class="nav-tree popularGamesList">
+            <li>
+                <div class="nav-text">
+                    <a class="nav-link level-0">
+                        <span class="tree-name"><i class="fa fa-spin fa-spinner"></i>  {{t "Loading..."}} </span>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>

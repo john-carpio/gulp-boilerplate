@@ -1,0 +1,46 @@
+{{#unless hasMatchtracker }}
+<div class="br-scoreboard">
+    <div class="br-title-container">
+        <div class="br-league-path"><i class="icon qicon-{{toLowerCase event.code}}"></i> {{event.liveEvent.pdesc}}</div>
+        <!--div class="live-extra">
+            <i class="fa fa-bar-chart"></i>
+            <i class="fa fa-desktop"></i>
+            <i class="fa fa-rss"></i>
+        </div-->
+    </div>
+    <div class="br-scoreboard-container">
+        <div class="br-opponent">
+            <div class="br-opponent-name" title="{{event.opponentA}}">
+                {{event.opponentA}}
+            </div>
+        </div>
+        <div class="br-score-time-container">
+            <div class="br-live-period">{{getLivePeriod event.code event.liveEvent.time.p}}</div>
+            <div class="br-scoreboard">
+                <div class="br-score-container">
+                    <div class="br-scores{{updateScores score}}">
+                        <span class="score-a">{{score.score.a}}</span>
+                    </div>
+                    <div class="br-scores">
+                        <span>:</span>
+                    </div>
+                    {{consoleLog match}}
+                    <div class="br-scores{{updateScores score}}">
+                        <span class="score-b">{{score.score.b}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="br-live-time" data-time-m="{{event.liveEvent.time.m}}" data-time-s="{{event.liveEvent.time.s}}" data-reversed-time="{{reversedTime}}" data-status="{{event.liveEvent.time.status}}"  data-id="l{{event.id}}" data-timeonly="true">{{runningTime event.liveEvent.time reversedTime ''  event.liveEvent }}
+            </div>
+        </div>
+        <div class="br-opponent">
+            <div class="br-opponent-name" title="{{event.opponentB}}">
+                {{event.opponentB}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/unless}}
+<div class="br-messages {{updateScores score}}">
+   {{> live/score-messages messagesOpen=messagesOpen event=event }}
+</div>

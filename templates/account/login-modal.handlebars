@@ -1,0 +1,67 @@
+{{!-- <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="login_modal_page" class="login-page form-wrapper">
+        <form id="login_modal_form" class="login-form">
+            <div class="main-header"><h4>{{t "login.login"}}</h4></div>
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="password">Username</label>
+                        <div>
+                            <input id="username" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Password</label>
+                        <div>
+                            <input id="password" name="password" type="password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <div>
+                            <input type="checkbox" id="cbRememberMe" name="rememberMe" class="fa-chk-sqr">
+                            <label for="cbRememberMe" class="lbl-for-cb">Remember me</label>
+                        </div>
+                    </div>
+                    <!--div id="errorMsgContainer" class="form-group hidden">
+                        <label>&nbsp;</label>
+                        <div id="errorMsg" class="text-danger"></div>
+                    </div-->
+                    <div>
+                        <button id="btn_login" class="login-btn btn-dark" type="submit">{{t "login.loginBtn" }}</button>
+                    </div>
+                </div> 
+            </div> 
+        </form>
+    </div>
+</div> --}}
+
+<form id="login_modal_form" class="login-form">
+    <div class="form-group">
+        <label for="password">{{t "account.username"}}</label>
+        <div>
+            <input id="username" name="username" placeholder="{{t "account.username"}}" value="{{accountName}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">{{t "account.password"}}</label>
+        <div>
+            <input id="password" name="password" type="password" placeholder="{{t "account.password"}}" >
+        </div>
+    </div>
+    <div class="form-group cbRememberMe ">
+        
+        <div>
+            <label for="modal-cbRememberMe" class="lbl-for-cb">
+                <span class="checkbox-wrap  {{isChecked rememberMe }} "><input type="checkbox" id="modal-cbRememberMe" name="rememberMe" class="fa-chk-sqr" {{isChecked rememberMe }}></span>
+                {{t "account.remember"}}
+            </label>
+        </div>
+    </div>
+    <!--div id="errorMsgContainer" class="form-group hidden">
+        <label>&nbsp;</label>
+        <div id="errorMsg" class="text-danger"></div>
+    </div-->
+    <button class="hide" type="submit">{{t "login.loginBtn" }}</button>
+</form>

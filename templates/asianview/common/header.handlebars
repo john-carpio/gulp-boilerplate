@@ -1,0 +1,24 @@
+<div class="tcol tcell tspan-2 col-time">
+    <span>{{t "asianView.time"}}</span>
+</div>
+<div class="tcol tcell tspan-2 col-events">
+    <span>{{t "asianView.events"}}</span>
+</div>
+
+{{#foreach cols}}
+	<div class="tcol {{klas}}">
+		{{#foreach rows}}
+			<div class="trow {{klas}}">
+				{{#foreach cells}}
+					<div class="tcol tcell {{klas}}">
+						<span>{{desc}}</span>
+					</div>
+				{{/foreach}}
+			</div>
+		{{/foreach}}
+	</div>
+{{/foreach}}
+
+<div class="tcol tcell tspan-2 col-more">
+	<span>{{t "asianView.more"}}</span>
+</div>

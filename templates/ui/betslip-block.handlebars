@@ -1,0 +1,50 @@
+<div class="block-title">
+    <div class="title">
+        <span>
+            {{t 'ui.betslip'}}
+        </span>
+    </div>
+</div>
+
+
+<div class="betslip-container">
+    <div class="loading-cover hidden"> 
+        <div class="rtg-spinner">
+          <i class="fa fa-spin fa-spinner"></i><span> Processing...</span>
+        </div>
+    </div>
+
+    <div id="betslip-result"></div>
+
+    <div class="blank-slate">
+        <div class="content">
+            {{t 'ui.betslipBlankSlate'}}
+        </div>
+        
+    </div>
+
+    {{!-- <div class="loading-cover">
+        <div>
+            <i class="fa fa-spin fa-spinner"></i>
+        </div>
+    </div> --}}
+
+    <div class="error-cover">
+        <div class="content">
+            <span class=""></span>
+            <span class="bet-error error-default">{{t 'betSlip.errorDefault'}}</span>
+            <span class="bet-error error-insufficient">{{t 'betSlip.errorInsufficient'}}</span>
+            <span class="bet-error error-cancelled">{{t 'betSlip.cancelled'}}</span>
+
+            <span class="bet-error error-minimumBet">{{t 'betSlip.errorMinimum'}} <span class="minAmnt"></span></span>
+            <div class="button-container">
+                <button type="button" class="btn-betslip-exit" role="button" ><span class="text">{{t 'betSlip.ok'}}</span> <i class="fa fa-spin fa-spinner"></i></button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="betslip-modal">
+    </div>
+</div>
+
+

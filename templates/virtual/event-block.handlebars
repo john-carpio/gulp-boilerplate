@@ -1,0 +1,28 @@
+<div class="event-markets {{style}} default-market-{{size children}}" data-style="{{style}}">
+    <div class=" m-{{id}} {{showFlags flags}}">
+        {{#if columns}}
+            {{#foreach (toColumns (sortByProps children 'pos') columns ) }}
+            <div class="col-group">
+                {{#each this }}
+                    {{> europeanview/common/group-1x1-price columns=../../columns code=../../code outcome=this team=this.description}}
+                {{/each}}
+            </div>
+            {{/foreach}}
+        {{else}}
+            {{#each (sortByProps children 'pos') }}
+                {{> europeanview/common/group-1x1-price outcome=this columns=../../columns code=../../code team=this.description outcomeList=../../outcomeList}}
+            {{/each}}
+        {{/if}}
+    	{{!-- {{#foreach (toColumns (sortJockey children 'pos') 5 ) }}
+	    	<div class="col-group">
+                {{#each this}}--}}
+                {{!-- {{#each (sortByProps children 'pos') }}
+		            {{> europeanview/common/group-1x1-price outcome=this team=this.description}}
+		        {{/each}} --}}
+		{{!--         {{/each}}
+		    </div>
+
+    	{{/foreach}} --}}
+
+    </div>
+</div>

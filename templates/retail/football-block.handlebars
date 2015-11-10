@@ -1,0 +1,62 @@
+
+<div class="market-headers" >
+    <div class="league-info">
+        {{#parseTitle league.description}}
+            <span>{{season}}</span>
+        {{/parseTitle}}
+    </div>
+    <div class="market-header">
+        Win/Draw/Win - 90 Mins
+        <div class="market-label">
+            <span>1</span>
+            <span>x</span>
+            <span>2</span>
+        </div>
+    </div>
+    <div class="market-header">
+        Halftime - 3way - First Half
+        <div class="market-label">
+            <span>1</span>
+            <span>x</span>
+            <span>2</span>
+        </div>
+    </div>
+
+</div>
+{{#each league.children}}
+<div class="event-container {{style}} default-market-{{size this.children}}" data-style="{{style}}" data-brmatchid="{{this.brMatchId}}">
+    <div class=" m-{{id}} {{showFlags flags}} ">
+        
+        
+        <div class="opponent-container">
+            <span>{{this.opponentA}}</span><br>
+            <span>{{this.opponentB}}</span>
+        </div>
+        
+
+        
+            
+            {{#each this.children}}
+                
+                {{#each this.children }}
+                {{!-- {{#foreach markets}} --}}
+                    {{#isEqual this.style  'WIN_DRAW_WIN'}}
+                    <div class="market-container">
+                        <div class="european-row market-list {{toLowerCase this.description}}" >
+                            <div class="market-description">
+                                {{this.description}} - {{this.period}}
+                            </div>
+                            
+                                {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                            
+                        </div>
+                    </div>
+                    {{/isEqual}}
+                {{!-- {{/foreach}} --}}
+                {{/each}}
+                
+            {{/each}}
+        
+    </div>
+</div>
+{{/each}}

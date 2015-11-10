@@ -1,0 +1,169 @@
+
+
+{{#foreach event.children}}
+
+
+{{!-- 1 {{event.opponentA}}
+2 {{../event.opponentA}}
+
+
+{{$index}}
+{{@key}}: {{this}}
+
+{{#if $first }}
+first row
+{{else}}
+row
+{{/if}}
+ --}}
+
+
+<tr class="doubleview-row" data-id="{{../event.id}}">
+    <td class="col-date">
+        {{#if $first}}
+            
+            <div class="date">
+                {{formatDateTime ../event.date 'date'}}
+            </div>
+            <div class="time">
+                {{formatDateTime ../event.date 'time'}}
+            </div>
+        {{/if}}
+    </td>
+
+    <td class="col-teams">
+        {{#if $first}}
+            {{!-- {{#if $first}}is first{{/if}} --}}
+            <div class="teams">
+                {{!-- formatTeamName will return span --}}
+                {{formatTeamName ../../event.opponentA children.1X2.children.[0].price children.1X2.children.[1].price}}
+                {{formatTeamName ../../event.opponentB children.1X2.children.[1].price children.1X2.children.[0].price}}
+                <span>Draw</span>
+            </div>
+            <a class="add-to-favourites"><i class="bet-icon icon-star-1"></i></a>
+        {{/if}}
+    </td>
+
+
+
+
+    {{!-- Start Full Time --}}
+
+        {{!-- Start HDP --}}
+
+        <td class="col-market col-HDP" data-id="{{children.HDP.id}}" data-description="{{children.HDP.description}}">
+
+            {{> sports/doubleline outcome=children.HDP.children.[0]  withSpread=true}}
+
+            {{> sports/doubleline outcome=children.HDP.children.[1]  withSpread=true}}
+
+            <div class="doubleview-line"></div>
+
+        </td>
+
+        {{!-- End HDP --}}
+
+
+        {{!-- Start OU --}}
+        <td class="col-market col-OU" data-id="{{children.OU.id}}" data-description="{{children.OU.description}}">
+
+            {{> sports/doubleline outcome=children.OU.children.[0] prefix='o' withSpread=true}}
+
+            {{> sports/doubleline outcome=children.OU.children.[1] prefix='u' }}
+
+            <div class="doubleview-line"></div>
+            
+        </td>
+        {{!-- End OU --}}
+
+
+        {{!-- Start OE --}}
+        <td class="col-market col-OE" data-id="{{children.OE.id}}" data-description="{{children.OE.description}}">
+
+
+            {{> sports/doubleline outcome=children.OE.children.[0] prefix='o'}}
+
+            {{> sports/doubleline outcome=children.OE.children.[1] prefix='e'}}
+
+            <div class="doubleview-line"></div>
+
+        </td>
+
+
+        {{!-- Start 1X2 --}}
+        <td class="col-market col-1X2" data-id="{{children.1X2.id}}" data-description="{{children.1X2.description}}">
+
+            {{> sports/doubleline outcome=children.1X2.children.[0]}}
+
+            {{> sports/doubleline outcome=children.1X2.children.[2]}}
+
+            {{> sports/doubleline outcome=children.1X2.children.[1]}}
+            
+        </td>
+        {{!-- End 1X2 --}}
+
+
+    {{!-- End Full Time --}}
+
+    {{!-- Start First Half --}}
+        {{!-- Start FH-HDP --}}
+
+        <td class="col-market col-HDP hide-in-sm" data-id="{{children.FH-HDP.id}}" data-description="{{children.FH-HDP.description}}">
+
+            {{> sports/doubleline outcome=children.FH-HDP.children.[0]  withSpread=true}}
+
+            {{> sports/doubleline outcome=children.FH-HDP.children.[1]  withSpread=true}}
+
+            <div class="doubleview-line"></div>
+
+        </td>
+
+
+        {{!-- Start FH-OU --}}
+        <td class="col-market col-OU hide-in-sm" data-id="{{children.FH-OU.id}}" data-description="{{children.FH-OU.description}}">
+
+            {{> sports/doubleline outcome=children.FH-OU.children.[0] prefix='o'  withSpread=true}}
+
+            {{> sports/doubleline outcome=children.FH-OU.children.[1] prefix='u'  }}
+
+
+            <div class="doubleview-line"></div>
+            
+        </td>
+        {{!-- End FH-OU --}}
+
+
+        {{!-- Start FH-1X2 --}}
+
+        <td class="col-market col-1X2 hide-in-sm" data-id="{{children.FH-1X2.id}}" data-description="{{children.FH-1X2.description}}">
+
+            
+            {{> sports/doubleline outcome=children.FH-1X2.children.[0]}}
+
+            {{> sports/doubleline outcome=children.FH-1X2.children.[2]}}
+
+            {{> sports/doubleline outcome=children.FH-1X2.children.[1]}}
+            
+        </td>
+
+        {{!-- End FH-1X2 --}}
+
+
+
+    
+    {{!-- End First Half --}}
+
+    <td class="col-more">
+        {{#if $first}}
+            <!-- +More team-details button -->
+            <button class="btn-custom btn-more">+{{../../event.count}}</button>
+        {{/if}}
+    </td>
+
+</tr>
+
+
+
+
+
+{{/foreach}}

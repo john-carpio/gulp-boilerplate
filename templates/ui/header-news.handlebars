@@ -1,0 +1,18 @@
+<div class="header-bottom-sub">
+    <div class="wrapper-main">
+        <div class="wrapper-news">
+            <span><a href="#">{{t 'ui.news'}}</a> :</span>
+            <span class="news-slidebox"><span >{{t 'ui.loading'}}</span></span>
+        </div>
+        <div class="wrapper-search">
+            <form action="/search" method="get" id="search-form">
+                <div class="input-group">
+                    <input type="text" name="q" placeholder="{{t 'ui.search'}}" value="{{searchTerm}}">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="block-title">
+    <div class="title">
+        <span>
+            {{t 'ui.betslip'}}
+        </span>
+    </div>
+    <div class="help-icon"><a href="#" class="bet-slip-help"><i class="fa fa-question-circle"></i></a></div>
+</div>
+
+<div role="tabpanel" class="betting-slip-tab">
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#bet-single" aria-controls="bet-single" role="tab" data-toggle="tab">Single</a></li>
+        {{!-- <li role="presentation"><a href="#bet-coupon" aria-controls="bet-coupon" role="tab" data-toggle="tab">Coupon</a></li>
+        <li role="presentation"><a href="#bet-outright" aria-controls="bet-outright" role="tab" data-toggle="tab">Outright</a></li> --}}
+        <li role="presentation"><a href="#bet-parlay" aria-controls="bet-parlay" role="tab" data-toggle="tab">Parlay</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade in active" id="bet-single">
+
+            <div class="wrap-selection">
+                <div class="loading-cover">
+                    <div>
+                        <i class="fa fa-spin fa-spinner"></i>
+                    </div>
+                </div>
+                <ul>
+                    {{#each singles}}
+                        <li class="status-{{marketStatus}}">
+                            <div class="wrap-team">
+                                <div class="team">{{outcomeDescription}}</div>
+                                <div>
+                                    <span class="odds">{{priceFormatted}}</span>
+                                    <a href="#" class="remove" data-outcomeid="{{outcomeId}}"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="teams">{{eventDescription}}</div>
+                            <div class="date">{{formatDateTime eventStartDateTime 'datetime'}}</div>
+                            <div class="wrap-stake">
+                                <label for="max-bet">Stake</label>
+                                <div class="input-group">
+                                    <input type="text" id="max-bet" class="form-control" placeholder="0.00" aria-describedby="max-bet-label">
+                                    <span class="input-group-addon">Bet</span>
+                                </div>
+                                <span>Win EUR </span>
+                            </div>
+                            <div class="cover"></div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            
+            <div class="wrap-total">
+                <div>EUR 1.00</div>
+                <div>Total Bets</div>
+            </div>
+            <div class="wrap-win">
+                <div>EUR 16.50</div>
+                <div>Potential Win</div>
+            </div>
+            <div class="wrap-buttons">
+                <div><button type="button" class="btn-remove remove-all" role="button" {{#unless singles.length}}disabled{{/unless}}>Remove All</button></div>
+                <div>
+                    {{!-- <button type="button" class="btn-update" role="button" disabled>Update</button> --}}
+                    <button type="button" class="btn-next" role="button" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+        {{!-- <div role="tabpanel" class="tab-pane fade" id="bet-coupon">Coupon</div>
+
+        <div role="tabpanel" class="tab-pane fade" id="bet-outright">Outright</div> --}}
+
+        <div role="tabpanel" class="tab-pane fade" id="bet-parlay">
+            <div class="wrap-selection">
+
+                {{#if multiples}}
+                <ul>
+                    
+                    {{#each singles}}
+                        <li>
+                            <div class="wrap-team">
+                                {{marketStatus}}
+                                <div class="team">{{outcomeDescription}}</div>
+                                <div>
+                                    <span class="odds">{{priceFormatted}}</span>
+                                    <a href="#" class="remove" data-outcome="{{outcomeId}}"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="teams">{{eventDescription}}</div>
+                            <div class="date">{{eventStartDateTime}}</div>
+                            
+                        </li>
+                    {{/each}}
+                    
+                </ul>
+
+                {{/if}}
+            </div>
+            
+
+            <div class="wrap-total">
+                <div>EUR 1.00</div>
+                <div>Total Bets</div>
+            </div>
+
+            <div class="wrap-total">
+                <div>EUR 1.00</div>
+                <div>Total Bets</div>
+            </div>
+            <div class="wrap-win">
+                <div>EUR 16.50</div>
+                <div>Potential Win</div>
+            </div>
+            <div class="wrap-buttons">
+                <div><button type="button" class="btn-remove" role="button" {{#unless singles.length}}disabled{{/unless}}>Remove All</button></div>
+                <div>
+                    {{!-- <button type="button" class="btn-update" role="button" disabled>Update</button> --}}
+                    <button type="button" class="btn-next" role="button" disabled>Next</button>
+                </div>
+            </div>
+        </div>
+
+    </div> {{!-- end: .tab-content --}}
+
+</div> {{!-- end: .betting-slip-tab --}}
+

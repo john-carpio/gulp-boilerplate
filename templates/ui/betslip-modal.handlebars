@@ -1,0 +1,15 @@
+<div id="{{id}}" class="modal">
+  <div class="modal-header">
+    <div class="modal-title">{{title}}</div>
+    <div class="modal-close{{#unless hasCloseButton}} hidden{{/unless}}">&times;</div>
+  </div>
+  <div class="modal-body">
+    <div class="info"><span class="modal-type {{type}}">{{getType type}}</span>{{{info}}}</div>
+    <div class="content">{{{content}}}</div>
+  </div>
+  <div class="modal-footer">
+    {{#each buttons}}
+    <span id="{{this.id}}" class="button">{{this.name}}</span>
+    {{/each}}
+  </div>
+</div>

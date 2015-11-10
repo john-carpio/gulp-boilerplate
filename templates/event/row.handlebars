@@ -1,0 +1,43 @@
+<div class="event-block event e-{{event.id}}">
+{{!--     <div class="title-container">
+        <div class="league-path">
+
+            {{event.description}}
+        </div>
+    </div> --}}
+
+
+
+    <div class="event-header league-path">
+                <div class="col col-teams">
+                    <div class="teams" title="{{../../event.description}}">
+                            {{!-- {{#if ../../virtual}}
+                                {{> ui/statistics id=../../../event.id title=../../../event.description}}
+                            {{else}}
+                                {{> ui/addtofavorites id=../../../event.id title=../../../event.description type='e'}}
+                            {{/if}} --}}
+                        <span>
+                            {{event.description}}
+                        </span>
+                        
+                    </div>
+                </div>
+                <div class="col col-time{{checkUpdatedScores ../../score ../../code}}">
+                    <div class="wrapper clearfix pull-right">
+                            {{> europeanview/common/date-cell date=event.date livemode=../../liveMode reversedTime=../../reversedTime liveEvent=../../event.liveEvent score=../../score.score code=../../code sets=../../sets status=../../event.liveEvent.time.status match=../../match}}
+                    </div>
+                </div>
+            </div>
+    
+{{#foreach event.children}}
+    <div class="european-row market-list {{showFlags children.market.flags}}" data-period="{{children.market.period}}" data-marketGroup="{{children.market.marketTypeGroup}}" data-marketId="{{children.market.id}}">
+        <div class="market-description">
+            {{children.market.description}} - {{children.market.period}}
+        </div>
+            {{#if children.market}}
+                {{> live/event-block style=children.market.style children=children.market.children first=$first id=children.market.id count=../../event.extendedCount eventID=../../event.id flags=children.market.flags liveMode=../../liveMode}}
+            {{/if}}
+    </div>
+{{/foreach}}
+
+</div>

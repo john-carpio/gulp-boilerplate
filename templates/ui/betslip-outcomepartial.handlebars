@@ -1,0 +1,21 @@
+<div class="wrap-outcome-details">
+    <div class="wrap-header">   
+        <div>
+            {{eventDescription}}
+        </div>
+    </div>
+    <div class="wrap-outcome">
+        <div class="team">
+            <span>
+                {{outcomeDescription}}
+                {{#if unitStake}}
+                    @ {{priceFormatted}} - {{currencyCode}} {{formatNumeral unitStake}}
+                {{/if}}
+            </span></div>
+    </div>
+
+    <div class="wrap-details">
+        {{marketDescription}} - {{periodDescription}}
+    </div>
+
+</div>

@@ -1,0 +1,31 @@
+<div class="section-block {{sectionCode}} european-section event-page">
+    <!-- start: title -->
+    <div class="section-title block-title">
+        <div class="title">
+            <span>
+                <i class="icon qicon-{{sportCode}}"></i>{{tPrefix 'sportCode' sportCode}}
+            </span>
+        </div>
+        <div class="timer-block">
+            <span class="icon-refresh"><i class="fa fa-refresh"></i></span>
+            <span class="timer">00</span>
+        </div>
+        <div class="option-block">
+            <div class="btn-group">
+                <button type="button" class="btn-league market-modal" data-target="#league-modal" aria-expanded="false" disabled >
+                    {{t 'ui.selectMarket'}} <span class="caret"></span>
+                </button>                
+            </div>
+        </div>
+    </div>
+    <!-- end: title -->
+
+
+    <div data-code="{{sportCode}}" class="section-container{{#if isAsian}} criteria-{{criteria}} {{#if isDouble}}double{{else}}single{{/if}}-view{{/if}} {{sportCode}}">
+        <div class="{{region}}-row {{region}}-header">
+        </div>
+        <div class="league-container">
+            {{> ui/loading}}
+        </div>
+    </div>
+</div>

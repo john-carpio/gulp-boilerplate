@@ -1,0 +1,15 @@
+{{#if livemode}}
+	<div class="scores-container">
+		<span class="live-period-msg">
+			<span class="score-a">{{showScore liveEvent 'a' }}</span>
+
+			<span class="score-b">{{showScore liveEvent 'b'}}</span>
+		</span>
+	</div>
+	
+{{else}}
+	<span class="datetime">
+		{{formatDateTime date 'MM/DD hh:mm A'}}
+	</span>
+{{/if}}
+ <!--span></span-->

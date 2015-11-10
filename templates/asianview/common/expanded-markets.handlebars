@@ -1,0 +1,17 @@
+{{#foreach markets}}
+    <div class="more-market market m-{{children.market.id}}{{showFlags children.market.flags}} {{getClassForStyle children.market.style}}">
+        <div class="market-group">
+		    <div class="title-row">
+		        {{children.market.description}} - {{children.market.period}}
+		    </div>
+		    <div class="group-row outcome-size-{{size children.market.children}}">
+		        {{#foreach children.market.children}}
+		            <div class="group-cell" title="{{this.description}}">
+		                {{> asianview/common/more-market-cell-outcome outcome=this description=../children.market.description i=$index outcomeDescription=this.description}}
+		            </div>
+		        {{/foreach}}
+		    </div>
+		</div>
+    </div>
+{{/foreach}}
+

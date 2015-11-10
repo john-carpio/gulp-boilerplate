@@ -1,0 +1,16 @@
+
+<div class="event-markets {{style}} default-market-{{size children}}" data-style="{{style}}">
+	{{description}}
+	<div class="col-markets-desc {{showFlags flags}}">
+        <span>{{this.market}}</span>
+    </div>
+    <div class="col-markets with-desc m-{{id}} {{showFlags flags}}">
+    	
+        {{#each children}}
+            {{> europeanview/common/group-1x1-price outcome=this team=this.description}}
+        {{/each}}
+        
+    </div>
+    {{> europeanview/common/more first=first id=eventID count=count liveMode=liveMode eventDescription=eventDescription brMatchId=brMatchId}}
+    {{event.description}}
+</div>

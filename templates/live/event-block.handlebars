@@ -1,0 +1,7 @@
+<div class="event-markets {{style}} default-market-{{size children}}" data-style="{{style}}">
+    <div class="col-markets m-{{id}} {{showFlags flags}}">
+        {{#each children}}
+            {{> europeanview/common/group-1x1-price outcome=this team=this.description}}
+        {{/each}}
+    </div>
+</div>

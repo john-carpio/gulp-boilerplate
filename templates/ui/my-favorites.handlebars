@@ -1,0 +1,23 @@
+<div class="block-title">
+    <div class="title">
+        <span>
+            <i class="icon fa fa-star"></i>
+            {{t 'ui.myFavorites'}}
+        </span>
+    </div>
+    <div class="util-icon" >
+        <button type="button" class="util-btn expand-btn" {{#unless hasExpanded}}disabled{{/unless}}><i class="fa {{#if expanded}}fa-chevron-up{{else}}fa-chevron-down{{/if}}"></i></button>
+    </div>    
+</div>
+
+<ul class="nav-list nav-list-favourites {{#if expanded}}expanded{{/if}}">
+    
+    {{#if isLoading}}
+        <li>{{> ui/loading}}</li>
+    {{/if}}
+    {{#each favorites}}
+        {{> ui/favorite-item item=this}}
+    {{else}}
+        {{#unless isLoading}}<li class="no-fav ">{{t 'ui.myFavoritesBlank'}}</li>{{/unless}}
+    {{/each}}
+</ul>

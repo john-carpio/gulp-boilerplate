@@ -1,0 +1,230 @@
+{{#if numberOfSelections}}
+  <div class="help-icon">
+    <a class="bet-slip-icon clear-all{{#unless isEntryStage}} disabled{{/unless}}"><i class="fa fa-trash"></i></a>
+    <a class="bet-slip-icon bet-slip-refresh{{#if isConfirmationStage}} disabled{{/if}}"><i class="fa fa-refresh"></i></a>
+  </div>
+{{/if}}
+{{#unless allSelectionsValid}}
+  <div class="invalid-message-container">
+    <div class="invalid-message">
+      <span>
+        {{#ifCond selectionCount '==' 1}}
+          Your selection is now unavailable. Please remove it and select another to continue.
+        {{else}}
+          {{#ifCond selectionCount '==' invalidSelectionCount}}
+            All your selections are now unavailable. Please clear your selections and select another to continue.
+          {{else}}
+            {{invalidSelectionCount}} of your selections {{#ifCond invalidSelectionCount '>' 1}}are unavailable. Please remove these selections to continue.{{else}}is unavailable. Please remove it from your selections to continue.{{/ifCond}}
+          {{/ifCond}}
+        {{/ifCond}}
+      </span>
+    </div>
+  </div>
+{{/unless}}
+<div class="betslip-stages kind-{{currentKind}} stage-{{currentStage}}{{#if isStakeStage}} stage-stake{{/if}}{{#if exactlyOneBet}} exactly-one-bet{{/if}}">
+  <div class="selections {{#unless numberOfSelections}}empty{{/unless}}" id="selections"> 
+    <ul class="selected-outcomes">
+      {{#each singles}}
+        <li class="sel {{ref}} {{outcomeId}} outcome-state-{{outcomeState}}" data-ref="{{ref}}">
+          <div class="sel-head">
+            {{#if ../isEntryStage}}
+              <span class="del">&times;</span>
+            {{/if}}
+            <span class="outcDesc">{{outcomeDescription}} {{#if spread}}({{spread}}){{/if}}</span>
+            <span class="price {{priceDirection}} flag-{{outcomeState}}" data-price="{{price}}">
+              <span class="span-flash"></span>
+              {{#if startingPrice}}
+                SP
+              {{else}}
+                {{#if price}}
+                  {{priceDisplay price spread}}
+                {{/if}}
+              {{/if}}
+            </span>
+          </div>
+          <div class="sel-body"> 
+            <span class="evtDesc">{{eventDescription}}</span>
+            <span class="mktDesc">{{marketDescription}} - {{periodDescription}}</span>
+            <div class="ew-container">
+              <span class="ewterms">{{placeTerms}}</span>
+            </div>
+            <div class="switch-main-container">
+              {{#ifCond ../isConfirmationStage '||' ../isStakeStage}}
+                {{#if ../../isSingleKind}}
+                  {{#if showEachWay}}
+                    {{#if eachWay}}
+                      <div class="switch-container">
+                        <input data-ref="{{ref}}" type="checkbox" class="ew-checkbox" checked="checked">
+                        <label>EW</label>
+                      </div>
+                    {{else}}
+                      <div class="switch-container">
+                        <input data-ref="{{ref}}" type="checkbox" class="ew-checkbox">
+                        <label>EW</label>
+                      </div>
+                    {{/if}}
+                  {{/if}}                  
+                {{/if}}
+              {{/ifCond}}
+              {{#if showStartingPrice}}
+                {{#ifNullId priceId}}
+                  <div class="switch-container">
+                    <input data-ref="{{ref}}" type="checkbox" class="sp-checkbox" checked="checked" disabled="disabled">
+                    <label>SP</label>
+                  </div>
+                {{else}}
+                  {{#if startingPrice}}
+                    <div class="switch-container">
+                      <input data-ref="{{ref}}" type="checkbox" class="sp-checkbox" checked="checked">
+                      <label>SP</label>
+                    </div>
+                  {{else}}
+                    {{#if price}}
+                      <div class="switch-container">
+                        <input data-ref="{{ref}}" type="checkbox" class="sp-checkbox">
+                        <label>SP</label>
+                      </div>
+                    {{else}}
+                      <div class="switch-container">
+                        <input data-ref="{{ref}}" type="checkbox" class="sp-checkbox" checked="checked">
+                        <label>SP</label>
+                      </div>
+                    {{/if}}
+                  {{/if}}
+                {{/ifNullId}}
+              {{/if}}
+            </div>
+            {{#unless ../exactlyOneBet}}
+              <div class="single-stake-container">
+                <span class="stake-span">Stake :</span>
+                <input type="text" class="single-stake-input" placeholder="0" maxlength="9" data-ref="{{../ref}}" value="{{formatStakeInput (getSinglesLastValue @index)}}"/>
+              </div>
+            {{/unless}}
+            {{#if ../isMultipleSingles}}
+              <div class="single-potentials">
+                <div class="single-potential-stake">
+                  <span>Stake: </span><span>{{formatCurrency ../unitStake}}</span>
+                </div>
+                <div class="single-potential-returns">
+                  <span>Potential Returns: </span>
+                  <span>{{formatCurrency (getMultipleSinglePotentials price ../potentialReturns)}}</span>
+                </div>
+              </div>
+            {{/if}}
+          </div>
+     
+        </li>
+      {{/each}}
+    </ul>
+    <div class="betslip-control {{#if isSingleKind}}single{{/if}} {{#if isMultipleKind}}accumulator{{/if}} {{#if isSystemKind}}special{{/if}}">
+      {{#if isEntryStage}}
+        <ul class="ulsys{{#unless allSelectionsValid}} has-invalid-selections{{/unless}}" id="special-tabs">
+          <li class="single" data-ref="" data-kind="SINGLES">
+            <div class="main button" tabindex="-1" id="">
+              <span class="desc">{{getBetDescription 'Single' numberOfSelections}}</span>
+            </div>
+          </li>
+          {{#if multipleBet}}
+            {{#with multipleBet}}
+              <li class="mult" data-ref="{{ref}}"  data-kind="MULTIPLES">   
+                <div class="main button" tabindex="-1" id="{{ref}}">
+                  <span class="desc">{{getBetDescription description noOfBets}}</span>
+                </div>
+              </li>
+            {{/with}}
+          {{/if}}
+          {{#each systems}}
+            <li class="sys" data-ref="{{ref}}"  data-kind="SYSTEMS">
+              <div class="main button {{ref}}" tabindex="-1" id="{{ref}}">
+                <span class="desc">{{getBetDescription description noOfBets}}</span>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+      {{/if}}
+    </div>
+  </div>
+
+  {{#if isConfirmationStage}}
+    {{#unless isStakeStage}}
+      <div class="potential-wrapper">
+        {{#if allSelectionsValid}}
+          <div class="type-description-container">
+            {{#unless isSingleKind}}
+              {{#if ../showEachWaySpecial}}
+                <div class="switch-main-container">
+                  {{#if ../../eachWaySpecial}}
+                    <div class="switch-container">
+                      <input data-ref="{{ref}}" type="checkbox" class="ew-checkbox" checked="checked" disabled="disabled">
+                      <label>EW</label>
+                    </div>
+                  {{else}}
+                    <div class="switch-container">
+                      <input data-ref="{{ref}}" type="checkbox" class="ew-checkbox" disabled="disabled">
+                      <label>EW</label>
+                    </div>
+                  {{/if}}
+                </div>
+              {{/if}}
+            {{/unless}}
+            <span class="bet-type-description">{{selectedBetType}}</span>
+          </div>
+          <div class="returns">
+            <div class="potential-returns{{hasChanged totalStake}}">
+              <span>Total Bet:</span>
+              <span class="returnsvalue">{{formatCurrency totalStake}}</span>
+            </div>
+            <div class="potential-returns{{hasChanged potentialReturns}}">
+              <span>Potential Returns:</span>
+              <span class="returnsvalue">{{formatCurrency potentialReturns}}</span>
+            </div>
+          </div>
+        {{/if}}
+        <div class="c-controls">
+          <a class="button c-enter{{#unless allSelectionsValid}} c-disabled{{/unless}}">Send Bets</a>
+          <a class="button c-back">Back</a>
+        </div>
+      </div>
+    {{/unless}}
+  {{/if}}
+
+  <div class="calculator">
+    <div class="global-stake-container">
+      <div class="type-description-container">
+        {{#unless isSingleKind}}
+          {{#if ../showEachWaySpecial}}
+            <div class="switch-main-container">
+              {{#if ../../eachWaySpecial}}
+                <div class="switch-container">
+                  <input data-ref="{{ref}}" type="checkbox" class="ew-checkbox" checked="checked">
+                  <label>EW</label>
+                </div>
+              {{else}}
+                <div class="switch-container">
+                  <input data-ref="{{ref}}" type="checkbox" class="ew-checkbox">
+                  <label>EW</label>
+                </div>
+              {{/if}}
+            </div>
+          {{/if}}
+        {{/unless}}
+        <span class="bet-type-description">
+          {{#if selectedBetType}}
+            {{selectedBetType}}
+          {{else}}
+            &nbsp;
+          {{/if}}
+        </span>
+      </div>
+      <span class="stake-span">Stake :</span><input type="text" id="stake-input" placeholder="0" maxlength="9" value="{{formatStakeInput lastStakeValue '0,0'}}" />
+    </div>
+    <div class="c-controls">
+      {{#if isLoggedIn}}
+        <a class="button c-quote{{#unless allSelectionsValid}} c-disabled{{/unless}}">Quote Bet</a>
+      {{else}}
+        <a class="button c-login">Log In</a>
+      {{/if}}
+      <a class="button c-cancel">Cancel</a>
+    </div>
+  </div>
+</div>

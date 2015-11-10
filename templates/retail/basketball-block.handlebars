@@ -1,0 +1,58 @@
+
+<div class="market-headers" >
+    <div class="league-info">
+        {{#parseTitle league.description}}
+            <span>{{season}}</span>
+        {{/parseTitle}}
+    </div>
+    <div class="market-header default-outcome-2">
+        Match Winner - Match
+        <div class="market-label default-market-2">
+            <span>1</span>
+            <span>2</span>
+        </div>
+    </div>    
+    <div class="market-header default-outcome-3">
+        Win/Draw/Win - First Half
+        <div class="market-label default-market-3"> 
+            <span>1</span>
+            <span>x</span>
+            <span>2</span>
+        </div>
+    </div>
+</div>
+{{#each league.children}}
+<div class="event-container {{style}} default-market-{{size this.children}}" data-style="{{style}}" data-brmatchid="{{this.brMatchId}}">
+    <div class=" m-{{id}} {{showFlags flags}} ">
+        
+        
+        <div class="opponent-container">
+            <span>{{this.opponentA}}</span> - <span>{{this.opponentB}}</span>
+        </div>
+        
+            {{#each (reverseArray this.children)}}
+
+
+                
+                {{#each this.children }}
+                {{!-- {{#foreach markets}} --}}
+                    {{#isEqual this.marketTypeGroup  'MONEY_LINE'}}
+                    <div class="market-container default-outcome-{{size this.children}}">
+                        <div class="european-row market-list {{toLowerCase this.description}}" >
+                            <div class="market-description">
+                                {{this.description}} - {{this.period}}
+                            </div>
+                            
+                                {{> virtual/event-block style=this.style children=this.children first=$first id=this.id eventID=../../event.id flags=this.flags}}
+                            
+                        </div>
+                    </div>
+                    {{/isEqual}}
+                {{!-- {{/foreach}} --}}
+                {{/each}}
+                
+            {{/each}}
+        
+    </div>
+</div>
+{{/each}}

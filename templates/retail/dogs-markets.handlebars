@@ -1,0 +1,32 @@
+<div class="default-events-{{size markets}}">
+{{consoleLog markets}}
+{{#each (sortByProps markets 'pos') }}
+{{!-- {{#foreach markets}} --}}
+	<div class="european-row market-list {{toLowerCase children.market.description}}" >
+		<div class="market-description">
+            {{children.market.description}}
+        </div>
+            {{#if children.market}}
+               {{!--  {{> virtual/event-block style=children.market.style children=children.market.children first=$first id=children.market.id eventID=../../event.id flags=children.market.flags }} --}}
+
+<div class="event-markets" >
+    <div class=" m-{{children.market.id}} {{showFlags children.market.childrenflags}} default-market-{{size children.market.children}}">
+            {{#each (sortByProps children.market.children 'pos') }}
+            	{{#isEqual  ../../children.market.description 'Winner'}}
+            		{{> europeanview/common/group-1x1-price outcome=this team=this.description imagePath=(getDogsBib ../../../../clientId this.pos)}}
+
+            	{{else}}
+            		{{> europeanview/common/group-1x1-price outcome=this team=this.description}}
+            	{{/isEqual}}
+                
+            {{/each}}
+    </div>
+</div>
+
+
+            {{/if}}
+	</div>
+{{!-- {{/foreach}} --}}
+{{/each}}
+</div>
+

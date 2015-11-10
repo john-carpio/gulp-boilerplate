@@ -1,0 +1,14 @@
+<div class="more">
+    <div class="wrapper">
+        {{#if first}}
+        	{{#if count}}
+            <button class="btn-custom btn-more market-count btn-more-{{id}}" data-id="{{id}}" data-count="{{count}}">+
+                <span>{{count}}</span></button>
+        	{{/if}}
+        	{{#if liveMode}}
+            <button class="btn-custom btn-live market-count btn-live-{{id}}" data-id="{{id}}">
+                <span>{{t "asianView.live"}}</span></button>
+        	{{/if}}
+        {{/if}}
+    </div>
+</div>

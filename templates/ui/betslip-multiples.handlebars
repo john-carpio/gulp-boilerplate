@@ -1,0 +1,132 @@
+{{#if multiples}}
+
+<div class="multiple-description">{{multiples.[0].description}}</div>
+
+<div class="wrap-selection">
+{{!-- {{multiples.[0].typeId}} --}}
+    <div class="loading-cover">
+        <div>
+            <i class="fa fa-spin fa-spinner"></i>
+        </div>
+    </div>
+
+    {{!-- We need to check the multiples  Array --}}
+    
+    <ul>
+        
+        {{#each singles}}
+            
+
+            <li class="status-{{marketStatus}}">
+
+
+
+
+                <div class="wrap-header">
+                    
+                    <div>
+                        {{eventDescription}}
+                    </div>
+                </div>
+
+                <div class="wrap-outcome">
+                    <div class="team"><span>{{cleanText outcomeDescription formattedSpread}}</span> <span class="{{isSpreadUpdated outcomeId formattedSpread}}">{{formattedSpread}}</span></div>
+                    <div class="odds"></div>
+                </div>
+{{!--  --}}
+                <div class="wrap-details">
+                    {{marketDescription}} - {{periodDescription}}
+                </div>
+                {{!-- <div class="date">{{formatDateTime eventStartDateTime 'datetime'}}</div> --}}
+                
+                <div class="wrap-cover">
+                    <div>
+                        {{tPrefix 'ui' marketStatus}}
+                    </div>
+                </div>
+                <div class="wrap-remove">
+                    <a href="#" class="remove" data-outcomeid="{{outcomeId}}" tabindex="-1"><i class="fa fa-times"></i></a>
+                </div>
+                
+            </li>
+        {{/each}}
+        
+    </ul>
+
+    
+</div>
+
+
+
+
+<div class="wrap-summary">
+
+
+    <div class="summary-row">
+        <div class="description">Total Price</div>
+        <div class="price">{{formatNumeral multiples.[0].totalPriceFormatted}}</div>
+    </div>
+
+    <div class="summary-row">
+        <div class="description">Stake</div>
+        <div class="price">
+            <div class="input-group " >
+                {{!-- <span class="input-group-addon">{{../currCode}}</span> --}}
+                {{!-- <span class="input-group-btn">
+                    <button class="btn btn-default btn-bet-minus" type="button">
+                        -
+                    </button>
+                </span> --}}
+
+
+                <input type="text" class="form-control input-stake multiple-stake" 
+                name="stake-multiples" placeholder="0.00" 
+                data-typeid="{{multiples.[0].typeId}}" data-outcomeids="{{multiples.[0].outcomeIds}}" 
+                value="{{formatNumeral multiples.[0].unitStake}}"
+                tabindex="2998">
+                {{!-- <span class="input-group-btn">
+                    <button class="btn btn-default btn-bet-plus" type="button">
+                        +
+                    </button>
+                </span> --}}
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="summary-row">
+        <div class="description">{{t "betSlip.potentialWin"}}</div>
+        <div class="price">{{currCode}} {{formatNumeral multiples.[0].potentialWin}}</div>   
+    </div>
+
+    
+    <div class="wrap-buttons">
+        <div class="removeall"><button type="button" class="btn-remove remove-all" role="button" {{#unless multiples.[0].outcomeIds.length}}disabled{{/unless}}>{{t "betSlip.removeAll"}}</button></div>
+        <div class="next">
+            {{!-- <button type="button" class="btn-update" role="button" disabled>Update</button> --}}
+            {{#if isLoggedIn}}
+                <button type="button" class="btn-next btn-betslip-next" role="button"  data-betslipmode="multiple"  {{#if multiplesNextDisabled}}disabled{{/if}} tabindex="2999"><span class="text">{{t "betSlip.next"}}</span> <i class="fa fa-spin fa-spinner"></i></button>
+            {{else}}
+                <button type="button" class="btn btn-login" data-action="login">{{t "betSlip.login"}}</button>
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{else}}
+<div class="wrap-selection">
+    &nbsp;
+    <p style="text-align:center;">
+    {{t "betSlip.addMoreSelection"}}
+    </p>
+
+
+</div>
+
+{{/if}}
+
+
+
+
+

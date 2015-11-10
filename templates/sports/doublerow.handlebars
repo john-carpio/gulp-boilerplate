@@ -1,0 +1,88 @@
+<tr>
+    <td>
+        <div class="violet ratio">{{getEventTime event}}</div>
+        <div>{{getEventDate event}}</div>
+    </td>
+    <td>
+        <div><span class="bet-icon icon-star-1"></span></div>
+        <div>
+            {{#if firstRow}}
+                <div>{{getKey event 'opponentA'}}</div>
+                <div>{{getKey event 'opponentB'}}</div>
+                <div>Draw</div> {{!-- Draw is always 2nd Outcome --}}
+            {{/if}}
+        </div>
+    </td>
+
+    <!-- Full Time -->
+    <!-- HDP -->
+    <td>
+        <div>
+            <span >{{getOutcomeSpreadByKey market 'HDP' 2}}</span>
+            <span >{{getOutcomeSpreadByKey market 'HDP' 1}}</span>
+        </div>
+        <div>
+            <div>{{getOutcomePriceByKey market 'HDP' 1 ''}}</div>
+            <div>{{getOutcomePriceByKey market 'HDP' 2 ''}}</div>
+            <div>&nbsp;</div>
+        </div>
+    </td>
+    <!-- OU -->
+    <td>
+        <div><span class="violet">{{getOutcomeSpreadByKey market 'OU' 1}}</span></div>
+        <div>
+            <div>{{getOutcomePriceByKey market 'OU' 1 'o'}}</div>
+            <div>{{getOutcomePriceByKey market 'OU' 2 'u'}}</div>
+            <div>&nbsp;</div>
+        </div>
+    </td>
+    <!-- OE -->
+    <td>
+        <div>{{getOutcomePriceByKey market 'OE' 1 'o'}}</div>
+        <div>{{getOutcomePriceByKey market 'OE' 2 'e'}}</div>
+        <div>&nbsp;</div>
+    </td>
+    <!-- 1x2 -->
+    <td>
+        <div>{{getOutcomePriceByKey market '1X2' 1 ''}}</div>
+        <div>{{getOutcomePriceByKey market '1X2' 3 ''}}</div>
+        <div>{{getOutcomePriceByKey market '1X2' 2 ''}}</div> {{!-- Draw is always 2nd Outcome --}}
+    </td>
+
+    <!-- First Half -->
+    <!-- HDP -->
+    <td class="hide-in-sm">
+        <div>
+            <span >{{getOutcomeSpreadByKey market 'FH-HDP' 2}}</span>
+            <span >{{getOutcomeSpreadByKey market 'FH-HDP' 1}}</span>
+        </div>
+        <div>
+            <div>{{getOutcomePriceByKey market 'FH-HDP' 1 ''}}</div>
+            <div>{{getOutcomePriceByKey market 'FH-HDP' 2 ''}}</div>
+            <div>&nbsp;</div>
+        </div>
+    </td>
+    <!-- OU -->
+    <td class="hide-in-sm">
+        <div><span class="violet">{{getOutcomeSpreadByKey market 'FH-OU' 1}}</span></div>
+        <div>
+            <div>{{getOutcomePriceByKey market 'FH-OU' 1 'o'}}</div>
+            <div>{{getOutcomePriceByKey market 'FH-OU' 2 'u'}}</div>
+        <div>&nbsp;</div>
+        </div>
+    </td>
+    <!-- 1x2 -->
+    <td class="hide-in-sm">
+        <div>{{getOutcomePriceByKey market 'FH-1X2' 1 ''}}</div>
+        <div>{{getOutcomePriceByKey market 'FH-1X2' 3 ''}}</div>
+        <div>{{getOutcomePriceByKey market 'FH-1X2' 2 ''}}</div>
+    </td>
+
+    <td>
+        {{#if firstRow}}
+        <!-- +More team-details button -->
+        <button class="btn-custom btn-more">+{{getKey event 'count'}}</button>
+        {{/if}}
+
+    </td>
+</tr>

@@ -1,0 +1,49 @@
+{{#if livemode}}
+{{!-- 	<div class="live-extra">
+	    <i class="fa fa-bar-chart"></i>
+	    <i class="fa fa-desktop"></i>
+	    <i class="fa fa-rss"></i>
+	</div> --}}
+
+	{{#if liveEvent.time}}
+		<div class="scores-container">
+		<!--{{#ifCond "this.code == 'VOLL' || this.code == 'TENN'"}}
+			{{#ifCond "this.code == 'VOLL'"}}
+				{{> europeanview/common/set-scores count=5 sets=../../sets}}
+			{{else}}
+				{{> europeanview/common/set-scores count=3 sets=../../sets}}
+			{{/ifCond}}
+		{{else}}
+			<span class="score-a">{{showMatchScore ../score 'a'}}</span>
+			<span>-</span>
+			<span class="score-b">{{showMatchScore ../score 'b'}}</span>
+		{{/ifCond}}-->
+		</div>
+		{{#ifCond this.status '===' '5'}}
+			<span class="live-time">
+				{{t "livePeriods.gameEnded"}}
+				<span class="score-a">{{showMatchScore match 'a'}}</span>
+				<span>-</span>
+				<span class="score-b">{{showMatchScore match 'b'}}</span>
+			</span>
+		{{else}}
+			<span class="live-time" data-time-m="{{liveEvent.time.m}}" data-time-s="{{liveEvent.time.s}}" data-reversed-time="{{reversedTime}}" data-status="{{liveEvent.time.status}}">{{runningTime liveEvent.time reversedTime }}</span>
+			<span class="live-period-msg">
+				{{getLivePeriod liveEvent.msgs}}
+				<span class="score-a">{{showMatchScore match 'a'}}</span>
+				<span>-</span>
+				<span class="score-b">{{showMatchScore match 'b'}}</span>
+			</span>
+			<span class="live-status-msg">{{getLiveStatusIcon liveEvent.time.status}}</span>
+		{{/ifCond}}
+	{{else}}
+		<span class="live-time">
+			{{t "livePeriods.startingAt"}} {{formatDateTime date 'MM/DD hh:mm A'}}
+		</span>
+	{{/if}}
+	
+{{else}}
+	<span class="datetime">
+		{{formatDateTime date 'MM/DD hh:mm A'}}
+	</span>
+{{/if}}

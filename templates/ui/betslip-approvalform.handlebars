@@ -1,0 +1,65 @@
+<div class="wrap-betslipinfo">
+    <div class="betslipinfo">
+        <div class="labelBetslipReference">{{t "betSlip.reference"}}</div>
+        <div class="betslipReference">
+            {{betslip.betslipReference}}
+        </div>
+
+
+        <div class="labelBetslipDate">{{t "betSlip.dateLabel"}}</div>
+        <div class="betslipDate">
+            {{formatDateTime betslip.createdDateTime 'datetime'}}
+        </div>
+
+
+
+    </div>
+    <div class="timerContainer">
+        {{t "betSlip.expireText1"}} <span class="timerCount">&nbsp;</span> {{t "betSlip.expireText2"}}
+    </div>
+    {{!-- <div class="betslipinfo">
+        <div class="labelBetslipDate">Date/Time</div>
+        <div class="betslipDate">
+            {{formatDateTime betslip.createdDateTime 'datetime'}}
+        </div>
+    </div> --}}
+</div>
+
+<div class="wrap-approvalform">
+
+    {{#if approvedBets}}
+        <div class="approved-bets-title">{{t "betSlip.approvedBets"}}</div>
+        <ul class="approved-bets">
+            {{{approvedBets}}}
+        </ul>
+    {{/if}}
+
+
+    {{#if rejectedBets}}
+
+        <div class="rejected-bets-title">{{t "betSlip.rejectedBets"}}</div>
+        <ul class="rejected-bets">
+            {{{rejectedBets}}}
+        </ul>
+    {{/if}}
+</div>
+
+<div class="wrap-summary">
+
+    <div class="summary-row">
+        <div class="description">{{t "betSlip.totalBets"}}</div>
+        <div class="price">{{currencyCode}} {{formatNumeral totalBets}}</div>
+    </div>
+
+    <div class="summary-row">
+        <div class="description">{{t "betSlip.potentialWin"}}</div>
+        <div class="price">{{currencyCode}} {{formatNumeral potentialWins}}</div>
+    </div>
+
+    <div class="wrap-buttons">
+        <div class="">
+            <button type="button" class="btn-betslip-reject" role="button" ><span class="text">{{t "betSlip.cancel"}}</span>  <i class="fa fa-spin fa-spinner"></i></button>
+            <button type="button" class="btn-betslip-approve" role="button" {{#unless approvedBets}}disabled{{/unless}}><span class="text">{{t "betSlip.confirm"}}</span>  <i class="fa fa-spin fa-spinner"></i></button>
+        </div>
+    </div>
+</div>

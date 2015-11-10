@@ -1,0 +1,38 @@
+<div class="league-block league p-{{eventData.id}} " data-path="{{eventData.id}}">
+    <div class="league-title">
+        <div class="wrapper">
+        	{{!-- <span class="title">
+                <span>{{event.description}}</span>
+                <span class="season-title">{{season}}</span>
+            </span> --}}
+            {{#parseTitle eventData.path.League }}
+                {{!-- {{consoleLog this}} --}}
+                <span class="title">
+                    <span>{{../eventData.description}}</span>
+                    <span class="season-title">{{season}}</span>
+                </span>
+            {{/parseTitle}}
+        </div>
+    </div>
+    <div class="events-container">
+		<div class="event-block event e-{{event.id}}">
+
+		{{#each (sortByProps markets 'sortedPos') }}
+		{{!-- {{#foreach markets}} --}}
+			<div class="european-row market-list {{toLowerCase children.market.description}}" >
+				<div class="market-description">
+		            {{children.market.description}} - {{children.market.period}} 
+		        </div>
+
+		            {{#if children.market}}
+		                {{> virtual/event-block style=children.market.style children=children.market.children first=$first id=children.market.id count=../../event.extendedCount eventID=../../event.id flags=children.market.flags liveMode=../../liveMode columns=../../columns}}
+		            {{/if}}
+			</div>
+		{{!-- {{/foreach}} --}}
+		{{/each}}
+		</div>
+    </div>
+</div>
+
+
+

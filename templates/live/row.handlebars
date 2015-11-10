@@ -1,0 +1,17 @@
+<div class=" event e-{{event.id}} {{#if liveInPlay}}live-events-view{{else}}event-block{{/if}}" data-eventid="{{event.id}}">
+
+{{#ifCond event.liveEvent.time.status '===' 54 }}
+
+{{else}}
+{{#foreach event.children}}
+    <div class="european-row {{showFlags children.market.flags}} market-list" data-period="{{children.market.period}}" data-marketGroup="{{children.market.marketTypeGroup}}" data-marketId="{{children.market.id}}">
+        <div class="market-description">
+            {{children.market.description}} - {{children.market.period}}
+        </div>
+            {{#if children.market}}
+                {{> live/event-block style=children.market.style children=children.market.children first=$first id=children.market.id count=../../event.extendedCount eventID=../../event.id flags=children.market.flags liveMode=../../liveMode liveInPlay=../../liveInPlay}}
+            {{/if}}
+    </div>
+{{/foreach}}
+{{/ifCond}}
+</div>

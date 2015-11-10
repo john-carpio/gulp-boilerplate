@@ -1,0 +1,53 @@
+<div class="cell cell-outcome outcome o-{{outcome.id}}{{getOutcomeDirection outcome.dir}} {{showFlags outcome.flags}}{{#if outcome.sp}} SP{{/if}}" data-pos="{{#if outcome.race}}{{outcome.race}}{{else}}{{outcome.pos}}{{/if}}">
+    <div class="price-container">
+    	<a class="price {{showFlags outcome.flags}}" data-outcome="{{outcome.id}}" data-price="{{#if outcome.price}}{{outcome.price}}{{else}}{{#if outcome.sp}}SP{{/if}}{{/if}}" title="{{team}}">
+
+
+        <span class="team">
+
+            {{!-- {{#if outcome.jockeyId}} --}}
+                {{!-- {{#ifCond outcome.jockeyId '!==' -1234567890000000000}} --}}
+                    {{!-- <span class="outcomePos">{{outcome.pos}}</span>
+                    <img class="jockey-img" src="/vhcstaging/jersey/1623/{{outcome.jockeyId}}.png" alt="Jockey #{{outcome.jockeyId}}"> --}}
+                {{!-- {{/ifCond}} --}}
+            {{!-- {{/if}} --}}
+
+            {{#if imagePath}}
+                <img class="team-img" src="{{imagePath}}">
+            {{/if}}
+
+            {{!-- {{#ifCond code '==' 'GREY'}}
+                {{#ifCond columns '===' 0}}
+                    {{showBib team}}
+                {{else}}
+                    {{team}}
+                {{/ifCond}}
+            {{else}}
+                {{#ifCond code '==' 'HORS'}}
+                    {{#if outcomeList}}
+                        {{multipleJockey team outcomeList}}
+                    {{else}}
+                        {{team}}
+                    {{/if}}
+                {{else}}
+                    {{team}}
+                {{/ifCond}}
+            {{/ifCond}} --}}
+
+            {{parseTeamName outcome code}}
+
+        </span>
+
+    		<div class="european-price">
+    			<span class="dir-caret"></span>
+                {{#if outcome.price}}
+                    {{outcome.price}}
+                {{else}}
+                    {{#if outcome.sp}}
+                        SP
+                    {{/if}}
+				{{/if}}
+    		</div>
+    	</a>
+    </div>
+</div>

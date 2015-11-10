@@ -1,0 +1,16 @@
+<div class="event-block event e-{{event.id}}">
+{{consoleLog markets}}
+{{#each (sortByProps markets 'sortedPos') }}
+{{!-- {{#foreach markets}} --}}
+	<div class="european-row market-list {{toLowerCase children.market.description}}" >
+		<div class="market-description">
+            {{children.market.description}} - {{children.market.period}}
+        </div>
+            {{#if children.market}}
+                {{> virtual/event-block style=children.market.style children=children.market.children first=$first id=children.market.id count=../../event.extendedCount eventID=../../event.id flags=children.market.flags liveMode=../../liveMode}}
+            {{/if}}
+	</div>
+{{!-- {{/foreach}} --}}
+{{/each}}
+</div>
+

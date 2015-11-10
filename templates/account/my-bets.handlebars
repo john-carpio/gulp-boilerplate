@@ -1,0 +1,60 @@
+
+<div class="wrapper-main">
+    <div class="my-bets">
+
+            <div class="wrapper-filter">
+                <div class="activity-title">{{t 'myBets.title'}}</div>
+                <div class="activity-filter clearfix">
+                    {{#if isRTG}}
+                    <div class="filter-selection">
+                        <select id="filter_source">
+                            <option value="0">{{t 'myBets.mswBets'}}</option>
+                            <option value="1">{{t 'myBets.egamesBets'}}</option>
+                        </select>
+                    </div>
+                    {{/if}}
+                    <div class="filter-selection">
+                        <select id="filter_type">
+                            <option value="false">{{t 'myBets.pending'}}</option>
+                            <option value="true">{{t 'myBets.settled'}}</option>
+                        </select>
+                    </div>
+                    <div class="filter-selection">
+                        <label class="control-label">{{t 'myBets.from'}} :</label>
+                        <div id="date_from_group" class="input-group date">
+                            <input id="date_from" type="text" class="form-control" value="{{dateFrom}}" autocomplete="false"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="filter-selection">
+                        <label class="control-label">{{t 'myBets.to'}} :</label>
+                        <div id="date_to_group" class="input-group date">
+                            <input id="date_to" type="text" class="form-control" value="{{dateTo}}" autocomplete="false"><span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="filter_submit">
+                        <button id="btn_search" class="btn-dark" type="submit">{{t 'myBets.labelButton'}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="activity-list">
+                <div class="activity-list-header">
+                    <div class="activity">
+                        <div class="transaction-id">{{t 'myBets.transactionRef'}}</div>
+                        <div class="created-date">{{t 'myBets.createdDate'}}</div>
+                        <div class="type-subtype">{{t 'myBets.type'}}</div>
+                        <div class="unit-stake">{{t 'myBets.unitStake'}}</div>
+                        <div class="debit">{{t 'myBets.debit'}}</div>
+                        <div class="credit">{{t 'myBets.credit'}}</div>
+                        <div class="description">{{t 'myBets.details'}}</div>
+                    </div>
+                </div>
+                <div id="activity_list" class="activity-list-body">
+                    <div class="table-release">
+                        {{> ui/loading}}
+                    </div>
+                </div>
+                <div class="pager table-release"></div>
+            </div>
+
+    </div>
+</div> {{!-- end: .wrapper-main --}}

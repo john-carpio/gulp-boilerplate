@@ -1,0 +1,8 @@
+<div id="{{ id }}" data-ride="carousel" data-interval="false" class="carousel slide cl-right">
+<ol class="carousel-indicators">
+  {{#getBannerSet id 'indicator'}}{{/getBannerSet}}
+</ol>
+<div class="carousel-inner">
+  {{#getBannerSet id 'banner'}}<a class="default" data-url="{{url}}" data-type="{{type}}" ><img src="{{file}}"  data-multi="{{multi}}" class="hero-banner-btn" /></a>{{/getBannerSet}}
+</div>
+</div>

@@ -1,0 +1,57 @@
+<div class="event-block event e-{{event.id}}{{updateScoresContainer score}}">
+
+{{#foreach event.children}}
+
+
+    <div class="event-row ">
+        <div class="event-time{{checkUpdatedScores ../score ../code}}">
+            <div class="wrapper">
+                {{#if $first}}
+                    {{> asianview/common/date-cell date=../../event.date livemode=../../liveMode reversedTime=../../reversedTime liveEvent=../../event.liveEvent score=../../score.score code=../../code sets=../../sets}}
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="event-description">
+            <div class="wrapper">
+                {{#if $first}}
+                    <div class="teams has-tooltip" title="{{../../event.opponentA}} x {{../../event.opponentB}}">
+                        {{!-- formatTeamName will return span --}}
+                        {{formatTeamNameSpread ../../event.opponentA children.HDP.children.[0] children.HDP.children.[1]}}
+                        {{formatTeamNameSpread ../../event.opponentB children.HDP.children.[1] children.HDP.children.[0]}}
+                        <span class="draw" >Draw</span>
+                        <span class="nogoal" >No Goal</span>
+                    </div>
+                    {{!-- <a class="add-to-favourites" data-id="{{event.id}}" data-title="{{event.description}}" data-type="EVENT"><i class="bet-icon icon-star-1"></i></a> --}}
+
+                    {{> ui/addtofavorites id=../../event.id title=../../event.description type='e'}}
+                {{/if}}
+            </div>
+        </div>
+
+        {{#each ../displayMap }} 
+            <div class="period period-{{@key}} periods-{{size ../../displayMap}} markets-{{size this}}">
+            
+            {{#each this}}
+                {{asianGroup this ../../children }}
+            {{/each}}
+
+            </div>
+
+        {{/each}}
+        {{> asianview/common/col-more first=$first id=../event.id count=../event.extendedCount liveMode=../liveMode}}
+    </div>
+
+
+
+
+
+
+{{#if $first}}
+    <div class="asian-row-more more-{{../../event.id}}" data-event-id="{{../../event.id}}"  data-live="{{../../liveMode}}"></div>
+{{/if}}
+
+
+{{/foreach}}
+
+</div>

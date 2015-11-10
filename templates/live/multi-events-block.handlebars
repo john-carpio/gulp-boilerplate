@@ -1,0 +1,101 @@
+<div class="draggable" draggable="true">
+	{{#if event}}
+	<div class="event-container sports-{{event.code}}" data-id="{{event.id}}">
+		<div class="event-header-container">
+			<div class="event-block-title">
+				{{!-- <div class="title">{{event.description}} </div> --}}
+				<div class="sports-code">
+					<i class="icon qicon-{{toLowerCase event.code}}"></i>
+				</div>
+				<div class="game-status">
+					<span class="live-time" data-cache="extended" data-time-m="{{event.liveEvent.time.m}}" data-time-s="{{event.liveEvent.time.s}}" data-reversed-time="{{event.liveEvent.time.reverse}}" data-status="{{event.liveEvent.time.status}}" data-id="l{{event.id}}">
+						{{runningTime event.liveEvent.time event.liveEvent.time.reverse event.code event.liveEvent}}
+					</span>
+				</div>
+				<div class="util-icon">
+					{{#if ../hasMatchtracker}}
+						<button type="button" class="util-btn match-tracker-btn {{#ifCond currentMatchId '===' ../event.liveEvent.brMatchId}}active{{/ifCond}}" data-matchid="{{event.liveEvent.brMatchId}}"><i class="fa fa-area-chart"></i></button>
+					{{/if}}
+				    <button type="button" class="util-btn multi-remove-btn" ><i class="fa fa-remove"></i></button>
+				</div>
+			</div>
+			<div class="event-block-score ">
+				<div class="team-container">
+					<div class="team">{{event.opponentA}} {{liveEvent.time.m}}</div>
+						<div class="subscore"> {{subScore event.liveEvent 'a'}} </div>
+					{{#ifCond event.code  '===' 'TENN'}}
+	                    <div class="score">{{tennisScore event.liveEvent.score 'a' event.liveEvent}}</div>
+	                {{else}}
+	                    <div class="score">{{event.liveEvent.score.a}}</div>
+	                {{/ifCond}}
+
+				</div>
+				<div class="team-container">
+					<div class="team">{{event.opponentB}}</div>
+						<div class="subscore"> {{subScore event.liveEvent 'b'}} </div>
+					{{#ifCond event.code '===' 'TENN'}}
+	                    <div class="score">{{tennisScore event.liveEvent.score 'b' event.liveEvent}}</div>
+	                {{else}}
+	                    <div class="score">{{event.liveEvent.score.b}}</div>
+	                {{/ifCond}}
+				</div>
+			</div>
+		</div>
+		<div class="event-markets-container">
+		{{> live/row event=event}}
+		</div>
+	<div>
+	{{else}}
+	<div class="event-container sports-{{#if code}}{{code}}{{else}}blank{{/if}}" data-id="{{id}}">
+		<div class="event-header-container">
+			<div class="event-block-title">
+				<div class="title"></div>
+				{{#if code}}
+				<div class="sports-code">
+					<i class="icon qicon-{{toLowerCase code}}"></i>
+				</div>
+				{{/if}}
+				<div class="util-icon">
+					{{#if ../hasMatchtracker}}
+						<button type="button" class="util-btn match-tracker-btn {{#ifCond currentMatchId '===' ../eventCache.brMatchId}}active{{/ifCond}}" data-matchid="{{eventCache.brMatchId}}"><i class="fa fa-area-chart"></i></button>
+					{{/if}}
+				    <button type="button" class="util-btn multi-remove-btn" ><i class="fa fa-remove"></i></button>
+				</div>
+			</div>
+			{{#if eventCache}}
+				<div class="event-block-score ">
+					<div class="team-container">
+						<div class="team">{{eventCache.a}}</div>
+							<div class="subscore"> {{subScore eventCache 'a'}} </div>
+						{{#ifCond eventCache.code  '===' 'TENN'}}
+		                    <div class="score">{{tennisScore eventCache.score 'a' eventCache}}</div>
+		                {{else}}
+		                    <div class="score">{{eventCache.score.a}}</div>
+		                {{/ifCond}}
+
+					</div>
+					<div class="team-container">
+						<div class="team">{{eventCache.b}}</div>
+							<div class="subscore"> {{subScore eventCache 'b'}} </div>
+						{{#ifCond eventCache.code '===' 'TENN'}}
+		                    <div class="score">{{tennisScore eventCache.score 'b' eventCache}}</div>
+		                {{else}}
+		                    <div class="score">{{eventCache.score.b}}</div>
+		                {{/ifCond}}
+					</div>
+				</div>
+
+			{{/if}}
+		</div>
+		<div class="event-markets-container">
+			{{#if customText}}
+			<div class="custom-text">{{t customText}}</div>
+			{{else}}
+			<div class="custom-text">{{t "ui.notavailable"}}</div>
+			{{/if}}
+		</div>
+	</div>
+	{{/if}}
+</div>
+
+

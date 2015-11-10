@@ -1,0 +1,75 @@
+{{#unless hasMatchtracker }}
+<div class="br-scoreboard">
+    <div class="br-title-container">
+        <div class="br-league-path"><i class="icon qicon-{{toLowerCase event.code}}"></i> {{event.liveEvent.pdesc}}</div>
+    </div>
+    <div class="br-scoreboard-container {{event.code}} time-{{event.liveEvent.time.status}}">
+        <div class="br-opponents opponent-a">
+            <div class="br-opponent-name">{{event.opponentA}}</div>
+            <div class="br-opponent-score">
+                {{!-- <div class="br-score pts{{updateScores ../score}}">
+                     <span class="score-a">
+                    {{#ifCond event.code '===' 'TENN'}}
+                        {{tennisScore ../score.score 'a' ../event.liveEvent}}
+                    {{else}}
+                        {{../score.score.a}}
+                    {{/ifCond}}
+                    </span>
+                </div> --}}
+                {{#times event.liveEvent.max}}
+                    <div class="br-score {{updateSets ../sets this}} {{checkScoreState ../sets this 'a' 'set'}}"><span class="score-a">{{showScoreOnSet ../sets this 'a' '-'}}</span></div>
+                {{/times}}
+                <div class="br-score final {{updateMatchScores match}} {{checkScoreState event.liveEvent.match 0 'a' 'match'}}">
+                    <span class="score-a">
+                        {{#ifCond event.code '===' 'TENN'}}
+                            {{tennisScore ../score.score 'a' ../event.liveEvent}}
+                        {{else}}
+                            {{showMatchScore event.liveEvent.match 'a'}}
+                        {{/ifCond}}
+
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="br-separator {{oppSeparator event.code event.liveEvent.max}}">
+            <div class="br-time-container">
+                {{!-- <span class="br-live-time" data-time-m="{{event.liveEvent.time.m}}" data-time-s="{{event.liveEvent.time.s}}" data-reversed-time="{{reversedTime}}" data-status="{{event.liveEvent.time.status}}" data-timeonly="true" data-id="l{{event.id}}">
+                    {{runningTime event.liveEvent.time event.liveEvent.time.reversedTime '' event.liveEvent }}
+                </span> --}}
+                <span>{{getLivePeriod event.code event.liveEvent.time.p}}</span>
+            </div>
+        </div>
+        <div class="br-opponents opponent-b">
+            <div class="br-opponent-name">{{event.opponentB}}</div>
+            <div class="br-opponent-score">
+                {{!-- <div class="br-score pts{{updateScores ../score}}">
+                     <span class="score-b">
+                    {{#ifCond event.code '===' 'TENN'}}
+                        {{tennisScore ../score.score 'b' ../event.liveEvent}}
+                    {{else}}
+                        {{../score.score.b}}
+                    {{/ifCond}}
+                    </span>
+                </div> --}}
+                {{#times event.liveEvent.max}}
+                    <div class="br-score {{updateSets ../sets this}} {{checkScoreState ../sets this 'b' 'set'}}"><span class="score-b">{{showScoreOnSet ../sets this 'b' '-'}}</span></div>
+                {{/times}}
+                <div class="br-score final {{updateMatchScores match}} {{checkScoreState event.liveEvent.match 0 'b' 'match'}}">
+                    <span class="score-b">
+                        {{#ifCond event.code '===' 'TENN'}}
+                            {{tennisScore ../score.score 'b' ../event.liveEvent}}
+                        {{else}}
+                            {{showMatchScore event.liveEvent.match 'b'}}
+                        {{/ifCond}}
+
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="score-separator"></div>
+    </div>
+</div>
+{{/unless}}
+<div class="br-messages {{updateScores score}}">
+   {{> live/score-messages messagesOpen=messagesOpen event=event }}
+</div>

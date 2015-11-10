@@ -1,0 +1,233 @@
+
+<div class="panel-heading">
+    <div class="required-text">
+        <strong class="required">*</strong>
+        {{t "account.requiredMessage"}}
+    </div>
+</div>
+
+<form id="account_register_form">
+    {{!-- <input type="hidden" value="EURO" class="" id="priceFormat" name="priceFormat" /> --}}
+    <div class="wrapper-panel personal-details">
+        {{!-- start: .panel --}}
+        <div class="panel panel-default">
+            <div class="panel-heading"><h5 class="panel-title">{{t "account.personalDetails"}}</h5></div>
+
+            {{!-- start: .panel-body --}}
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="title">{{t "account.title"}} <strong class="required">*</strong></label>
+                    <div>
+                        <select id="title" name="title">
+                            <option>{{t "account.mr"}}</option>
+                            <option>{{t "account.mrs"}}</option>
+                            <option>{{t "account.ms"}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">{{t "account.firstname"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="firstName" name="firstName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">{{t "account.surname"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="lastName" name="lastName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="CHANGEME">{{t "account.dateOfBirth"}} <strong class="required">*</strong></label>
+                    <div class="dob-container">
+                        <select name="date" id="dob-day">
+                            {{#for 1 31}}
+                            <option>{{this}}</option>
+                            {{/for}}
+                        </select>
+                        <select name="month" id="dob-month">
+                            {{#for 1 12}}
+                            <option>{{this}}</option>
+                            {{/for}}
+                        </select>
+                        <select name="year" id="dob-year">
+                            {{#for 1910 maxYear}}
+                            <option>{{this}}</option>
+                            {{/for}}
+                        </select>
+                        <input type="text" name="dob" id="dob" tabindex="-1"/>
+                        {{!-- <p class="dob-text">{{t "account.ageRequirementMessage"}}</p> --}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address1">{{t "account.addressline1"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="address1" name="address1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address2">{{t "account.addressline2"}}</label>
+                    <div>
+                        <input type="text" id="address2" name="address2">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address3">{{t "account.addressline3"}}</label>
+                    <div>
+                        <input type="text" id="address3" name="address3">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address4">{{t "account.addressline4"}}</label>
+
+                    <div>
+                        <input type="text" id="address4" name="address4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="countryCode">{{t "account.country"}} <strong class="required">*</strong></label>
+                    <div>
+                        <select id="countryCode" name="countryCode">
+                            {{#each countries}}
+                                <option value="{{isocode}}">{{desc}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="postcode">{{t "account.postcode"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="postcode" name="postcode">
+                    </div>
+                </div>
+                <div class="form-group hidden">
+                    <label for="postCode">{{t "account.postcode"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="postCode" name="postCode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="homeTel">{{t "account.homeTelephone"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="homeTel" name="homeTel" class="phone-group">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobileTel">{{t "account.mobileTelephone"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="mobileTel" name="mobileTel" class="phone-group">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="currencyCode">{{t "account.currency"}} <strong class="required">*</strong></label>
+                    <div>
+                        <select id="currencyCode" name="currencyCode">
+                            <option value="PHP">Philippine Peso</option>
+                            {{!--#each currencies}}
+                            <option value="{{isocode}}">{{desc}}</option>
+                            {{/each--}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="languageCode">{{t "account.languages"}} <strong class="required">*</strong></label>
+                    <div>
+                        <select id="languageCode" name="languageCode">
+                            <option value="en-GB">English (United Kingdom)</option>
+                            {{!--#each languages}}
+                            <option value="{{isocode}}">{{desc}}</option>
+                            {{/each--}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="priceFormat">{{t "account.priceFormat"}} <strong class="required">*</strong></label>
+                    <div>
+                        <select id="priceFormat" name="priceFormat">
+                            {{!-- <option id="1">US</option>
+                            <option id="2">UK</option> --}}
+                            <option id="3">EURO</option>
+                            {{!-- <option id="4">MALAY</option>
+                            <option id="5">INDO</option>
+                            <option id="6">CHINESE</option> --}}
+                        </select>
+                    </div>
+                </div>
+
+            </div> {{!-- end: .panel-body--}}
+
+        </div>
+    </div>
+    <div class="wrapper-panel account-details">
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading"><h5 class="panel-title">{{t "account.accountDetails"}}</h5></div>
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label for="username">{{t "account.username"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="username" name="username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">{{t "account.email"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="email" name="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">{{t "account.password"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="password" id="password" name="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">{{t "account.confirmPassword"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="securityQuestion">{{t "account.securityQuestion"}} <strong class="required">*</strong></label>
+                    <div>
+                        <select id="securityQuestion" name="securityQuestion">
+                            {{#each securityQuestions}}
+                            <option value="{{id}}">{{desc}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="securityQuestionAnswer">{{t "account.securityAnswer"}} <strong class="required">*</strong></label>
+                    <div>
+                        <input type="text" id="securityQuestionAnswer" name="securityQuestionAnswer">
+                    </div>
+                </div>
+
+                <div class="offset-checkbox">
+                    <div class="checkbox">
+                        <label>
+                            <span class="checkbox-wrap"><input id="readTermsAndConditions" name="readTermsAndConditions" type="checkbox"></span> {{t "account.readTermsAndConditions"}}
+                            <label for="readTermsAndConditions" class="error block">{{t "account.acceptPolicyMessage"}}</label>
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <span class="checkbox-wrap"><input id="isOver18" name="isOver18" type="checkbox"></span> {{t "account.isOver18"}}
+                            <label for="isOver18" class="error block">{{t "account.ageRequirementConfirm"}}</label>
+                        </label>
+                    </div>
+                </div>
+
+            </div> {{!-- end: .panel-body --}}
+
+            <div class="panel-footer">
+                <div class="offset-wrapper">
+                    <button type="submit" class="btn-register-form">{{t "account.registerAccount"}}</button>
+                </div>
+            </div>
+
+        </div> {{!-- end: .panel --}}
+</form>

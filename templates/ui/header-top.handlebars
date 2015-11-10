@@ -1,0 +1,59 @@
+{{!-- start: header-top --}}
+<div class="header-top">
+    
+    <div class="wrapper-main">
+        <a data-url="/" class="nav-main" >
+            <img src="/assets/images/brand.png" class="brand">
+        </a>
+
+        {{#if account.isLoggedIn}}
+            <div class="myaccount user-in">
+                <div>
+                    <div class="hello-user">{{t "account.hello"}}, {{account.getFirstName}}!</div>
+                    <div class="input-group">
+                        <a class="default btn-deposit" data-url="/msw_assets/content/howtofund.html" data-type="modal"><i class="fa fa-plus"></i></a>
+                        <span id="account_balance" class="balance text-right">{{account.getCurrencyCode}} {{formatNumeral account.getBalance}}</span>
+                        <span id="refresh_balance" class="btn-refresh-balance"><i class="fa fa-refresh"></i></span>
+                    </div>
+                    <button type="submit" class="btn-dark btn-logout" role="button">{{t "account.logout"}} <i class="fa fa-unlock-alt"></i></button>
+                </div>
+                <div>
+                    <ul class="myaccount-links">
+                        <li><a class="nav-main" data-url="/mybets">{{t "account.mybets"}}</a></li>
+                        <li><a class="nav-main" data-url="/mystatements">{{t "account.mystatements"}}</a></li>
+                        <li><a class="nav-main" data-url="/myaccount">{{t "account.myaccount"}}</a></li>
+                        <li><a class="nav-main" href="/changepassword" data-url="/changepassword">{{t "password.changeMyPassword"}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        {{else}}
+            <div class="myaccount user-out">
+                <form id="form_login" autocomplete="off">
+                    <div>
+                        <div class="wrap-input">
+                            <input type="text" id="input_username" name="username" placeholder="{{t "account.username"}}" value="{{account.getAccountName}}" autocomplete="false">
+                        </div>
+                        <div class="wrap-input">
+                            <input type="password" id="input_password" name="password" placeholder="{{t "account.password"}}" autocomplete="false" value="">
+                        </div>
+                        <button id="btn_login" type="submit" class="btn-login" role="button"  >{{t "account.login"}} <i class="fa fa-lock"></i></button>
+                        <a class="nav-main btn-register" data-url="/register" role="button">{{t "account.registernow"}}</a></label>
+                    </div>
+                    <div>
+                        <label for="cbRememberMe" class="lbl-for-cb"><input type="checkbox" id="cbRememberMe" name="rememberMe" {{isChecked account.getRememberMe }} class="rememberMe" /> {{t "account.rememberMe"}}</label>
+                        <a class="nav-main password-forgot" data-url="/forgotpassword">{{t "account.forgotpassword"}}</a>
+                    </div>
+                </form>
+                {{!-- {{#if account.isError}}
+                    <div class="error">
+                        {{t account.getErrorStatus}}
+                    </div>
+                {{/if}} --}}
+            </div>
+        {{/if}}
+        
+    </div> {{!-- end: .wrapper-main --}}
+    <!--div class="header-slope"></div-->
+    <div class="header-bg">{{getBanner 'header-banner'}}</div>
+</div>
+{{!-- end: header-top --}}

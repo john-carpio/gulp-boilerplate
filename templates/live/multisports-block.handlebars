@@ -1,0 +1,28 @@
+<div class="multisports-wrap">
+	{{#if linksOnly}}
+	<div class="multisports-tab">
+		{{#if hasFav}}<a class="tab-link multiview-tab-fav" data-sportstab="fav-events"><i class="fa fa-star"></i> Fav</a>{{/if}}
+		{{#each sportsCodes}}
+			{{#inArray ../sportsBlock this}}
+				<a class="tab-link multiview-tab-{{this}}" data-sportstab="multiview-{{this}}">
+					<i class="icon qicon-{{toLowerCase this}}"></i>{{tPrefix 'sportCode' (toLowerCase this)}}
+					<div class="tab-index"></div>
+				</a>
+			{{/inArray}}
+		{{/each}}
+			<a class="tab-link multiview-tab-toggle hide"><i class="fa fa-remove"></i></a>
+	</div>
+	{{else}}
+
+
+	<div class="multisports">
+		{{#if hasFav}}<div class="fav-events tab-container"></div>{{/if}}
+		{{#each sportsCodes}}
+			{{#inArray ../sportsBlock this}}
+				<div class="multiview-{{this}} tab-container"></div>
+			{{/inArray}}
+		{{/each}}
+	</div>
+
+	{{/if}}
+</div>

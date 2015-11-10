@@ -1,0 +1,46 @@
+{{#each sports}}
+    {{#if count}}
+        <li>
+            <a class="nav-link nav-ept level-0 {{../../region}}" data-url="/{{../../sectionCode}}/{{toLowerCase sportCode}}/">
+                <span class="tree-action"><i class="fa"></i></span>
+                <span class="tree-name"> {{tPrefix 'sportCode' sportCode}} </span>
+                {{!--<span class="tree-number"> {{count}} </span>--}} {{!-- [] put into css after/before content--}}
+            </a>
+
+            {{#if paths.length}}
+                <ul class="nav-tree" id="{{sportCode}}">
+                    {{#each paths}}
+                    <li{{#ifCond this.id '===' 'FOOT-FH-CS'}} class="hidden"{{/ifCond}}>
+                        <a class="nav-link level-1 nav-link-categories {{../../../../region}}" data-url="/{{../../../../sectionCode}}/{{toLowerCase ../../sportCode}}/p{{id}}/" data-desc="{{description}}">
+                            <span class="tree-icon"><i class="fa"></i></span>
+                            <span class="tree-name">
+                            {{#ifCond ../../../../region '===' 'asian'}}
+                                {{tPrefix 'sportCode' description}}
+                            {{else}}
+                                {{description}}
+                            {{/ifCond}}
+                            </span>
+                            {{!--<span class="tree-number">{{count}}</span>--}}
+                        </a>
+
+                        {{#if paths.length}}
+                            <ul class="nav-tree nav-tree-tournaments" id="{{id}}">
+                                {{#each paths}}
+                                <li>
+                                    <a class="nav-link-tournaments level-2" data-url="/{{../../../../../../sectionCode}}/{{toLowerCase ../../../../sportCode}}/p{{id}}/" data-desc="{{../../description}}">
+                                        <span class="tree-icon"></span>
+                                        <span class="tree-name"> {{description}} </span>
+                                        {{!--<span class="tree-number">{{count}}</span>--}}
+                                    </a>
+                                </li>
+                                {{/each}}
+                            </ul>
+                        {{/if}}
+                    </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </li>
+    {{/if}}
+{{/each}}
+

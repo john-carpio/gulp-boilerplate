@@ -1,0 +1,52 @@
+
+{{#each sportsItems}}
+	{{!-- {{#ifCond2 this.liveEvent.time.status '!==' 5 '&&' this.liveEvent.time.status '!==' 3}} --}}
+	<div class="mutiview-ticket sports-{{this.code}} {{#if selected}}selected{{/if}}" data-id="{{this.id}}" data-code="{{this.code}}" {{#ifCond ../viewMode '===' 'multi'}}draggable="true"{{/ifCond}}>
+		<div class="ticket-header">
+			<div class="game-status">
+				<span class="live-time" data-cache="{{#ifCond ../viewMode '===' 'multi'}}live{{else}}nonlive{{/ifCond}}" data-time-m="{{liveEvent.time.m}}" data-time-s="{{liveEvent.time.s}}" data-reversed-time="{{liveEvent.time.reverse}}" data-status="{{liveEvent.time.status}}" data-id="l{{this.id}}">{{runningTime liveEvent.time liveEvent.time.reverse code liveEvent}}</span>
+				
+			</div>
+			<div class="sports-code">
+				{{tPrefix 'sportCode' (toLowerCase this.code) }}
+			</div>
+		</div>
+		<div class="content">
+			<div class="team-container">
+				<div class="team">{{this.opponentA}}</div>
+
+				    <div class="subscore"> {{subScore this.liveEvent 'a'}} </div>
+				{{#ifCond this.code '===' 'TENN'}}
+	                <div class="score">{{tennisScore this.liveEvent.score 'a' this.liveEvent}}</div>
+	            {{else}}
+	                <div class="score">{{this.liveEvent.score.a}}</div>
+	            {{/ifCond}}
+
+			</div>
+			<div class="team-container">
+				<div class="team">{{this.opponentB}}</div>
+
+					<div class="subscore"> {{subScore this.liveEvent 'b'}} </div>
+				{{#ifCond this.code '===' 'TENN'}}
+	                <div class="score">{{tennisScore this.liveEvent.score 'b' this.liveEvent}}</div>
+	            {{else}}
+	                <div class="score">{{this.liveEvent.score.b}}</div>
+	            {{/ifCond}}
+
+			</div>
+		</div>
+	</div>
+	{{!-- {{/ifCond2}} --}}
+{{/each}}
+{{#ifCond viewMode '===' 'multi'}}
+	{{#if showEmpty}}
+	<div class="mutiview-ticket empty hide">
+		{{t "ui.emptyTicket"}}
+	</div>
+	{{/if}}
+	{{#if favorites}}
+		<div class="mutiview-ticket empty hide">
+			{{t "ui.emptyFavTicket"}}
+		</div>
+	{{/if}}
+{{/ifCond}}

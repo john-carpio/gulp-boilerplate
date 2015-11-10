@@ -1,0 +1,97 @@
+{{#ifCond event.liveEvent.time.status '!==' 5}}
+<div class="event-block event e-{{event.id}}{{updateScoresContainer score}}  {{#if isFavorite}} isFavorite {{/if}} {{#if isStared}} isStared {{/if}} {{#if event.initHidden}} hidden{{/if}}" data-eventid="{{event.id}}">
+{{#foreach event.children}}
+{{#if $first}}
+
+    <div class="european-row">
+            <div class="event-header">
+                {{#if ../../liveMode}}
+                <div class="col col-time">
+                    <div class="live-time" data-time-m="{{../../../event.liveEvent.time.m}}" data-time-s="{{../../../event.liveEvent.time.s}}" data-reversed-time="{{../../../event.liveEvent.time.reversedTime}}" data-status="{{../../../event.liveEvent.time.status}}" data-id="l{{../../../event.id}}" >
+                        {{runningTime ../../../event.liveEvent.time ../../../event.liveEvent.timereversedTime ../../../event.code ../../../event.liveEvent}}
+                    </div>
+
+                        {{!-- <span class="live-time">
+                            {{t "livePeriods.startingAt"}} {{formatDateTime date 'MM/DD hh:mm A'}}
+                        </span> --}}
+                </div>
+                <div class="col col-teams {{../../../event.code}}-{{../../../event.liveEvent.max}}"> 
+                    <div class="teams" title="{{../../event.description}}">
+                        <div class="team-a"> 
+                            {{../../../event.opponentA}}
+                        </div>
+                        <div class="team-b">
+                            {{../../../event.opponentB}}
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col col-subscore">
+                    <div class="wrapper clearfix">
+                        {{subScore ../../../event.liveEvent false}}
+                    </div>
+                </div>
+
+
+
+                <div class="col col-score {{checkUpdatedScores ../../../score ../../../code}}">
+                    <div class="wrapper clearfix">
+                        <div class="scores-container">
+                            <span class="live-period-msg">
+                                <span class="score-a">{{showScore ../../../event.liveEvent 'a' }}</span>
+                                {{!-- <span>-</span> --}}
+                                <span class="score-b">{{showScore ../../../event.liveEvent 'b'}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+
+
+                {{else}}
+                <div class="col col-teams">
+                    <div class="teams" title="{{../../event.description}}">
+                        <span>
+                            {{../../../event.description}}
+                        </span>
+                        
+                    </div>
+                    {{!-- {{#if ../../liveMode}}
+                        <div class="col-markets-desc"><span>{{../children.market.description}}</span></div>
+                    {{/if}} --}}
+                </div>
+
+                {{/if}}
+                
+                <div class="col col-date pull-right">
+                    <div class="wrapper clearfix">
+                        <span class="datetime">
+                            {{formatDateTime ../../event.date 'MM/DD hh:mm A'}}
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+            {{!-- {{#if ../children.market}}
+                {{> europeanview/common/event-block style=../children.market.style children=../children.market.children first=$first id=../children.market.id count=../../../event.extendedCount eventID=../../../event.id flags=../children.market.flags liveMode=../../../liveMode market=../children.market.description eventDescription=../../../event.description code=../../../event.code imagePath=../../../imagePath virtual=../../../virtual}}
+            {{/if}} --}}
+                {{> europeanview/common/event-block style=children.market.style children=children.market.children first=$first id=children.market.id count=../../event.extendedCount eventID=../../event.id flags=children.market.flags liveMode=../../liveMode market=children.market.description eventDescription=../../event.description code=../../event.code imagePath=../../imagePath virtual=../../virtual brMatchId=../../event.brMatchId defaultButtons=../../defaultButtons marketData=children.market}}
+            
+            
+            <div class="asian-row-more more-{{../../event.id}}" data-event-id="{{../../event.id}}"  data-live="{{../../liveMode}}"></div>
+            
+        
+
+    </div>
+{{/if}}
+
+
+{{/foreach}}
+
+</div>
+{{/ifCond}}

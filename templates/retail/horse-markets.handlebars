@@ -1,0 +1,31 @@
+<div class="">
+{{#each (sortByProps markets 'pos') }}
+{{!-- {{#foreach markets}} --}}
+	<div class="european-row market-list {{toLowerCase children.market.description}}" >
+		<div class="market-description">
+            {{children.market.description}}
+        </div>
+
+            <div class="event-markets" > 
+                <div class=" m-{{children.market.id}} {{showFlags children.market.childrenflags}} default-market-{{size children.market.children}}">
+                        {{#isEqual children.market.description 'Straight Forecast'}}
+                            {{#each (toColumns (sortByProps ../children.market.children 'pos') 2 ) }}
+                            <div class="col-group"> 
+                                {{#each this }}
+                                    {{> europeanview/common/group-1x1-price outcome=this team=this.description}}
+                                {{/each}}
+                            </div>
+                            {{/each}}
+                        {{else}}
+                            {{#each (sortByProps ../children.market.children 'pos') }}
+                                {{> europeanview/common/group-1x1-price outcome=this team=this.description}}
+                            {{/each}}
+                        {{/isEqual}}
+                        
+                </div>
+            </div>
+	</div>
+{{!-- {{/foreach}} --}}
+{{/each}}
+</div>
+

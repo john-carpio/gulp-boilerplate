@@ -1,0 +1,45 @@
+{{#each activityList}}
+
+
+<div class="activity">
+	<div class="transaction-id">{{id}}</div>
+	<div class="created-date"> {{formatDateTime this.createDate 'MM-DD-YYYY'}}</div>
+	<div class="type-subtype">{{this.transactionSubType}}{{#unless transactionsGroup}}/{{transactionType}}{{/unless}}</div>
+	{{#if transactionsGroup}}
+		<div class="unit-stake text-right"> {{formatNumeral this.unitStake}}</div>
+	{{else}}
+		<div class="description">{{this.description}}</div>
+	{{/if}}
+	<div class="debit text-right"> {{formatNumeral this.debit}}</div>
+	<div class="credit text-right"> {{formatNumeral this.credit}}</div>
+	{{#if transactionsGroup}}
+		<div class="description">
+			{{#each transactionsGroup}}
+				<div class="transaction-group">
+					<div class="tid"><span>{{transactionId}}</span></div>
+					<div class="bet-items">
+						{{#each transactions}}
+							<div class="bet-item">
+								<div class="item-status {{getBetStatus ../this @index}}">{{getBetStatus ../this @index}}</div>
+								<div class="items-desc">
+									<span class="item-outcome">{{outcomeDescription}} @ {{getBetPrice this price}}</span>
+									<span class="item-market">[{{marketDescription}} - {{periodDescription}}]</span>
+									<span class="item-event"> {{eventDescription}}</span>
+								</div>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	{{else}}
+		<div class="status">{{status}}</div>
+	{{/if}}
+</div>
+
+{{else}}
+<div class="table-release">
+	<h4 class="text-center">{{tPrefix 'noResults' ./activity}}</h4>
+</div>
+{{/each}}
+

@@ -1,0 +1,25 @@
+
+<div class="event-time">
+    <span>{{t "asianView.time"}}</span>
+</div>
+<div class="event-description">
+    <span>{{t "asianView.events"}}</span>
+</div>
+
+
+{{#each displayMap }} 
+    <div class="period period-{{@key}} periods-{{size ../displayMap}} markets-{{size this}}">
+        <div class="period-title">
+            <span>{{tPrefix 'header' @key}}</span>
+        </div>
+        {{#each this}}
+            <div class="market market-{{this}} ">
+                <span>{{tPrefix 'header' this}}</span>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+
+<div class="tcol tcell tspan-2 col-more">
+    <span>{{t "asianView.more"}}</span>
+</div>

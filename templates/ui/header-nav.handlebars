@@ -1,0 +1,58 @@
+{{!-- start: header-middle --}}
+<div class="header-middle">
+    <div class="wrapper-main">
+        <ul class="nav-list-product">
+            <li><a class="nav-main" data-url="/sports/">{{t 'ui.sports'}}</a></li>
+            <li><a class="nav-main" data-url="/live">{{t 'ui.liveSports'}}</a></li>
+            {{!-- <li><a href="#">{{t 'ui.casino'}}</a></li> --}}
+            <li><a class="nav-main" data-url="/virtual">{{t 'ui.virtualSports'}}</a></li>
+            {{!-- <li><a href="#">{{t 'ui.games'}}</a></li>
+            <li><a href="#">{{t 'ui.poker'}}</a></li>
+            <li><a href="#">{{t 'ui.numberGames'}}</a></li>
+            <li><a href="#">{{t 'ui.options'}}</a></li> --}}
+        </ul>
+    </div> {{!-- end: .wraper-main --}}
+</div>
+{{!-- end: header-middle --}}
+
+{{!-- start: .header-bottom --}}
+<div class="header-bottom">
+    <div class="wrapper-main">
+        <ul class="nav-list-main">
+            <li><a class="nav-main default" data-url="/" data-type="link"> <i class="fa fa-home"></i></a></li>
+            <li><a class="nav-main default" data-url="/locator" data-type="link"> {{t 'ui.locator'}}</a></li>
+            <li><a class="nav-main default" data-url="/results" data-type="link"> Sports Results</a></li>
+            <li><a class="nav-main default" data-url="https://media.megasportsworld.com/training-videos.php" data-type="modal"> {{t 'ui.howtobet'}}</a></li>
+            <li><a class="nav-main default" data-url="/msw_assets/content/contact.html" data-type="modal"> {{t 'static.contact'}}</a></li>
+        </ul>
+        {{!--<ul class="nav-list-options">
+            <li>
+                <div class="btn-group">
+                    <button type="button" class="btn-timezone" data-toggle="dropdown" aria-expanded="false">
+                        {{event.getTimeZone}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        {{#each event.getTimeZoneList}}
+                            <li class="{{checkSelected this ../event.getTimeZone}}"><a href="#" class="timezone" data-value="{{this}}">{{this}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+             
+            <li>
+                <div class="btn-group">
+                    <button type="button" class="btn-theme" data-toggle="dropdown" aria-expanded="false">
+                        {{t 'ui.skinExchange'}} <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        {{#each event.getThemeList}}
+                            <li class="{{checkSelected this ../event.getTheme}}"><a href="#" class="theme" data-value="{{this}}">{{tPrefix 'theme' this}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </li>
+            
+        </ul>--}}
+    </div> {{!-- end: .wraper-main --}}
+</div>
+{{!-- end: .header-bottom --}}

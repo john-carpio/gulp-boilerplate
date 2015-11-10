@@ -1,0 +1,102 @@
+<div class="wrap-selection">
+    <div class="loading-cover">
+        <div>
+            <i class="fa fa-spin fa-spinner"></i>
+        </div>
+    </div>
+    <ul>
+        {{#each singles}}
+            <li class="status-{{marketStatus}}">
+
+
+
+
+                <div class="wrap-header">
+                    
+                    <div>
+                        {{eventDescription}}
+                    </div>
+                </div>
+
+                <div class="wrap-outcome">
+                    <div class="team"><span>{{cleanText outcomeDescription formattedSpread}}</span> <span class="{{isSpreadUpdated outcomeId formattedSpread}}">{{formattedSpread}}</span></div>
+                    <div class="odds"><span class="{{isPriceUpdated outcomeId priceFormatted}}">{{priceFormatted}}</span></div>
+                {{!-- </div> --}}
+{{!--  --}}
+                <div class="wrap-details">
+                    {{marketDescription}} - {{periodDescription}}
+                </div>
+                {{!-- <div class="date">{{formatDateTime eventStartDateTime 'datetime'}}</div> --}}
+                <div class="wrap-single-stake">
+
+                    <div class="stake-form">
+                        <label>Stake</label>
+                        <div class="input-group" >
+                            {{!-- <span class="input-group-addon">{{../currCode}}</span> --}}
+                            {{!-- <span class="input-group-btn">
+                                <button class="btn btn-default btn-bet-minus" type="button">
+                                    -
+                                </button>
+                            </span> --}}
+                            <input type="text" class="form-control input-stake single-stake stake-{{outcomeId}}" 
+                            name="stake-{{outcomeId}}" placeholder="0.00" 
+                            data-typeid="1" data-outcomeid="{{outcomeId}}" 
+                            value="{{formatNumeral unitStake}}"
+                            tabindex="{{tabIndex @index}}">
+                            {{!-- <span class="input-group-btn">
+                                <button class="btn btn-default btn-bet-plus" type="button">
+                                    +
+                                </button>
+                            </span> --}}
+                        </div>
+                    </div>
+                    <div class="win-display">
+                        <label>Win</label>
+                        <div class="input-group" >
+                            {{!-- <span class="input-group-addon">{{../currCode}}</span> --}}
+
+                            <input type="text" class="form-control input-win" name="stake-{{outcomeId}}" placeholder="0.00" data-typeid="1" data-outcomeid="{{outcomeId}}" value="{{formatNumeral potentialWin}}" disabled>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="wrap-cover">
+                    <div>
+                        {{tPrefix 'ui' marketStatus}}
+                    </div>
+                </div>
+                <div class="wrap-remove">
+                    <a href="#" class="remove" data-outcomeid="{{outcomeId}}" tabindex="-1"><i class="fa fa-times"></i></a>
+                </div>
+                
+            </li>
+        {{/each}}
+    </ul>
+</div>
+
+<div class="wrap-summary">
+    <div class="summary-row">
+        <div class="description">{{t "betSlip.totalBets"}}</div>
+        <div class="price">{{currCode}} {{formatNumeral totalBets}}</div>
+    </div>
+
+    <div class="summary-row">
+        <div class="description">{{t "betSlip.potentialWin"}}</div>
+        <div class="price">{{currCode}} {{formatNumeral potentialWins}}</div>
+    </div>
+
+
+    <div class="wrap-buttons">
+        <div class="removeall"><button type="button" class="btn-remove remove-all" role="button" {{#unless singles.length}}disabled{{/unless}}>{{t "betSlip.removeAll"}}</button></div>
+        <div class="next">
+            {{!-- <button type="button" class="btn-update" role="button" disabled>Update</button> --}}
+            {{#if isLoggedIn}}
+                <button type="button" class="btn-next btn-betslip-next" data-betslipmode="singles" role="button" {{#if singlesNextDisabled}}disabled{{/if}}><span class="text">{{t "betSlip.next"}}</span> <i class="fa fa-spin fa-spinner"></i></button>
+            {{else}}
+                <button type="button" class="btn btn-login" data-action="login">{{t "betSlip.login"}}</button>
+            {{/if}}
+        </div>
+    </div>
+</div>
+

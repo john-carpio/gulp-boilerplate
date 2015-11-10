@@ -1,0 +1,172 @@
+
+<div class="panel-heading">
+    <div class="required-text">
+        <strong class="required">*</strong>
+        {{t "account.requiredMessage"}}
+    </div>
+</div>
+
+<form id="my_account_form">
+    {{!-- <input type="hidden" value="EURO" class="" id="priceFormat" name="priceFormat" /> --}}
+<div class="wrapper-panel personal-details">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h5 class="panel-title">{{t "account.personalDetails"}}</h5></div>
+
+        {{!-- start: .panel-body --}}
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="title">{{t "account.title"}} <strong class="required">*</strong></label>
+                <div>
+                    <select id="title" name="title">
+                        <option value="Mr" {{checkSelected account.title 'Mr'}}>{{t "account.mr"}}</option>
+                        <option value="Mrs" {{checkSelected account.title 'Mrs'}}>{{t "account.mrs"}}</option>
+                        <option value="Ms" {{checkSelected account.title 'Ms'}}>{{t "account.ms"}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="firstName">{{t "account.firstname"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="firstName" name="firstName" value="{{account.firstName}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="surName">{{t "account.surname"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="surName" name="surName" value="{{account.lastName}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="CHANGEME">{{t "account.dateOfBirth"}} </label>
+                <div>
+                    <input type="text" id="date"  value="{{formatDateTime account.dob 'D'}}" readonly />
+                    <input type="text" id="month"  value="{{formatDateTime account.dob 'M'}}" readonly />
+                    <input type="text" id="year"  value="{{formatDateTime account.dob 'YYYY'}}" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address1">{{t "account.addressline1"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="address1" name="address1" value="{{account.address1}}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address2">{{t "account.addressline2"}}</label>
+                <div>
+                    <input type="text" id="address2" name="address2" value="{{account.address2}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address3">{{t "account.addressline3"}}</label>
+                <div>
+                    <input type="text" id="address3" name="address3" value="{{account.address3}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address4">{{t "account.addressline4"}}</label>
+                <div>
+                    <input type="text" id="address4" name="address4" value="{{account.address4}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="country">{{t "account.country"}} </label>
+                <div>
+                    <input type="text" id="country" class="hasloading" value="" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="postcode">{{t "account.postcode"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="postcode" name="postcode" value="{{account.postcode}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="homeTel">{{t "account.homeTelephone"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="homeTel" class="phone-group" name="homeTel" value="{{account.homePhone}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="mobileTel">{{t "account.mobileTelephone"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="mobileTel" class="phone-group" name="mobileTel" value="{{account.mobile}}"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="currency">{{t "account.currency"}}</label>
+                <div>
+                    <select id="currency" name="currency">
+                        <option value="PHP">Philippine Peso</option>
+                        {{!--#each currencies}}
+                        <option value="{{isocode}}">{{desc}}</option>
+                        {{/each--}}
+                    </select>
+                    <!--input type="text" id="currency" class="hasloading"  value="" readonly /-->
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="languageCode">{{t "account.languages"}} <strong class="required">*</strong></label>
+                <div>
+                    <select id="language" name="language">
+                        <option value="en-GB">English (United Kingdom)</option>
+                        {{!--#each languages}}
+                        <option value="{{isocode}}">{{desc}}</option>
+                        {{/each--}}
+                    </select>
+                    <!--select id="languageCode" class="hasloading" name="languageCode">
+                        {{#each formData.languages}}
+                        <option value="{{isocode}}" {{checkSelected id ../account.languageId}}>{{desc}}</option>
+                        {{/each}}
+                    </select-->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="priceFormat">{{t "account.priceFormat"}} <strong class="required">*</strong></label>
+                <div>
+                    <select id="priceFormat" name="priceFormat">
+                        {{#each formData.priceFormats}}
+                            <option value="{{this}}" {{checkSelected this ../account.priceFormat}}>{{tPrefix 'sports' this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+        </div> {{!-- end: .panel-body --}}
+
+    </div> {{!-- end: .panel-default --}}
+
+</div> {{!-- end: .wrapper-panel --}}
+<div class="wrapper-panel account-details">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h5 class="panel-title">{{t "account.accountDetails"}}</h5></div>
+        <div class="panel-body">
+
+
+            <div class="form-group">
+                <label for="securityQuestion">{{t "account.securityQuestion"}} <strong class="required">*</strong></label>
+                <div>
+                    <select id="securityQuestion" class="hasloading" name="securityQuestion">
+                        {{#each formData.securityQuestions}}
+                        <option value="{{id}}" {{checkSelected id ../account.securityQuestionId1}}>{{desc}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="securityQuestionAnswer">{{t "account.securityAnswer"}} <strong class="required">*</strong></label>
+                <div>
+                    <input type="text" id="securityQuestionAnswer" name="securityQuestionAnswer" value="{{account.securityQuestionAnswer1}}"/>
+                </div>
+            </div>
+        </div> {{!-- end: .panel-body --}}
+        <div class="panel-footer">
+            <div class="offset-wrapper">
+                <button type="submit" class="btn-account-form" disabled>{{t "account.saveChanges"}}</button>
+            </div>
+        </div>
+
+    </div> {{!-- end: .panel --}}
+
+</div>
+</form>

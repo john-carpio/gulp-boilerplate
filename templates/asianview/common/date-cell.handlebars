@@ -1,0 +1,32 @@
+
+{{#if livemode}}
+	{{#xif "this.code == 'VOLL' || this.code == 'TENN'"}}
+		<div class="scores{{updateSets ../sets (getSetIndex ../liveEvent)}}">
+			<span class="score-a">{{showScoreOnSet ../sets (getSetIndex ../liveEvent) 'a' '0'}}</span>
+			<span>-</span>
+			<span class="score-b">{{showScoreOnSet ../sets (getSetIndex ../liveEvent) 'b' '0'}}</span>
+		</div>
+		<span class="live-set">Set {{getCurrentSet ../liveEvent}}</span>
+	{{else}}
+		<div class="scores">
+			<span class="score-a">{{showLiveScore ../score 'a'}}</span>
+			<span>-</span>
+			<span class="score-b">{{showLiveScore ../score 'b'}}</span>
+		</div>
+		<span class="live-time" data-time-m="{{../liveEvent.time.m}}" data-time-s="{{../liveEvent.time.s}}" data-reversed-time="{{reversedTime}}" data-status="{{../liveEvent.time.status}}">{{runningTime ../liveEvent.time ../reversedTime }}</span>
+	{{/xif}}
+
+
+<div class="live-extra">
+    <i class="fa fa-bar-chart"></i>
+    <i class="fa fa-desktop"></i>
+    <i class="fa fa-rss"></i>
+</div>
+{{else}}
+<div class="date">
+    {{formatDateTime date 'date'}}
+</div>
+<div class="time">
+    {{formatDateTime date 'time'}}
+</div>
+{{/if}}

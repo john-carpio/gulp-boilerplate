@@ -1,0 +1,8 @@
+<li class="status-{{bet.status}}">
+    {{!-- {{status}} - {{transactionId}} = {{outcomeId}} --}}
+    <div class="wrap-outcomelist">
+        {{#each bet.outcomes}}
+            {{partialBetslipOutcome this ../outcomeList}}
+        {{/each}}
+    </div>
+</li>

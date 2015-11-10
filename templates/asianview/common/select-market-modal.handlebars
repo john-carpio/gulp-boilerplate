@@ -1,0 +1,48 @@
+<div class="filter-header">
+	<div class="filter-title">{{t "marketModal.matchType"}}</div>
+	<div class="filter-error">
+		*Please select at least one match type.
+	</div>
+	<div class="filter-body">
+		<ul>
+			<li>
+				<label>
+					<span class="checkbox-wrap {{#if list.marketAll}}checked{{/if}}"><input type="checkbox" class="select-all-selector" data-target="match-selector" {{#if list.marketAll}}checked{{/if}}></span>
+					Select All
+				</label>
+			</li>
+			{{#each list.marketGroup}}
+			<li>
+				<label>
+					<span class="checkbox-wrap {{#if marketVisible}}checked{{/if}}"><input type="checkbox" class="league-selector match-selector" {{#if marketVisible}}checked{{/if}} data-value="{{marketGroup}}" ></span>
+					{{marketGroup}}
+				</label>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>
+<div class="filter-header">
+	<div class="filter-title">{{t "marketModal.periodType"}}</div>
+	<div class="filter-error">
+		*Please select at least one period.
+	</div>
+	<div class="filter-body">
+		<ul>
+			<li>
+				<label>
+					<span class="checkbox-wrap {{#if list.periodAll}}checked{{/if}}"><input type="checkbox" class="select-all-selector" data-target="period-selector" {{#if list.periodAll}}checked{{/if}}></span>
+					Select All
+				</label>
+			</li>
+			{{#each list.marketPeriod}}
+			<li>
+				<label>
+					<span class="checkbox-wrap {{#if marketVisible}}checked{{/if}}"><input type="checkbox" class="league-selector period-selector" {{#if marketVisible}}checked{{/if}} data-value="{{marketPeriod}}" ></span>
+					{{marketPeriod}}
+				</label>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+</div>	

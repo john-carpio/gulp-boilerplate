@@ -1,0 +1,15 @@
+<div class="doubleview-line" data-id="{{outcome.id}}" data-type="outcome">
+
+    {{#if withSpread }}
+        <span class="spread">{{formatSpread outcome}}</span>
+    {{/if}}
+
+    {{#if outcome.price}}
+        {{#if prefix}}
+            <span class="prefix">{{../prefix}}</span>
+        {{/if}}
+
+        <div class="direction"><span class="up"></span></div>
+        <a class="price">{{outcome.price}}</a>
+    {{/if}}
+</div>

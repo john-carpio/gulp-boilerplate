@@ -1,0 +1,20 @@
+{{!-- <div class="league-block league p-{{league.id}}" data-path="{{league.id}}">
+    <div class="events-container">
+    	{{#each league.events}}
+            {{> live/common/event-block}}
+        {{/each}}
+    </div>
+</div> --}}
+
+<div class="league-block league {{visible}} p-{{league.id}} {{#if league.initHidden}}hide{{/if}}" data-path="{{league.id}}">
+    <div class="league-title">
+        <div class="wrapper"> 
+            <span class="title">{{league.title}}</span>
+        </div>
+    </div>
+    <div class="events-container">
+        {{!-- {{#each league.events}}
+            {{> asianview/event-block}}
+        {{/each}} --}}
+    </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="more">
+    <div class="wrapper">
+        {{#if first}}
+        	
+            {{#if liveMode}}
+                {{#if ../count}}
+                    <button class="btn-custom btn-live market-count btn-more-{{../id}}" data-id="{{../id}}" data-count="{{../count}}">
+                        <i class="fa fa-plus"></i>
+                        <span>{{../count}}</span>
+                    </button>
+                {{/if}}
+            {{!-- <button class="btn-custom btn-live market-count btn-live-{{id}}" data-id="{{id}}">
+                <span>Live</span>
+            </button> --}}
+            {{else}}
+                {{#if ../count}}
+                    <button class="btn-custom btn-more market-count btn-more-{{../id}}" data-id="{{../id}}" data-count="{{../count}}">
+                        <i class="fa fa-plus"></i>
+                        <span>{{../count}}</span>
+                    </button>
+                {{/if}}
+            {{/if}}
+            <button class="btn-custom btn-fave btn-addfav" data-id="e{{id}}" data-title="{{eventDescription}}">
+                <i class="fa fa-star-o"></i>
+            </button>
+            <button class="btn-custom btn-stat {{#unless brMatchId}}btn-disabled{{/unless}}" data-id="{{id}}" data-matchid="{{brMatchId}}" 
+            >
+            
+                <i class="fa fa-bar-chart"></i>
+            </button>
+        	
+        {{/if}}
+    </div>
+</div>

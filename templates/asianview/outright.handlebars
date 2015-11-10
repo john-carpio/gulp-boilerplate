@@ -1,0 +1,29 @@
+<div class="event-block rankevent event e-{{this.event.id}}">
+
+    <div class="events-header">
+        {{> ui/addtofavorites id=this.event.id title=this.event.description type='e'}}
+        <div class="outright-title">
+           {{formatDateTime this.event.date 'date'}}  {{formatDateTime this.event.date 'time'}} - {{this.event.description}}
+        </div>
+    </div>
+{{#foreach this.event.children}}
+    {{consoleLog this.children.OUTRIGHT.children}}
+    <div class="rank-events-container m-{{this.children.OUTRIGHT.id}}">
+        
+        <div class="events-container">
+
+            {{#foreach (toColumns this.children.OUTRIGHT.children 2 ) }}
+                <div class="col-group">
+                    {{#each this}}
+                        {{> asianview/common/group-outright team=this}}
+                    {{/each}}
+                </div>
+            {{/foreach}} 
+        </div>
+    </div>
+{{/foreach}}
+
+</div>
+
+
+

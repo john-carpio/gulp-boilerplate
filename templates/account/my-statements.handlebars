@@ -1,0 +1,53 @@
+
+<div class="wrapper-main">
+    <div class="my-bets">
+
+            <div class="wrapper-filter">
+                <div class="activity-title">{{t 'myStatements.title'}}</div>
+                <div class="activity-filter clearfix">
+                    <div class="filter-selection">
+                        <select id="filter_type">
+                            <option value="PAYMENTRECEIPT">{{t 'myStatements.paymentReceipt'}}</option>
+                            <option value="BONUS">{{t 'myStatements.bonus'}}</option>
+                        </select>
+                    </div>
+                    <div class="filter-selection">
+                        <label class="control-label">{{t 'myStatements.from'}} :</label>
+                        <div id="date_from_group" class="input-group date">
+                            <input id="date_from" type="text" class="form-control" value="{{dateFrom}}"><span class="input-group-addon" autocomplete="false"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="filter-selection">
+                        <label class="control-label">{{t 'myStatements.to'}} :</label>
+                        <div id="date_to_group" class="input-group date">
+                            <input id="date_to" type="text" class="form-control" value="{{dateTo}}"><span class="input-group-addon" autocomplete="false"><i class="fa fa-calendar"></i></span>
+                        </div>
+                    </div>
+                    <div class="filter_submit">
+                        <button id="btn_search" class="btn-dark" type="submit">{{t 'myStatements.labelButton'}}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="activity-list">
+                <div class="activity-list-header">
+                    <div class="activity">
+                        <div class="transaction-id">{{t 'myStatements.transactionId'}}</div>
+                        <div class="created-date">{{t 'myStatements.createdDate'}}</div>
+                        <div class="type-subtype">{{t 'myStatements.type'}}</div>
+                        <div class="description">{{t 'myStatements.description'}}</div>
+                        {{!-- <div class="unit-stake">{{t 'myStatements.unitStake'}}</div> --}}
+                        <div class="debit">{{t 'myStatements.debit'}}</div>
+                        <div class="credit">{{t 'myStatements.credit'}}</div>
+                        <div class="status">{{t 'myStatements.status'}}</div>
+                    </div>
+                </div>
+                <div id="activity_list" class="activity-list-body">
+                    <div class="table-release">
+                        {{> ui/loading}}
+                    </div>
+                </div>
+                <div class="pager table-release"></div>
+            </div>
+
+    </div>
+</div> {{!-- end: .wrapper-main --}}

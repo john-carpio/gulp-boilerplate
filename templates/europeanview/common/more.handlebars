@@ -1,0 +1,42 @@
+<div class="more {{#if virtual}}virtual{{/if}} action-buttons-size-{{size defaultButtons}}">
+    <div class="wrapper">
+        {{#if first}}
+        	
+            {{#if liveMode}}
+                
+                    <button class="btn-custom btn-live market-count {{#ifCond ../count '===' 0}}btn-disabled{{/ifCond}} btn-more-{{../id}}" data-id="{{id}}" data-count="{{../count}}" data-sportcode="{{../code}}" >
+                        <i class="fa fa-plus"></i>
+                        <span>{{../count}}</span>
+                    </button>
+                
+            {{!-- <button class="btn-custom btn-live market-count btn-live-{{id}}" data-id="{{id}}">
+                <span>Live</span>
+            </button> --}}
+            {{else}}
+                {{!-- {{#if ../count}} --}}
+                {{#if (hasProp ../defaultButtons 'more') }}
+                    <button class="btn-custom {{#unless virtual}} btn-more {{else}} btn-expand virtual {{/unless}} market-count btn-more-{{../id}}" data-id="{{../id}}" data-count="{{../count}}" {{#unless ../count}}disabled{{/unless}}>
+                        <i class="fa fa-plus"></i>
+                        <span>{{../count}}</span>
+                    </button>
+                {{/if}}
+                {{!-- {{/if}} --}}
+            {{/if}}
+            {{#unless virtual}}
+                
+                {{#if (hasProp defaultButtons 'stats') }}
+                    <button class="btn-custom btn-stat {{#unless brMatchId}}btn-disabled{{/unless}}" data-id="{{id}}" data-matchid="{{brMatchId}}" 
+                    >
+                    
+                        <i class="fa fa-bar-chart"></i>
+                    </button>
+                {{/if}}
+                {{#if (hasProp defaultButtons 'fav') }}
+                    <button class="btn-custom btn-fave btn-addfav" data-id="e{{id}}" data-title="{{eventDescription}}">
+                        <i class="fa fa-star-o"></i>
+                    </button>
+                {{/if}}
+        	{{/unless}} 
+        {{/if}}
+    </div>
+</div>
