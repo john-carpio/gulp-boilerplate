@@ -19,7 +19,6 @@ var config = require('./gulpConfig.json');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
 var cssRev = require('gulp-rev-css-url');
-var revDel = require('rev-del');
 
 var gutil = require('gulp-util');
 
@@ -60,7 +59,6 @@ gulp.task('js-rev', function() {
             base: process.cwd()+'/dist',
             merge: true
         }))
-        .pipe(revDel({ dest: config.baseOutputDir }))
         .pipe(gulp.dest(config.baseOutputDir));
 });
 
@@ -179,7 +177,6 @@ gulp.task('revision', [ 'sass', 'js-vendor', 'js-app'], function(){
     .pipe(cssRev())
     .pipe(gulp.dest(config.baseOutputDir))
     .pipe(rev.manifest())
-    .pipe(revDel({ dest: config.baseOutputDir }))
     .pipe(gulp.dest(config.baseOutputDir))
 })
 
