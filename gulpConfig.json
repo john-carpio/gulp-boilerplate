@@ -13,6 +13,11 @@
 	"minifyJS": true,
 	"minifyCSS": true,
 
+	"templates": {
+		"compiler": "handlebars",
+		"nameSpace": "NovaWeb.Templates"
+	},
+
 	"files": {
 		"vendor": [
 	        "./bower_components/jquery/dist/jquery.js",

@@ -27,13 +27,24 @@ var handlebars = require('gulp-handlebars');
 var wrap = require('gulp-wrap');
 var declare = require('gulp-declare');
 
+var path = require('path');
+
 gulp.task('templates', function () {
     gulp.src('templates/**/*.handlebars')
       .pipe(handlebars())
       .pipe(wrap('Handlebars.template(<%= contents %>)'))
       .pipe(declare({
-          namespace: 'MyApp.templates',
-          noRedeclare: true, // Avoid duplicate declarations
+            namespace: config.templates.nameSpace,
+            noRedeclare: true, // Avoid duplicate declarations,
+            processName: function(filePath) {
+
+                var pre = new RegExp( process.cwd() + '\/templates\/');
+
+                filePath = filePath.replace(pre,'').replace('\.js', '');
+
+                return filePath;
+
+            }
       }))
       .pipe(concat('templates.js'))
       .pipe(gulp.dest('./js'));

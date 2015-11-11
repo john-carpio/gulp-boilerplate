@@ -1,11 +1,11 @@
-this["MyApp"] = this["MyApp"] || {};
-this["MyApp"]["templates"] = this["MyApp"]["templates"] || {};
-this["MyApp"]["templates"]["404"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"] = this["NovaWeb"] || {};
+this["NovaWeb"]["Templates"] = this["NovaWeb"]["Templates"] || {};
+this["NovaWeb"]["Templates"]["404"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<h1>"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"errors.404",{"name":"t","hash":{},"data":data}))
     + "</h1>";
 },"useData":true});
-this["MyApp"]["templates"]["home"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["home"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"home-page\">\n"
@@ -20,7 +20,7 @@ this["MyApp"]["templates"]["home"] = Handlebars.template({"compiler":[6,">= 2.0.
     + alias2((helpers.getBanner || (depth0 && depth0.getBanner) || alias1).call(depth0,"list-play-4",{"name":"getBanner","hash":{},"data":data}))
     + "\n      </div>\n    </li-->\n  </ul>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["index"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["index"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"hello\" style=\"border: 1px solid red;\">\n    <h1>"
@@ -29,7 +29,7 @@ this["MyApp"]["templates"]["index"] = Handlebars.template({"compiler":[6,">= 2.0
     + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
     + "! I'm a template. \n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["test"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["test"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "This is a test! "
@@ -38,7 +38,7 @@ this["MyApp"]["templates"]["test"] = Handlebars.template({"compiler":[6,">= 2.0.
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"app.name",{"name":"t","hash":{},"data":data}))
     + "!";
 },"useData":true});
-this["MyApp"]["templates"]["account-panel"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/account-panel"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div id=\""
@@ -51,7 +51,7 @@ this["MyApp"]["templates"]["account-panel"] = Handlebars.template({"compiler":[6
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"\t\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "        </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["change-password"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/change-password"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "\n<form id=\"change_password_form\">\n    <div class=\"panel panel-default\">\n\n        <div class=\"panel-heading\">\n            <div class=\"required-text\">\n                <strong class=\"required\">*</strong>\n                "
@@ -66,7 +66,7 @@ this["MyApp"]["templates"]["change-password"] = Handlebars.template({"compiler":
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"password.savePassword",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </div> \n</form>";
 },"useData":true});
-this["MyApp"]["templates"]["forgot-password-second-step"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/forgot-password-second-step"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"loading-container\">\n"
@@ -83,7 +83,7 @@ this["MyApp"]["templates"]["forgot-password-second-step"] = Handlebars.template(
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"forgotPassword.cancel",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </div> \n</form>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["forgot-password"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/forgot-password"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"loading-container\">\n"
@@ -100,7 +100,7 @@ this["MyApp"]["templates"]["forgot-password"] = Handlebars.template({"compiler":
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"forgotPassword.cancel",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </div> \n</form>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["login-modal"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/login-modal"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "\n<form id=\"login_modal_form\" class=\"login-form\">\n    <div class=\"form-group\">\n        <label for=\"password\">"
@@ -123,7 +123,7 @@ this["MyApp"]["templates"]["login-modal"] = Handlebars.template({"compiler":[6,"
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"login.loginBtn",{"name":"t","hash":{},"data":data}))
     + "</button>\n</form>";
 },"useData":true});
-this["MyApp"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/login"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<form id=\"login_form\" class=\"login-form\">\n    <div class=\"panel panel-default\">\n        <div class=\"panel-body\">\n            <div class=\"form-group\">\n                <label for=\"password\">"
@@ -144,7 +144,7 @@ this["MyApp"]["templates"]["login"] = Handlebars.template({"compiler":[6,">= 2.0
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"login.loginBtn",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </div> \n</form>";
 },"useData":true});
-this["MyApp"]["templates"]["my-account-details"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["account/my-account-details"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "                        <option value=\""
@@ -265,7 +265,7 @@ this["MyApp"]["templates"]["my-account-details"] = Handlebars.template({"1":func
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"account.saveChanges",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n\n    </div> \n\n</div>\n</form>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["my-bets-pager"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["account/my-bets-pager"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
   return "\n  \n  <ul class=\"pagination\">\n    <li><span>"
@@ -309,7 +309,7 @@ this["MyApp"]["templates"]["my-bets-pager"] = Handlebars.template({"1":function(
   return "\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.pager : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["my-bets-row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["account/my-bets-row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "\n\n<div class=\"activity\">\n	<div class=\"transaction-id\">"
@@ -389,7 +389,7 @@ this["MyApp"]["templates"]["my-bets-row"] = Handlebars.template({"1":function(de
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.activityList : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(14, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "\n";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["my-bets"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/my-bets"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "                    <div class=\"filter-selection\">\n                        <select id=\"filter_source\">\n                            <option value=\"0\">"
@@ -436,7 +436,7 @@ this["MyApp"]["templates"]["my-bets"] = Handlebars.template({"1":function(depth0
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"                        ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "                    </div>\n                </div>\n                <div class=\"pager table-release\"></div>\n            </div>\n\n    </div>\n</div> ";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["my-statements"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/my-statements"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
   return "\n<div class=\"wrapper-main\">\n    <div class=\"my-bets\">\n\n            <div class=\"wrapper-filter\">\n                <div class=\"activity-title\">"
@@ -473,7 +473,7 @@ this["MyApp"]["templates"]["my-statements"] = Handlebars.template({"compiler":[6
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"                        ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "                    </div>\n                </div>\n                <div class=\"pager table-release\"></div>\n            </div>\n\n    </div>\n</div> ";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["register"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/register"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "                            <option>"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "</option>\n";
@@ -574,7 +574,7 @@ this["MyApp"]["templates"]["register"] = Handlebars.template({"1":function(depth
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"account.registerAccount",{"name":"t","hash":{},"data":data}))
     + "</button>\n                </div>\n            </div>\n\n        </div> \n</form>";
 },"useData":true});
-this["MyApp"]["templates"]["verify-password"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["account/verify-password"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<form id=\"verify_password_form\">\n    <div class=\"panel panel-default\">\n\n        <div class=\"panel-heading\">\n            <div class=\"required-text\">\n                <strong class=\"required\">*</strong>\n                "
@@ -587,7 +587,7 @@ this["MyApp"]["templates"]["verify-password"] = Handlebars.template({"compiler":
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"password.savePassword",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </div> \n</form>";
 },"useData":true});
-this["MyApp"]["templates"]["header"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["asianview/header"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "    <div class=\"period period-"
@@ -622,7 +622,7 @@ this["MyApp"]["templates"]["header"] = Handlebars.template({"1":function(depth0,
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"asianView.more",{"name":"t","hash":{},"data":data}))
     + "</span>\n</div>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["outright"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/outright"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "    "
@@ -659,7 +659,7 @@ this["MyApp"]["templates"]["outright"] = Handlebars.template({"1":function(depth
     + ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || alias3).call(depth0,((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.children : stack1),{"name":"foreach","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n</div>\n\n\n\n";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["asianview/row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return "\n\n    <div class=\"event-row \">\n        <div class=\"event-time"
@@ -727,7 +727,7 @@ this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,hel
     + ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || alias2).call(depth0,((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.children : stack1),{"name":"foreach","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["credit-card"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["deposit/credit-card"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "                                <option>"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "</option>\n";
@@ -762,7 +762,7 @@ this["MyApp"]["templates"]["credit-card"] = Handlebars.template({"1":function(de
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"deposit.continue",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </form>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["skrill"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["deposit/skrill"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div id=\"deposit_page\" class=\"deposit-page form-wrapper\">\n    <form id=\"deposit_skrill_form\">\n        <div class=\"main-header\">\n            <h4>"
@@ -775,10 +775,10 @@ this["MyApp"]["templates"]["skrill"] = Handlebars.template({"compiler":[6,">= 2.
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"deposit.continue",{"name":"t","hash":{},"data":data}))
     + "</button>\n            </div>\n        </div>\n    </form>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["europeanview/header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "";
 },"useData":true});
-this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["europeanview/row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "<div class=\"event-block event e-"
@@ -869,7 +869,7 @@ this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,hel
 
   return ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.liveEvent : stack1)) != null ? stack1.time : stack1)) != null ? stack1.status : stack1),"!==",5,{"name":"ifCond","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["event/event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['europeanview/common/group-1x1-price'],depth0,{"name":"europeanview/common/group-1x1-price","hash":{"team":(depth0 != null ? depth0.description : depth0),"outcome":depth0},"data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -890,7 +890,7 @@ this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(de
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.children : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["league-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["event/league-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=this.escapeExpression, alias2=this.lambda;
 
   return "<div class=\"league-block league "
@@ -903,7 +903,7 @@ this["MyApp"]["templates"]["league-block"] = Handlebars.template({"compiler":[6,
     + alias1(alias2(((stack1 = (depth0 != null ? depth0.league : depth0)) != null ? stack1.title : stack1), depth0))
     + "</span>\n        </div>\n    </div>\n    <div class=\"events-container\">\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["event/row"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.escapeExpression, alias2=this.lambda;
 
   return "    <div class=\"european-row market-list "
@@ -942,7 +942,7 @@ this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,hel
     + ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || alias3).call(depth0,((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.children : stack1),{"name":"foreach","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["section-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["event/section-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return " criteria-"
@@ -979,7 +979,7 @@ this["MyApp"]["templates"]["section-block"] = Handlebars.template({"1":function(
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "        </div>\n    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["contact-center-modal"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["global/contact-center-modal"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"modal fade\" id=\"contact-center-popup\" tabindex=\"-1\" role=\"dialog\"\n     aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><i class=\"fa fa-times\"></i></button>\n                <h4 class=\"modal-title\" id=\"myModalLabel\"><i class=\"fa fa-user\"></i>\n                    "
@@ -1046,18 +1046,18 @@ this["MyApp"]["templates"]["contact-center-modal"] = Handlebars.template({"compi
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"contactCenter.betDealYahoo",{"name":"t","hash":{},"data":data}))
     + "</td>\n                        </tr>\n                        </tbody>\n                    </table>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n";
 },"useData":true});
-this["MyApp"]["templates"]["test"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["home/test"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "HOME "
     + this.escapeExpression(((helper = (helper = helpers.test || (depth0 != null ? depth0.test : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"test","hash":{},"data":data}) : helper)));
 },"useData":true});
-this["MyApp"]["templates"]["empty-favs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/empty-favs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"multileague-container\">\n    <div class=\"multi-empty\">"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"ui.multi",{"name":"t","hash":{},"data":data}))
     + "</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["empty-tracker"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/empty-tracker"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"\t\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -1078,7 +1078,7 @@ this["MyApp"]["templates"]["empty-tracker"] = Handlebars.template({"1":function(
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,(depth0 != null ? depth0.state : depth0),"===",0,{"name":"ifCond","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "	</div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['europeanview/common/group-1x1-price'],depth0,{"name":"europeanview/common/group-1x1-price","hash":{"team":(depth0 != null ? depth0.description : depth0),"outcome":depth0},"data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -1099,7 +1099,7 @@ this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(de
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.children : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["event-container"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/event-container"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['live/match-tracker'],depth0,{"name":"live/match-tracker","hash":{"part":(depth0 != null ? depth0.part : depth0),"frameUrl":(depth0 != null ? depth0.frameUrl : depth0)},"data":data,"indent":"\t\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -1110,12 +1110,12 @@ this["MyApp"]["templates"]["event-container"] = Handlebars.template({"1":functio
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.hasMatchtracker : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "		<div class=\"score-tracker-container\"></div>\n	</div>\n	<div class=\"event-container\"></div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["favs-container"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/favs-container"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "\n<div class=\"favleague-container\">\n    <div class=\"fav-empty\">"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"ui.addfavorites",{"name":"t","hash":{},"data":data}))
     + "</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "\n<div class=\"wrapper-main\">\n	<div class=\"live-panels panel-container\"> \n		<div class=\"panel-main\"></div>\n\n				\n\n\n\n\n		<div class=\"panel-right\">\n		    \n\n			<div class=\"match-tracker\">\n			    <div class=\"block-title\">\n			    	<div class=\"title\">\n			    		<span>"
@@ -1124,7 +1124,7 @@ this["MyApp"]["templates"]["layout"] = Handlebars.template({"compiler":[6,">= 2.
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"ui.sportsNews",{"name":"t","hash":{},"data":data}))
     + "</span>\n				    </div>\n				</div>\n\n\n			    <div class=\"wrap-content\">\n			        <ul class=\"sports-news-container\">\n			        </ul>\n			    </div>\n			</div>\n\n		    <aside class=\"advertisement\"></aside>\n		</div>\n	</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["league-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/league-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "hide";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=this.escapeExpression, alias2=this.lambda;
@@ -1141,7 +1141,7 @@ this["MyApp"]["templates"]["league-block"] = Handlebars.template({"1":function(d
     + alias1(alias2(((stack1 = (depth0 != null ? depth0.league : depth0)) != null ? stack1.title : stack1), depth0))
     + "</span>\n        </div>\n    </div>\n    <div class=\"events-container\">\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["match-tracker"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/match-tracker"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"matchtracker\">\n    <iframe class=\"matchtracker-frame "
@@ -1158,10 +1158,10 @@ this["MyApp"]["templates"]["match-tracker"] = Handlebars.template({"compiler":[6
     + ((stack1 = this.invokePartial(partials['live/empty-tracker'],depth0,{"name":"live/empty-tracker","hash":{"state":2},"data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "</div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["multi-container"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/multi-container"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"multileague-container\">\n    <div class=\"nav-container\">\n    	<div class=\"tabs-container\">\n    	</div>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["multi-events-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/multi-events-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "	<div class=\"event-container sports-"
@@ -1324,7 +1324,7 @@ this["MyApp"]["templates"]["multi-events-block"] = Handlebars.template({"1":func
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.event : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(13, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "</div>\n\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["multi-events-start"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/multi-events-start"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"multileague-start\">\n    <p>"
@@ -1333,7 +1333,7 @@ this["MyApp"]["templates"]["multi-events-start"] = Handlebars.template({"compile
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"ui.startMulti",{"name":"t","hash":{},"data":data}))
     + "</p>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["multisports-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/multisports-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return "	<div class=\"multisports-tab\">\n		"
@@ -1384,7 +1384,7 @@ this["MyApp"]["templates"]["multisports-block"] = Handlebars.template({"1":funct
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.linksOnly : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(7, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["multisports-items"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/multisports-items"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "	<div class=\"mutiview-ticket sports-"
@@ -1478,7 +1478,7 @@ this["MyApp"]["templates"]["multisports-items"] = Handlebars.template({"1":funct
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.sportsItems : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.viewMode : depth0),"===","multi",{"name":"ifCond","hash":{},"fn":this.program(18, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/row"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "live-events-view";
 },"3":function(depth0,helpers,partials,data) {
     return "event-block";
@@ -1523,7 +1523,7 @@ this["MyApp"]["templates"]["row"] = Handlebars.template({"1":function(depth0,hel
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0,((stack1 = ((stack1 = ((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.liveEvent : stack1)) != null ? stack1.time : stack1)) != null ? stack1.status : stack1),"===",54,{"name":"ifCond","hash":{},"fn":this.program(5, data, 0, blockParams, depths),"inverse":this.program(7, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["score-board"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/score-board"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3=this.lambda;
 
   return "<div class=\"br-scoreboard\">\n    <div class=\"br-title-container\">\n        <div class=\"br-league-path\"><i class=\"icon qicon-"
@@ -1573,7 +1573,7 @@ this["MyApp"]["templates"]["score-board"] = Handlebars.template({"1":function(de
     + ((stack1 = this.invokePartial(partials['live/score-messages'],depth0,{"name":"live/score-messages","hash":{"event":(depth0 != null ? depth0.event : depth0),"messagesOpen":(depth0 != null ? depth0.messagesOpen : depth0)},"data":data,"indent":"   ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["score-messages"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/score-messages"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return " open";
 },"3":function(depth0,helpers,partials,data) {
     return " class=\"open\"";
@@ -1589,7 +1589,7 @@ this["MyApp"]["templates"]["score-messages"] = Handlebars.template({"1":function
     + this.escapeExpression((helpers.getLiveMessages || (depth0 && depth0.getLiveMessages) || alias1).call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.liveEvent : stack1)) != null ? stack1.msgs : stack1),(depth0 != null ? depth0.reversedTime : depth0),{"name":"getLiveMessages","hash":{},"data":data}))
     + "\n</ul>";
 },"useData":true});
-this["MyApp"]["templates"]["score-sets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/score-sets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3=this.lambda;
 
   return "<div class=\"br-scoreboard\">\n    <div class=\"br-title-container\">\n        <div class=\"br-league-path\"><i class=\"icon qicon-"
@@ -1679,7 +1679,7 @@ this["MyApp"]["templates"]["score-sets"] = Handlebars.template({"1":function(dep
     + ((stack1 = this.invokePartial(partials['live/score-messages'],depth0,{"name":"live/score-messages","hash":{"event":(depth0 != null ? depth0.event : depth0),"messagesOpen":(depth0 != null ? depth0.messagesOpen : depth0)},"data":data,"indent":"   ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["section-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/section-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"section-block "
@@ -1763,7 +1763,7 @@ this["MyApp"]["templates"]["section-block"] = Handlebars.template({"1":function(
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "        </div>\n    </div>\n</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["basketball-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["retail/basketball-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return "            <span>"
@@ -1823,7 +1823,7 @@ this["MyApp"]["templates"]["basketball-block"] = Handlebars.template({"1":functi
     + "    </div>\n    <div class=\"market-header default-outcome-2\">\n        Match Winner - Match\n        <div class=\"market-label default-market-2\">\n            <span>1</span>\n            <span>2</span>\n        </div>\n    </div>    \n    <div class=\"market-header default-outcome-3\">\n        Win/Draw/Win - First Half\n        <div class=\"market-label default-market-3\"> \n            <span>1</span>\n            <span>x</span>\n            <span>2</span>\n        </div>\n    </div>\n</div>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.league : depth0)) != null ? stack1.children : stack1),{"name":"each","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["dogs-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["retail/dogs-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.escapeExpression;
 
   return "	<div class=\"european-row market-list "
@@ -1870,7 +1870,7 @@ this["MyApp"]["templates"]["dogs-markets"] = Handlebars.template({"1":function(d
     + ((stack1 = helpers.each.call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || alias1).call(depth0,(depth0 != null ? depth0.markets : depth0),"pos",{"name":"sortByProps","hash":{},"data":data}),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["extra-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["retail/extra-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.escapeExpression, alias2=this.lambda;
 
   return "	<div class=\"european-row market-list "
@@ -1897,7 +1897,7 @@ this["MyApp"]["templates"]["extra-markets"] = Handlebars.template({"1":function(
     + ((stack1 = helpers.each.call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || alias2).call(depth0,(depth0 != null ? depth0.markets : depth0),"sortedPos",{"name":"sortByProps","hash":{},"data":data}),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["featured-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["retail/featured-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=this.escapeExpression;
 
   return "                <span class=\"title\">\n                    <span>"
@@ -1936,7 +1936,7 @@ this["MyApp"]["templates"]["featured-markets"] = Handlebars.template({"1":functi
     + ((stack1 = helpers.each.call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || alias3).call(depth0,(depth0 != null ? depth0.markets : depth0),"sortedPos",{"name":"sortByProps","hash":{},"data":data}),{"name":"each","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "		</div>\n    </div>\n</div>\n\n\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["football-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["retail/football-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return "            <span>"
@@ -1994,7 +1994,7 @@ this["MyApp"]["templates"]["football-block"] = Handlebars.template({"1":function
     + "    </div>\n    <div class=\"market-header\">\n        Win/Draw/Win - 90 Mins\n        <div class=\"market-label\">\n            <span>1</span>\n            <span>x</span>\n            <span>2</span>\n        </div>\n    </div>\n    <div class=\"market-header\">\n        Halftime - 3way - First Half\n        <div class=\"market-label\">\n            <span>1</span>\n            <span>x</span>\n            <span>2</span>\n        </div>\n    </div>\n\n</div>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.league : depth0)) != null ? stack1.children : stack1),{"name":"each","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["horse-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["retail/horse-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3=this.lambda;
 
   return "	<div class=\"european-row market-list "
@@ -2039,7 +2039,7 @@ this["MyApp"]["templates"]["horse-markets"] = Handlebars.template({"1":function(
     + ((stack1 = helpers.each.call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.markets : depth0),"pos",{"name":"sortByProps","hash":{},"data":data}),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["section-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["retail/section-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "\n\n<div class=\"section-block "
@@ -2054,7 +2054,7 @@ this["MyApp"]["templates"]["section-block"] = Handlebars.template({"compiler":[6
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "\n        </div>\n    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["tennis-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["retail/tennis-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression, alias4=this.lambda;
 
   return "    <div class=\"event-container "
@@ -2265,10 +2265,10 @@ this["MyApp"]["templates"]["tennis-block"] = Handlebars.template({"1":function(d
     + "\n"
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,(depth0 != null ? depth0.round : depth0),">=",4,{"name":"ifCond","hash":{},"fn":this.program(14, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["virtual-layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["retail/virtual-layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"wrapper-main\">\n	<div class=\"panel-container\"> \n		<div class=\"panel-top\">\n			<div class=\"nav-group nav-virtual-links\"></div>\n		</div>\n		<div class=\"panel-main\"></div>\n	</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["default"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["sports/default"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "    <div>\n        "
@@ -2318,7 +2318,7 @@ this["MyApp"]["templates"]["default"] = Handlebars.template({"1":function(depth0
 
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.items : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
-this["MyApp"]["templates"]["doubleline"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["sports/doubleline"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "        <span class=\"spread\">"
     + this.escapeExpression((helpers.formatSpread || (depth0 && depth0.formatSpread) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.outcome : depth0),{"name":"formatSpread","hash":{},"data":data}))
     + "</span>\n";
@@ -2344,7 +2344,7 @@ this["MyApp"]["templates"]["doubleline"] = Handlebars.template({"1":function(dep
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.outcome : depth0)) != null ? stack1.price : stack1),{"name":"if","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["doublerow"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["sports/doublerow"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "                <div>"
@@ -2413,7 +2413,7 @@ this["MyApp"]["templates"]["doublerow"] = Handlebars.template({"1":function(dept
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.firstRow : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n    </td>\n</tr>";
 },"useData":true});
-this["MyApp"]["templates"]["doublerow2"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["sports/doublerow2"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
   return "\n\n\n\n<tr class=\"doubleview-row\" data-id=\""
@@ -2513,17 +2513,17 @@ this["MyApp"]["templates"]["doublerow2"] = Handlebars.template({"1":function(dep
   return "\n\n"
     + ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || helpers.helperMissing).call(depth0,((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.children : stack1),{"name":"foreach","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["doubletable"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["sports/doubletable"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<!-- start: live -->\n<div class=\"live\">\n\n    <!-- start: title -->\n    <div class=\"block-title\">\n        <div>Non-Live</div>\n        <div>\n            <span class=\"bet-icon icon-refresh\"></span>\n            <span>Refresh...</span>\n            <span>56</span>\n        </div>\n        <div>\n            <span class=\"pipe\">|</span>\n            <span class=\"bet-icon icon-clock\"></span>\n            <span>All Periods</span>\n\n            <span class=\"pipe\">|</span>\n            <span class=\"bet-icon icon-bars\"></span>\n            <span>Market</span>\n\n            <span class=\"pipe\">|</span>\n            <span class=\"bet-icon icon-trophy\"></span>\n            <span>League</span>\n        </div>\n    </div>\n    <!-- end: title -->\n\n    <!-- start: table event-table -->\n    <table class=\"sportsview doubleview\">\n        <thead>\n            <tr>\n                <th rowspan=\"2\">Time</th>\n                <th rowspan=\"2\">Event</th>\n                <th colspan=\"4\">Full Time</th>\n                <th colspan=\"3\" class=\"hide-in-sm\">First Half</th>\n                <th rowspan=\"2\">+More</th>\n            </tr>\n            <tr>\n                <th>HDP</th>\n                <th>OU</th>\n                <th>OE</th>\n                <th>1x2</th>\n                <th class=\"hide-in-sm\">HDP</th>\n                <th class=\"hide-in-sm\">OU</th>\n                <th class=\"hide-in-sm\">1x2</th>\n            </tr>\n        </thead>\n\n        <tbody class=\"odds-body\">\n            \n        <tr>\n            <td colspan=\"10\"> \n                <div class=\"loading\">\n                    <i class=\"fa fa-spin fa-spinner\"></i> Loading...\n                </div>\n            </td>\n        </tr>\n        </tbody>\n        <tfoot>\n            <tr>\n                <td colspan=\"10\"></td>\n            </tr>\n        </tfoot>\n        \n\n    </table> <!-- end: table event-table -->\n\n</div> <!-- end: live -->";
 },"useData":true});
-this["MyApp"]["templates"]["title"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["sports/title"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<tr class=\"league-title\">\n    <td colspan=\"10\">\n        <div class=\"wrapper\">\n            <a class=\"add-to-favourites\">\n                <i class=\"bet-icon icon-star-2\"></i>\n            </a>\n            <span class=\"title\">"
     + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
     + "</span>\n        </div>\n        \n    </td>\n</tr>";
 },"useData":true});
-this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["virtual/event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=helpers.helperMissing;
 
   return ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || alias1).call(depth0,(helpers.toColumns || (depth0 && depth0.toColumns) || alias1).call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || alias1).call(depth0,(depth0 != null ? depth0.children : depth0),"pos",{"name":"sortByProps","hash":{},"data":data}),(depth0 != null ? depth0.columns : depth0),{"name":"toColumns","hash":{},"data":data}),{"name":"foreach","hash":{},"fn":this.program(2, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
@@ -2562,7 +2562,7 @@ this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(de
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.columns : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(5, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "\n    </div>\n</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["extra-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["virtual/extra-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.escapeExpression, alias2=this.lambda;
 
   return "	<div class=\"european-row market-list "
@@ -2587,7 +2587,7 @@ this["MyApp"]["templates"]["extra-markets"] = Handlebars.template({"1":function(
     + ((stack1 = helpers.each.call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.markets : depth0),"sortedPos",{"name":"sortByProps","hash":{},"data":data}),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["featured-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["virtual/featured-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=this.escapeExpression;
 
   return "                <span class=\"title\">\n                    <span>"
@@ -2626,17 +2626,17 @@ this["MyApp"]["templates"]["featured-markets"] = Handlebars.template({"1":functi
     + ((stack1 = helpers.each.call(depth0,(helpers.sortByProps || (depth0 && depth0.sortByProps) || alias3).call(depth0,(depth0 != null ? depth0.markets : depth0),"sortedPos",{"name":"sortByProps","hash":{},"data":data}),{"name":"each","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "		</div>\n    </div>\n</div>\n\n\n\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["virtual-layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["virtual/virtual-layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"wrapper-main\">\n	<div class=\"panel-container\"> \n		<div class=\"panel-top\">\n			<div class=\"nav-group nav-virtual-links\"></div>\n		</div>\n		<div class=\"panel-main\"></div>\n	</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["virtualSports"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["virtual/virtualSports"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<div class=\"virtual-gui\">\n    <iframe class=\"virtual-frame\" scrolling=\"no\" src=\""
     + ((stack1 = ((helper = (helper = helpers.frameUrl || (depth0 != null ? depth0.frameUrl : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"frameUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\" name='vfl'></iframe>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["addtofavorites"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/addtofavorites"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<a class=\"btn-addfav\" data-id=\""
@@ -2650,7 +2650,7 @@ this["MyApp"]["templates"]["addtofavorites"] = Handlebars.template({"compiler":[
     + alias3((helpers.selectedFavorite || (depth0 && depth0.selectedFavorite) || alias1).call(depth0,(depth0 != null ? depth0.type : depth0),(depth0 != null ? depth0.id : depth0),{"name":"selectedFavorite","hash":{},"data":data}))
     + "\"></i>\n</a>";
 },"useData":true});
-this["MyApp"]["templates"]["ads"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/ads"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
   return "	<div class=\"wrap-ads\">\n\n        <div class=\"block-title\">\n            <div class=\"title\">\n                <span>\n                    "
@@ -2667,7 +2667,7 @@ this["MyApp"]["templates"]["ads"] = Handlebars.template({"1":function(depth0,hel
 
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.banners : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
-this["MyApp"]["templates"]["betslip-approvalform"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-approvalform"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing;
 
   return "        <div class=\"approved-bets-title\">"
@@ -2724,7 +2724,7 @@ this["MyApp"]["templates"]["betslip-approvalform"] = Handlebars.template({"1":fu
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"betSlip.confirm",{"name":"t","hash":{},"data":data}))
     + "</span>  <i class=\"fa fa-spin fa-spinner\"></i></button>\n        </div>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-bet"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["ui/betslip-bet"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     return "            "
     + this.escapeExpression((helpers.partialBetslipOutcome || (depth0 && depth0.partialBetslipOutcome) || helpers.helperMissing).call(depth0,depth0,(depths[1] != null ? depths[1].outcomeList : depths[1]),{"name":"partialBetslipOutcome","hash":{},"data":data}))
     + "\n";
@@ -2737,7 +2737,7 @@ this["MyApp"]["templates"]["betslip-bet"] = Handlebars.template({"1":function(de
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.bet : depth0)) != null ? stack1.outcomes : stack1),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n</li>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["betslip-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"block-title\">\n    <div class=\"title\">\n        <span>\n            "
@@ -2756,7 +2756,7 @@ this["MyApp"]["templates"]["betslip-block"] = Handlebars.template({"compiler":[6
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"betSlip.ok",{"name":"t","hash":{},"data":data}))
     + "</span> <i class=\"fa fa-spin fa-spinner\"></i></button>\n            </div>\n            \n        </div>\n    </div>\n    <div class=\"betslip-modal\">\n    </div>\n</div>\n\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-maxbets"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-maxbets"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"betslip-maxbets betslip-message\">\n	<div class=\"maxbet-message\">\n    "
@@ -2765,7 +2765,7 @@ this["MyApp"]["templates"]["betslip-maxbets"] = Handlebars.template({"compiler":
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"betSlip.ok",{"name":"t","hash":{},"data":data}))
     + "</button>\n    </div>\n    \n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return " hidden";
 },"3":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
@@ -2796,7 +2796,7 @@ this["MyApp"]["templates"]["betslip-modal"] = Handlebars.template({"1":function(
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.buttons : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "  </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-multiples"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-multiples"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "\n<div class=\"multiple-description\">"
@@ -2870,7 +2870,7 @@ this["MyApp"]["templates"]["betslip-multiples"] = Handlebars.template({"1":funct
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.multiples : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(10, data, 0),"data":data})) != null ? stack1 : "")
     + "\n\n\n\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-old"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-old"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "                        <li class=\"status-"
@@ -2925,7 +2925,7 @@ this["MyApp"]["templates"]["betslip-old"] = Handlebars.template({"1":function(de
     + ((stack1 = helpers.unless.call(depth0,((stack1 = (depth0 != null ? depth0.singles : depth0)) != null ? stack1.length : stack1),{"name":"unless","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + ">Remove All</button></div>\n                <div>\n                    <button type=\"button\" class=\"btn-next\" role=\"button\" disabled>Next</button>\n                </div>\n            </div>\n        </div>\n\n    </div> \n\n</div> \n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-outcomepartial"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-outcomepartial"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "                    @ "
@@ -2950,7 +2950,7 @@ this["MyApp"]["templates"]["betslip-outcomepartial"] = Handlebars.template({"1":
     + alias3(((helper = (helper = helpers.periodDescription || (depth0 != null ? depth0.periodDescription : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"periodDescription","hash":{},"data":data}) : helper)))
     + "\n    </div>\n\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-placed"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-placed"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"betslip-placed betslip-message\">\n\n    "
@@ -2959,7 +2959,7 @@ this["MyApp"]["templates"]["betslip-placed"] = Handlebars.template({"compiler":[
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"betSlip.ok",{"name":"t","hash":{},"data":data}))
     + "</button>\n    </div>\n    \n\n</div>\n\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-rejected"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-rejected"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return "        <div class=\"rejected-message\">"
@@ -2976,7 +2976,7 @@ this["MyApp"]["templates"]["betslip-rejected"] = Handlebars.template({"1":functi
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"betSlip.ok",{"name":"t","hash":{},"data":data}))
     + "</span> <i class=\"fa fa-spin fa-spinner\"></i></button>\n    </div>\n    \n</div>\n\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-singles"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-singles"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "            <li class=\"status-"
@@ -3057,7 +3057,7 @@ this["MyApp"]["templates"]["betslip-singles"] = Handlebars.template({"1":functio
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoggedIn : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.program(7, data, 0),"data":data})) != null ? stack1 : "")
     + "        </div>\n    </div>\n</div>\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip-timedout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip-timedout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"betslip-timedout betslip-message\">\n\n    "
@@ -3066,7 +3066,7 @@ this["MyApp"]["templates"]["betslip-timedout"] = Handlebars.template({"compiler"
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"betSlip.ok",{"name":"t","hash":{},"data":data}))
     + "</button>\n    </div>\n    \n</div>\n\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["betslip"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/betslip"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "  <div class=\"help-icon\">\n    <a class=\"bet-slip-icon clear-all"
@@ -3412,7 +3412,7 @@ this["MyApp"]["templates"]["betslip"] = Handlebars.template({"1":function(depth0
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isLoggedIn : depth0),{"name":"if","hash":{},"fn":this.program(88, data, 0, blockParams, depths),"inverse":this.program(90, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
     + "      <a class=\"button c-cancel\">Cancel</a>\n    </div>\n  </div>\n</div>\n";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["empty-league"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/empty-league"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "		"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"sports.searchnoresult",{"name":"t","hash":{},"data":data}))
     + "\n\n";
@@ -3438,7 +3438,7 @@ this["MyApp"]["templates"]["empty-league"] = Handlebars.template({"1":function(d
     + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.section : depth0),"===","search",{"name":"ifCond","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "</div>";
 },"useData":true});
-this["MyApp"]["templates"]["error"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/error"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"backdrop\"></div>\n<div class=\"error\">\n	\n	"
@@ -3447,7 +3447,7 @@ this["MyApp"]["templates"]["error"] = Handlebars.template({"compiler":[6,">= 2.0
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"errors.retry",{"name":"t","hash":{},"data":data}))
     + "</a>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["favorite-item"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/favorite-item"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
   return "<li>\n	<a class=\"nav-link-fav\" data-code=\""
@@ -3466,7 +3466,7 @@ this["MyApp"]["templates"]["favorite-item"] = Handlebars.template({"1":function(
 
   return ((stack1 = helpers.unless.call(depth0,((stack1 = (depth0 != null ? depth0.item : depth0)) != null ? stack1.isLive : stack1),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
-this["MyApp"]["templates"]["footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/footer"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"footer\">\n    <div class=\"wrapper-main footer-contents\">\n        <div class=\"fcontent fcopy\">\n            <img src=\"/assets/images/brand.png\" class=\"brand\">\n            <p>"
@@ -3503,7 +3503,7 @@ this["MyApp"]["templates"]["footer"] = Handlebars.template({"compiler":[6,">= 2.
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"footer.twit",{"name":"t","hash":{},"data":data}))
     + "</a>\n            </div>\n        </div>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["header-nav"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/header-nav"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"header-middle\">\n    <div class=\"wrapper-main\">\n        <ul class=\"nav-list-product\">\n            <li><a class=\"nav-main\" data-url=\"/sports/\">"
@@ -3520,7 +3520,7 @@ this["MyApp"]["templates"]["header-nav"] = Handlebars.template({"compiler":[6,">
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"static.contact",{"name":"t","hash":{},"data":data}))
     + "</a></li>\n        </ul>\n    </div> \n</div>\n";
 },"useData":true});
-this["MyApp"]["templates"]["header-news"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/header-news"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"header-bottom-sub\">\n    <div class=\"wrapper-main\">\n        <div class=\"wrapper-news\">\n            <span><a href=\"#\">"
@@ -3533,7 +3533,7 @@ this["MyApp"]["templates"]["header-news"] = Handlebars.template({"compiler":[6,"
     + alias2(((helper = (helper = helpers.searchTerm || (depth0 != null ? depth0.searchTerm : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"searchTerm","hash":{},"data":data}) : helper)))
     + "\">\n                    <span class=\"input-group-btn\">\n                        <button type=\"submit\" class=\"btn-search\"><i class=\"fa fa-search\" aria-hidden=\"true\"></i></button>\n                    </span>\n                </div>\n            </form>\n        </div>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["header-top"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/header-top"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3=this.lambda;
 
   return "            <div class=\"myaccount user-in\">\n                <div>\n                    <div class=\"hello-user\">"
@@ -3584,7 +3584,7 @@ this["MyApp"]["templates"]["header-top"] = Handlebars.template({"1":function(dep
     + this.escapeExpression((helpers.getBanner || (depth0 && depth0.getBanner) || helpers.helperMissing).call(depth0,"header-banner",{"name":"getBanner","hash":{},"data":data}))
     + "</div>\n</div>\n";
 },"useData":true});
-this["MyApp"]["templates"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"top-section\">\n"
@@ -3595,7 +3595,7 @@ this["MyApp"]["templates"]["header"] = Handlebars.template({"compiler":[6,">= 2.
     + ((stack1 = this.invokePartial(partials['ui/header-news'],depth0,{"name":"ui/header-news","data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["home-banner"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/home-banner"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<a class=\"default\" data-type=\""
@@ -3608,7 +3608,7 @@ this["MyApp"]["templates"]["home-banner"] = Handlebars.template({"compiler":[6,"
     + alias3(((helper = (helper = helpers.multi || (depth0 != null ? depth0.multi : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"multi","hash":{},"data":data}) : helper)))
     + "\" alt=\"\"></a>";
 },"useData":true});
-this["MyApp"]["templates"]["home-slider"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/home-slider"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "";
 },"3":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -3633,29 +3633,29 @@ this["MyApp"]["templates"]["home-slider"] = Handlebars.template({"1":function(de
     + ((stack1 = (helpers.getBannerSet || (depth0 && depth0.getBannerSet) || alias1).call(depth0,(depth0 != null ? depth0.id : depth0),"banner",{"name":"getBannerSet","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["iframe"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/iframe"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper;
 
   return "<div class=\"iframe-container\">\n    <iframe class=\"common-frame\" scrolling=\"auto\" src=\""
     + ((stack1 = ((helper = (helper = helpers.frameUrl || (depth0 != null ? depth0.frameUrl : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"frameUrl","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\"></iframe>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/layout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"wrapper-main\">\n	<div class=\"sports-nav\">\n		\n\n\n	</div> \n</div>\n\n<div class=\"wrapper-main\">\n	<div class=\"panel-container\"> \n		<div class=\"panel-left\">\n		    <nav class=\"events-block\">\n				<div class=\"nav-group nav-virtual-links\"></div>\n					\n				<div class=\"nav-group nav-quick-links\"></div>\n\n				<div class=\"nav-group nav-my-favorites\"></div>\n\n		    	<div class=\"nav-group nav-sports-tree\"></div>\n\n				<div class=\"nav-group nav-other\"></div>\n\n				<!--div class=\"virtual-countdown\"></div-->\n				\n		    </nav>\n		</div>\n		<div class=\"panel-main\"></div>\n		<div class=\"panel-right\">\n		    <div class=\"betting-slip-block\"></div>\n		    <div class=\"virtual-sports-block\"></div>\n			<div class=\"twitter-feed\">\n			    <div class=\"block-title\">\n				    <div class=\"title\">\n				        <span>Twitter Feed</span>\n				    </div>\n				</div>\n\n\n			    <div class=\"wrap-content\">\n			        <a class=\"twitter-timeline\" \n			        data-chrome=\"noheader nofooter\" \n					data-link-color=\"#FF9E3D\"\n					data-tweet-limit=\"10\"\n			        href=\"https://twitter.com/megasportsworld\" data-widget-id=\"598077501701693440\">Tweets by @megasportsworld</a>\n<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+\"://platform.twitter.com/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");</script>\n			    </div>\n			</div>\n\n			\n\n			<div class=\"sports-news\">\n			    <div class=\"block-title\">\n				    <div class=\"title\">\n				        <span>"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"ui.sportsNews",{"name":"t","hash":{},"data":data}))
     + "</span>\n				    </div>\n				</div>\n\n\n			    <div class=\"wrap-content\">\n			        <ul class=\"sports-news-container\">\n			        </ul>\n			    </div>\n			</div>\n\n		    <aside class=\"advertisement\"></aside>\n		</div>\n	</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"loading\">\n    <i class=\"fa fa-spin fa-spinner\"></i> "
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"Loading...",{"name":"t","hash":{},"data":data}))
     + "\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["locator"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/locator"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"wrapper-main\">\n<div class=\"locator-panel panel-container\">\n		<div class=\"panel-main\">\n			<div class=\"section-block\">\n			    <!-- start: title -->\n			    <div class=\"section-title block-title\">\n			        <div class=\"title\"><span>"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.title : depth0),{"name":"t","hash":{},"data":data}))
     + "</span></div>\n			    </div>\n			    <!-- end: title -->\n\n			    <!-- start: content -->\n			    <div class=\"section-container\">\n			    	<iframe id=\"branch-locator\" class=\"branch-locator\" src=\"//media.megasportsworld.com/branch-locator/\"></iframe>\n			    </div>\n			    <!-- end: content -->\n			</div>\n\n		</div>\n\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["modal-popup"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/modal-popup"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div>"
@@ -3666,7 +3666,7 @@ this["MyApp"]["templates"]["modal-popup"] = Handlebars.template({"compiler":[6,"
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"liveBet.mswSupport",{"name":"t","hash":{},"data":data}))
     + "</div-->";
 },"useData":true});
-this["MyApp"]["templates"]["modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "data-backdrop=\"static\" data-keyboard=\"false\"";
 },"3":function(depth0,helpers,partials,data) {
     return "        <button type=\"button\" class=\"close btn-close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\"><i class=\"fa fa-times\"></i></span></button>\n";
@@ -3708,7 +3708,7 @@ this["MyApp"]["templates"]["modal"] = Handlebars.template({"1":function(depth0,h
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.actions : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "      \n    </div><!-- /.modal-content -->\n  </div><!-- /.modal-dialog -->\n</div>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["my-favorites"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/my-favorites"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "disabled";
 },"3":function(depth0,helpers,partials,data) {
     return "fa-chevron-up";
@@ -3752,7 +3752,7 @@ this["MyApp"]["templates"]["my-favorites"] = Handlebars.template({"1":function(d
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.favorites : depth0),{"name":"each","hash":{},"fn":this.program(11, data, 0),"inverse":this.program(13, data, 0),"data":data})) != null ? stack1 : "")
     + "</ul>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["quicklinks-list"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["ui/quicklinks-list"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.lambda, alias3=this.escapeExpression;
 
   return "    <li"
@@ -3794,7 +3794,7 @@ this["MyApp"]["templates"]["quicklinks-list"] = Handlebars.template({"1":functio
 
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.quickLinks : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(10, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["quicklinks"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/quicklinks"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "\n<div class=\"block-title\">\n    <div class=\"title\">\n        <span>\n            <i class=\"fa fa-link icon\"></i>\n            "
@@ -3803,12 +3803,12 @@ this["MyApp"]["templates"]["quicklinks"] = Handlebars.template({"compiler":[6,">
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"Loading...",{"name":"t","hash":{},"data":data}))
     + " </a>\n    </li>\n</ul>\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["results"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/results"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"wrapper-main\">\n<div class=\"locator-panel panel-container\">\n		<div class=\"panel-main\">\n			<div class=\"section-block\">\n			    <!-- start: title -->\n			    <div class=\"section-title block-title\">\n			        <div class=\"title\"><span>"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.title : depth0),{"name":"t","hash":{},"data":data}))
     + "</span></div>\n			    </div>\n			    <!-- end: title -->\n\n			    <!-- start: content -->\n			    <div class=\"section-container\">\n			    	<iframe id=\"branch-locator\" class=\"branch-locator\" src=\"//media.megasportsworld.com/sport-result/\"></iframe>\n			    </div>\n			    <!-- end: content -->\n			</div>\n		</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["section-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["ui/section-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing;
 
   return "    <div class=\"section-block "
@@ -3982,7 +3982,7 @@ this["MyApp"]["templates"]["section-block"] = Handlebars.template({"1":function(
     + ((stack1 = this.invokePartial(partials['ui/loading'],depth0,{"name":"ui/loading","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "\n        </div>\n    </div>\n</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["sports-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/sports-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"sports-block sports-block-"
@@ -3995,7 +3995,7 @@ this["MyApp"]["templates"]["sports-block"] = Handlebars.template({"compiler":[6,
     + alias3((helpers.tPrefix || (depth0 && depth0.tPrefix) || alias1).call(depth0,"sportCode",(depth0 != null ? depth0.sportsCode : depth0),{"name":"tPrefix","hash":{},"data":data}))
     + " \n		<i class=\"fa fa-chevron-right\"></i>\n	</div>\n	<div class=\"sports-events\"></div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["sportsnav"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["ui/sportsnav"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "\n    \n\n        <li class=\""
@@ -4076,7 +4076,7 @@ this["MyApp"]["templates"]["sportsnav"] = Handlebars.template({"1":function(dept
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.getPriceFormatList : depth0),{"name":"each","hash":{},"fn":this.program(9, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "        </ul>\n    </div>\n\n</div> ";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["sportsnews-item"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/sportsnews-item"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<li>\n    <h3><a href=\"#\">"
@@ -4085,7 +4085,7 @@ this["MyApp"]["templates"]["sportsnews-item"] = Handlebars.template({"compiler":
     + alias3(((helper = (helper = helpers.descriptionText || (depth0 != null ? depth0.descriptionText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"descriptionText","hash":{},"data":data}) : helper)))
     + "</p>\n</li>";
 },"useData":true});
-this["MyApp"]["templates"]["sportsothers"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/sportsothers"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"block-title\">\n    <div class=\"title\">\n        <span>\n            <i class=\"icon fa fa-laptop\"></i>\n            "
@@ -4100,7 +4100,7 @@ this["MyApp"]["templates"]["sportsothers"] = Handlebars.template({"compiler":[6,
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"Loading...",{"name":"t","hash":{},"data":data}))
     + " </span>\n                    </a>\n                </div>\n            </li>\n        </ul>\n    </li>\n</ul>";
 },"useData":true});
-this["MyApp"]["templates"]["sportstree-list-empty"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/sportstree-list-empty"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "            <span class=\"tree-name tree-loading\">"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"sportstree.noavailable",{"name":"t","hash":{},"data":data}))
     + " </span>\n";
@@ -4115,7 +4115,7 @@ this["MyApp"]["templates"]["sportstree-list-empty"] = Handlebars.template({"1":f
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.unavailable : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + "    </div>\n</li>\n\n";
 },"useData":true});
-this["MyApp"]["templates"]["sportstree-list"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["ui/sportstree-list"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.count : depth0),{"name":"if","hash":{},"fn":this.program(2, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
@@ -4201,12 +4201,12 @@ this["MyApp"]["templates"]["sportstree-list"] = Handlebars.template({"1":functio
   return ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.sports : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["sportstree"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/sportstree"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"block-title\">\n    <div class=\"title\">\n        <span>\n            <i class=\"icon fa fa-soccer-ball-o\"></i>\n            "
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"ui.sports",{"name":"t","hash":{},"data":data}))
     + "\n        </span>\n    </div>\n</div>\n\n<ul class=\"nav-list nav-list-sports \">\n</ul>";
 },"useData":true});
-this["MyApp"]["templates"]["static-content"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/static-content"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"wrapper-main\">\n	<div class=\"static-panels panel-container\">\n		<div class=\"panel-main\">\n			<div class=\"section-block\">\n			    <!-- start: title -->\n			    <div class=\"section-title block-title\">\n			        <div class=\"title\"><span>"
@@ -4215,7 +4215,7 @@ this["MyApp"]["templates"]["static-content"] = Handlebars.template({"compiler":[
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"ui.tutorials",{"name":"t","hash":{},"data":data}))
     + "</span>\n			    	</div>\n			    </div>\n			    <div class=\"wrap-content\">\n			    	<img class=\"tlink\" data-url=\"https://media.megasportsworld.com/training-videos.php\" data-target=\"_blank\" src=\"/assets/images/tutorials1.jpg\" />\n			    	<img class=\"tlink\" data-url=\"\" data-target=\"_blank\" src=\"/assets/images/tutorials2.jpg\" />\n			    </div>\n			</div>\n		</div>\n	</div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["statistics"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/statistics"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<a class=\"btn-statistics\" data-id=\""
@@ -4224,14 +4224,14 @@ this["MyApp"]["templates"]["statistics"] = Handlebars.template({"compiler":[6,">
     + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
     + "\">\n    <i class=\"fa fa-bar-chart\"></i>\n</a>";
 },"useData":true});
-this["MyApp"]["templates"]["test"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/test"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<div> testing "
     + this.escapeExpression(((helper = (helper = helpers.test || (depth0 != null ? depth0.test : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"test","hash":{},"data":data}) : helper)))
     + " </div>";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-links"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-links"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"block-title\">\n    <div class=\"title\">\n        <span>\n            <i class=\"fa fa-link icon\"></i>\n            "
@@ -4240,7 +4240,7 @@ this["MyApp"]["templates"]["virtual-links"] = Handlebars.template({"compiler":[6
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"Loading...",{"name":"t","hash":{},"data":data}))
     + " </a></li-->\n    <li><a data-url=\"/virtualfootball/\" class=\"virtual-link\">FootBall</a></li>\n    <li><a data-url=\"/virtualhorses/\" class=\"virtual-link\">Horse Racing</a></li>\n    <li><a data-url=\"/virtualdogs/\" class=\"virtual-link\">Dog Racing</a></li>\n    <li><a data-url=\"/virtualtennis/\" class=\"virtual-link\">Tennis</a></li>\n</ul>";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-sports-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-sports-block"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"block-title "
@@ -4253,7 +4253,7 @@ this["MyApp"]["templates"]["virtual-sports-block"] = Handlebars.template({"compi
     + alias3(((helper = (helper = helpers.vsTitle || (depth0 != null ? depth0.vsTitle : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"vsTitle","hash":{},"data":data}) : helper)))
     + "\"></div>";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-sports-content"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-sports-content"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.escapeExpression, alias2=helpers.helperMissing;
 
   return "<div class=\"content\">\n	<div class=\"title\" data-link=\""
@@ -4264,10 +4264,10 @@ this["MyApp"]["templates"]["virtual-sports-content"] = Handlebars.template({"com
     + alias1((helpers.formatVEventTitle || (depth0 && depth0.formatVEventTitle) || alias2).call(depth0,(depth0 != null ? depth0.eventDesc : depth0),{"name":"formatVEventTitle","hash":{},"data":data}))
     + "</div>\n	</div>\n	<div class=\"timer\">\n		<span class=\"header\">Starts</span><span class=\"content\">Soon</span>\n	</div>\n</div>\n<div class=\"filler\"><div class=\"title\">Now Watching....</div></div> ";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-sports-countdown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-sports-countdown"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"vs-group virtual-basketball\"></div>\n<div class=\"vs-group virtual-football\"></div>\n<div class=\"vs-group virtual-horses\"></div>\n<div class=\"vs-group virtual-dogs\"></div>\n<div class=\"vs-group virtual-tennis\"></div>";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-sports-error"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-sports-error"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var alias1=this.lambda, alias2=this.escapeExpression;
 
   return "<div class=\"content\">\n	<div class=\"title\">"
@@ -4276,17 +4276,17 @@ this["MyApp"]["templates"]["virtual-sports-error"] = Handlebars.template({"compi
     + alias2(alias1((depth0 != null ? depth0.eventDesc : depth0), depth0))
     + "</div>\n	<div class=\"timer retry\">\n		<span class=\"timer-loading\"><i class=\"fa fa-refresh\"></i></span>\n	</div>\n</div>\n<div class=\"filler\"><div class=\"title\">Now Watching....</div></div> ";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-sports-loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-sports-loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"content\">\n	<i class=\"fa fa-spin fa-spinner\"></i> Loading...\n</div>\n<div class=\"filler\"><div class=\"title\">Now Watching....</div></div> ";
 },"useData":true});
-this["MyApp"]["templates"]["virtual-sports-noupcoming"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["ui/virtual-sports-noupcoming"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
   return "<div class=\"content\">\n	<div class=\"title\">There is no upcoming "
     + this.escapeExpression(((helper = (helper = helpers.norecord || (depth0 != null ? depth0.norecord : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"norecord","hash":{},"data":data}) : helper)))
     + "</div>\n</div>\n<div class=\"filler\"><div class=\"title\">Now Watching....</div></div> ";
 },"useData":true});
-this["MyApp"]["templates"]["cell-outcome"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/cell-outcome"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "\n<div class=\"outcome o-"
@@ -4305,7 +4305,7 @@ this["MyApp"]["templates"]["cell-outcome"] = Handlebars.template({"1":function(d
 
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.outcome : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
-this["MyApp"]["templates"]["cell-prefix"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/cell-prefix"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
   return "	<div class=\"cell-prefix\">\n		<span class=\"prefix\">"
@@ -4316,17 +4316,17 @@ this["MyApp"]["templates"]["cell-prefix"] = Handlebars.template({"1":function(de
 
   return ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.outcome : depth0)) != null ? stack1.price : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
-this["MyApp"]["templates"]["cell-spread-double"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/cell-spread-double"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"cell-spread\">\n	<span class=\"spread\">"
     + this.escapeExpression((helpers.formatSpread || (depth0 && depth0.formatSpread) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.outcome : depth0),(depth0 != null ? depth0.prefix : depth0),{"name":"formatSpread","hash":{},"data":data}))
     + "</span>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["cell-spread-single"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/cell-spread-single"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"cell-spread\">\n	<span class=\"spread\">"
     + this.escapeExpression((helpers.formatSingleSpread || (depth0 && depth0.formatSingleSpread) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.outcomeA : depth0),(depth0 != null ? depth0.outcomeB : depth0),{"name":"formatSingleSpread","hash":{},"data":data}))
     + "</span>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["col-more"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/col-more"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.count : depth0),{"name":"if","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
@@ -4360,7 +4360,7 @@ this["MyApp"]["templates"]["col-more"] = Handlebars.template({"1":function(depth
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.first : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["date-cell"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["asianview/common/date-cell"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return ((stack1 = (helpers.xif || (depth0 && depth0.xif) || helpers.helperMissing).call(depth0,"this.code == 'VOLL' || this.code == 'TENN'",{"name":"xif","hash":{},"fn":this.program(2, data, 0, blockParams, depths),"inverse":this.program(4, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "")
@@ -4409,12 +4409,12 @@ this["MyApp"]["templates"]["date-cell"] = Handlebars.template({"1":function(dept
   return "\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.livemode : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(6, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["empty-league"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/empty-league"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"loading no-market\">\n	"
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"sports.noavailable",{"name":"t","hash":{},"data":data}))
     + " \n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["expanded-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["asianview/common/expanded-markets"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "    <div class=\"more-market market m-"
@@ -4445,7 +4445,7 @@ this["MyApp"]["templates"]["expanded-markets"] = Handlebars.template({"1":functi
   return ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.markets : depth0),{"name":"foreach","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["group-012"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-012"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4462,21 +4462,21 @@ this["MyApp"]["templates"]["group-012"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/group-1x1-price'],depth0,{"name":"asianview/common/group-1x1-price","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['2'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-1x1-price"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-1x1-price"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"market-group group-1x1\">\n	<div class=\"group-row\">\n"
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":(depth0 != null ? depth0.outcome : depth0)},"data":data,"indent":"\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "	</div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-1x1-spread"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-1x1-spread"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"market-group group-1x1\">\n	<div class=\"group-row\">\n"
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-spread-single'],depth0,{"name":"asianview/common/cell-spread-single","hash":{"outcomeB":(depth0 != null ? depth0.outcomeB : depth0),"outcomeA":(depth0 != null ? depth0.outcomeA : depth0)},"data":data,"indent":"\t\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "	</div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-1x2"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-1x2"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4493,7 +4493,7 @@ this["MyApp"]["templates"]["group-1x2"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-1x3"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-1x3"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function";
 
   return alias2((helpers.consoleLog || (depth0 && depth0.consoleLog) || alias1).call(depth0,depth0,{"name":"consoleLog","hash":{},"data":data}))
@@ -4511,7 +4511,7 @@ this["MyApp"]["templates"]["group-1x3"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-cs-1x2"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-cs-1x2"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"market\">\n        <div class=\"group-row\">\n"
@@ -4520,7 +4520,7 @@ this["MyApp"]["templates"]["group-cs-1x2"] = Handlebars.template({"compiler":[6,
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":(depth0 != null ? depth0.outcomeB : depth0)},"data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "        </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-cs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-cs"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4554,7 +4554,7 @@ this["MyApp"]["templates"]["group-cs"] = Handlebars.template({"compiler":[6,">= 
     + ((stack1 = this.invokePartial(partials['asianview/common/group-1x1-price'],depth0,{"name":"asianview/common/group-1x1-price","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['25'] : stack1)},"data":data,"helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "</div>\n\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-gou"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-gou"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4571,7 +4571,7 @@ this["MyApp"]["templates"]["group-gou"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/group-1x1-price'],depth0,{"name":"asianview/common/group-1x1-price","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>        ";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-hdp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-hdp"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4588,7 +4588,7 @@ this["MyApp"]["templates"]["group-hdp"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-hha"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-hha"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "\n<div class=\"market-group-"
@@ -4605,7 +4605,7 @@ this["MyApp"]["templates"]["group-hha"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/group-1x1-price'],depth0,{"name":"asianview/common/group-1x1-price","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-htft"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-htft"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4634,7 +4634,7 @@ this["MyApp"]["templates"]["group-htft"] = Handlebars.template({"compiler":[6,">
     + ((stack1 = this.invokePartial(partials['asianview/common/group-1x1-price'],depth0,{"name":"asianview/common/group-1x1-price","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['8'] : stack1)},"data":data,"indent":"        \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "        </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-ml"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-ml"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4649,7 +4649,7 @@ this["MyApp"]["templates"]["group-ml"] = Handlebars.template({"compiler":[6,">= 
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-odd"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-odd"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4664,7 +4664,7 @@ this["MyApp"]["templates"]["group-odd"] = Handlebars.template({"compiler":[6,">=
     + ((stack1 = this.invokePartial(partials['asianview/common/group-1x1-price'],depth0,{"name":"asianview/common/group-1x1-price","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-oe"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-oe"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4681,7 +4681,7 @@ this["MyApp"]["templates"]["group-oe"] = Handlebars.template({"compiler":[6,">= 
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-ou"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-ou"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "<div class=\"market-group-"
@@ -4700,7 +4700,7 @@ this["MyApp"]["templates"]["group-ou"] = Handlebars.template({"compiler":[6,">= 
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":((stack1 = (depth0 != null ? depth0.children : depth0)) != null ? stack1['1'] : stack1)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-outright"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-outright"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
   return "<div class=\"outright-row team-"
@@ -4713,7 +4713,7 @@ this["MyApp"]["templates"]["group-outright"] = Handlebars.template({"compiler":[
     + ((stack1 = this.invokePartial(partials['asianview/common/cell-outcome'],depth0,{"name":"asianview/common/cell-outcome","hash":{"outcome":(depth0 != null ? depth0.team : depth0)},"data":data,"indent":"    \t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-tg"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/group-tg"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "        <div class=\"market\">\n"
@@ -4732,7 +4732,7 @@ this["MyApp"]["templates"]["group-tg"] = Handlebars.template({"1":function(depth
     + ((stack1 = (helpers.foreach || (depth0 && depth0.foreach) || alias1).call(depth0,(helpers.totalGoals || (depth0 && depth0.totalGoals) || alias1).call(depth0,(depth0 != null ? depth0.children : depth0),{"name":"totalGoals","hash":{},"data":data}),{"name":"foreach","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["header"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/header"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing;
 
   return "	<div class=\"tcol "
@@ -4769,7 +4769,7 @@ this["MyApp"]["templates"]["header"] = Handlebars.template({"1":function(depth0,
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"asianView.more",{"name":"t","hash":{},"data":data}))
     + "</span>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["league-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/league-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "hidden";
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
@@ -4804,12 +4804,12 @@ this["MyApp"]["templates"]["league-block"] = Handlebars.template({"1":function(d
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.virtual : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(6, data, 0),"data":data})) != null ? stack1 : "")
     + "        </div>\n    </div>\n    <div class=\"events-container\">\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/loading"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"loading\">\n    <i class=\"fa fa-spin fa-spinner\"></i> "
     + this.escapeExpression((helpers.t || (depth0 && depth0.t) || helpers.helperMissing).call(depth0,"asianView.loading",{"name":"t","hash":{},"data":data}))
     + "\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["more-market-cell-outcome"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/more-market-cell-outcome"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing;
 
   return "\n<div class=\"outcome o-"
@@ -4850,7 +4850,7 @@ this["MyApp"]["templates"]["more-market-cell-outcome"] = Handlebars.template({"1
 
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.outcome : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true});
-this["MyApp"]["templates"]["outcome-cell"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/outcome-cell"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
   return "<div class=\"col col-OUTCOME outcome "
@@ -4863,7 +4863,7 @@ this["MyApp"]["templates"]["outcome-cell"] = Handlebars.template({"compiler":[6,
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.outcome : depth0)) != null ? stack1.price : stack1), depth0))
     + "\n        	</a>\n        </div>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["select-league-modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/select-league-modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "	<li>\n		<label>\n			<span class=\"checkbox-wrap "
@@ -4884,7 +4884,7 @@ this["MyApp"]["templates"]["select-league-modal"] = Handlebars.template({"1":fun
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.list : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</ul>";
 },"useData":true});
-this["MyApp"]["templates"]["select-market-modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["asianview/common/select-market-modal"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "checked";
 },"3":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
@@ -4931,7 +4931,7 @@ this["MyApp"]["templates"]["select-market-modal"] = Handlebars.template({"1":fun
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.list : depth0)) != null ? stack1.marketPeriod : stack1),{"name":"each","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "		</ul>\n	</div>\n</div>	";
 },"useData":true});
-this["MyApp"]["templates"]["cell-outcome"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["europeanview/common/cell-outcome"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return " SP";
 },"3":function(depth0,helpers,partials,data) {
     var stack1;
@@ -4996,7 +4996,7 @@ this["MyApp"]["templates"]["cell-outcome"] = Handlebars.template({"1":function(d
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.outcome : depth0)) != null ? stack1.price : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.program(16, data, 0),"data":data})) != null ? stack1 : "")
     + "    		</div>\n    	</a>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["date-cell"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["europeanview/common/date-cell"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "	<div class=\"scores-container\">\n		<span class=\"live-period-msg\">\n			<span class=\"score-a\">"
@@ -5014,7 +5014,7 @@ this["MyApp"]["templates"]["date-cell"] = Handlebars.template({"1":function(dept
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.livemode : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(3, data, 0),"data":data})) != null ? stack1 : "")
     + " <!--span></span-->\n";
 },"useData":true});
-this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["europeanview/common/event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "         <span class=\"market-sep\">-</span> \n         <span class=\"market-period\">"
@@ -5073,7 +5073,7 @@ this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(de
     + ((stack1 = this.invokePartial(partials['europeanview/common/more'],depth0,{"name":"europeanview/common/more","hash":{"defaultButtons":(depth0 != null ? depth0.defaultButtons : depth0),"brMatchId":(depth0 != null ? depth0.brMatchId : depth0),"eventDescription":(depth0 != null ? depth0.eventDescription : depth0),"liveMode":(depth0 != null ? depth0.liveMode : depth0),"count":(depth0 != null ? depth0.count : depth0),"id":(depth0 != null ? depth0.eventID : depth0),"first":(depth0 != null ? depth0.first : depth0)},"data":data,"indent":"    ","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "</div>";
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["group-1x1-price"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["europeanview/common/group-1x1-price"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"market-group "
@@ -5082,7 +5082,7 @@ this["MyApp"]["templates"]["group-1x1-price"] = Handlebars.template({"compiler":
     + ((stack1 = this.invokePartial(partials['europeanview/common/cell-outcome'],depth0,{"name":"europeanview/common/cell-outcome","hash":{"outcomeList":(depth0 != null ? depth0.outcomeList : depth0),"imagePath":(depth0 != null ? depth0.imagePath : depth0),"team":(depth0 != null ? depth0.team : depth0),"columns":(depth0 != null ? depth0.columns : depth0),"code":(depth0 != null ? depth0.code : depth0),"outcome":(depth0 != null ? depth0.outcome : depth0)},"data":data,"indent":"\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "	</div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["more"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["europeanview/common/more"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "virtual";
 },"3":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
@@ -5169,7 +5169,7 @@ this["MyApp"]["templates"]["more"] = Handlebars.template({"1":function(depth0,he
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.first : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["set-scores"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["europeanview/common/set-scores"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "    <div class=\"scores"
@@ -5185,7 +5185,7 @@ this["MyApp"]["templates"]["set-scores"] = Handlebars.template({"1":function(dep
 
   return ((stack1 = (helpers.times || (depth0 && depth0.times) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.count : depth0),{"name":"times","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["cell-outcome"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/common/cell-outcome"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=this.lambda, alias2=this.escapeExpression, alias3=helpers.helperMissing, alias4="function";
 
   return "<div class=\"cell cell-outcome outcome o-"
@@ -5207,7 +5207,7 @@ this["MyApp"]["templates"]["cell-outcome"] = Handlebars.template({"compiler":[6,
     + alias2(alias1(((stack1 = (depth0 != null ? depth0.outcome : depth0)) != null ? stack1.price : stack1), depth0))
     + "\n    		</div>\n    	</a>\n    </div>\n</div>";
 },"useData":true});
-this["MyApp"]["templates"]["date-cell"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/common/date-cell"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1;
 
   return "\n"
@@ -5290,7 +5290,7 @@ this["MyApp"]["templates"]["date-cell"] = Handlebars.template({"1":function(dept
 
   return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.livemode : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.program(16, data, 0, blockParams, depths),"data":data})) != null ? stack1 : "");
 },"usePartial":true,"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/common/event-block"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
   return ((stack1 = this.invokePartial(partials['europeanview/common/group-1x1-price'],depth0,{"name":"europeanview/common/group-1x1-price","hash":{"team":(depth0 != null ? depth0.description : depth0),"outcome":depth0},"data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
@@ -5321,7 +5321,7 @@ this["MyApp"]["templates"]["event-block"] = Handlebars.template({"1":function(de
     + alias3(alias4(((stack1 = (depth0 != null ? depth0.event : depth0)) != null ? stack1.description : stack1), depth0))
     + "\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["group-1x1-price"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+this["NovaWeb"]["Templates"]["live/common/group-1x1-price"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "<div class=\"market-group "
@@ -5330,7 +5330,7 @@ this["MyApp"]["templates"]["group-1x1-price"] = Handlebars.template({"compiler":
     + ((stack1 = this.invokePartial(partials['europeanview/common/cell-outcome'],depth0,{"name":"europeanview/common/cell-outcome","hash":{"team":(depth0 != null ? depth0.team : depth0),"outcome":(depth0 != null ? depth0.outcome : depth0)},"data":data,"indent":"\t\t","helpers":helpers,"partials":partials})) != null ? stack1 : "")
     + "	</div>\n</div>";
 },"usePartial":true,"useData":true});
-this["MyApp"]["templates"]["more"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/common/more"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
   return "        	\n"
@@ -5387,7 +5387,7 @@ this["MyApp"]["templates"]["more"] = Handlebars.template({"1":function(depth0,he
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.first : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n</div>";
 },"useData":true,"useDepths":true});
-this["MyApp"]["templates"]["set-scores"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
+this["NovaWeb"]["Templates"]["live/common/set-scores"] = Handlebars.template({"1":function(depth0,helpers,partials,data,blockParams,depths) {
     var alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "    <div class=\"scores"
